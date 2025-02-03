@@ -4,16 +4,22 @@
  */
 package br.com.ifba;
 
+import br.com.ifba.medicamento.controller.MedicamentoIController;
+import br.com.ifba.medicamento.view.TelaMedicamento;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 
 @Component
+@RequiredArgsConstructor
 public class TelaInicial extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaInicial
-     */
-    public TelaInicial() {
+    /*
+    * Controller para acessar classe de medicamentos
+    */
+    private final MedicamentoIController medicamentoController;
+    
+    {
         initComponents();
     }
 
@@ -26,21 +32,45 @@ public class TelaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGestaoMedicamentos = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnGestaoMedicamentos.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnGestaoMedicamentos.setText("Medicamentos");
+        btnGestaoMedicamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestaoMedicamentosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 286, Short.MAX_VALUE)
+                .addComponent(btnGestaoMedicamentos))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(btnGestaoMedicamentos)
+                .addContainerGap(262, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    /*
+    *  Chama a tela de medicamentos
+    */
+    private void btnGestaoMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestaoMedicamentosActionPerformed
+        // TODO add your handling code here:
+        TelaMedicamento telaMedicamento = new TelaMedicamento(medicamentoController);
+        telaMedicamento.setVisible(true);
+    }//GEN-LAST:event_btnGestaoMedicamentosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -72,11 +102,14 @@ public class TelaInicial extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaInicial().setVisible(true);
-            }
+                 MedicamentoIController medicamentoController = null;
+                 TelaInicial telaInicial = new TelaInicial(medicamentoController);
+                 telaInicial.setVisible(true);
+            }               
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGestaoMedicamentos;
     // End of variables declaration//GEN-END:variables
 }
