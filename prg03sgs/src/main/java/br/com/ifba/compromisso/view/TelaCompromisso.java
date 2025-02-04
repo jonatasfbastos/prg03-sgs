@@ -4,13 +4,14 @@
  */
 package br.com.ifba.compromisso.view;
 
+/**
 // Importações necessárias
 import javax.swing.*;
 import br.com.ifba.compromisso.service.CompromissoService;
 import br.com.ifba.compromisso.entity.Compromisso;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.awt.HeadlessException;
+import java.awt.HeadlessException; **/
 /**
  *
  * @author hiane
@@ -20,6 +21,7 @@ import java.awt.HeadlessException;
  * Tela grafica para gerenciamento de
 compromissos
  */
+/**
 public class TelaCompromisso extends javax.swing.JFrame {
 
     // Serviço para gerenciar os compromissos
@@ -34,9 +36,8 @@ public class TelaCompromisso extends javax.swing.JFrame {
     private JButton btnListar;
     private JTextArea txtAreaCompromissos;
     
-    /**
-     * Construtor da tela
-     */
+    
+     //Construtor da tela
     public TelaCompromisso() {
         initComponents();
 
@@ -61,7 +62,7 @@ public class TelaCompromisso extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   /** public void initComponents() {
+    public void initComponents() {
         setTitle("Gestão de Compromissos");
         setSize(400, 400);
         
@@ -119,7 +120,7 @@ public class TelaCompromisso extends javax.swing.JFrame {
         
         btnListar.addActionListener(evt -> listarCompromissos());
     }
-**/
+
     // Método para salvar um compromisso
     private void salvarCompromisso() {
         try {
@@ -157,3 +158,4 @@ public class TelaCompromisso extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
+**/
