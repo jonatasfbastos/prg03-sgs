@@ -61,7 +61,7 @@ public class TelaCompromisso extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void initComponents() {
+   /** public void initComponents() {
         setTitle("Gestão de Compromissos");
         setSize(400, 400);
         
@@ -119,7 +119,7 @@ public class TelaCompromisso extends javax.swing.JFrame {
         
         btnListar.addActionListener(evt -> listarCompromissos());
     }
-
+**/
     // Método para salvar um compromisso
     private void salvarCompromisso() {
         try {
