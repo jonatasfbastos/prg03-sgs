@@ -68,6 +68,11 @@
                         <version>1.18.36</version>
                         <type>jar</type>
                 </dependency>
+	 <dependency>
+	  <groupId>com.toedter</groupId>
+	  <artifactId>jcalendar</artifactId>
+	  <version>1.4</version>
+	 </dependency>
 	</dependencies>
 
     <build>
