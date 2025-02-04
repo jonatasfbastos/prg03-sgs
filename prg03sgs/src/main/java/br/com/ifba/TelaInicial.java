@@ -8,21 +8,18 @@ import br.com.ifba.medicamento.controller.MedicamentoIController;
 import br.com.ifba.medicamento.view.TelaMedicamento;
 import br.com.ifba.prontuario.view.TelaProntuario;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
-
+/**
+ *
+ * @author Glauber
+ */
 @Component
 @RequiredArgsConstructor
 public class TelaInicial extends javax.swing.JFrame {
 
-    /*
-    * Controller para acessar classe de medicamentos
-    */
-    private final MedicamentoIController medicamentoController;
     
+    private final MedicamentoIController medicamentoController;
     
     {
         initComponents();
@@ -37,24 +34,24 @@ public class TelaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnGestaoMedicamentos = new javax.swing.JButton();
-        btnProntuarios = new javax.swing.JButton();
+        btnMedicamentos = new javax.swing.JButton();
+        btnProntuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnGestaoMedicamentos.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        btnGestaoMedicamentos.setText("Medicamentos");
-        btnGestaoMedicamentos.addActionListener(new java.awt.event.ActionListener() {
+        btnMedicamentos.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnMedicamentos.setText("Medicamentos");
+        btnMedicamentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGestaoMedicamentosActionPerformed(evt);
+                btnMedicamentosActionPerformed(evt);
             }
         });
 
-        btnProntuarios.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        btnProntuarios.setText("Prontuarios");
-        btnProntuarios.addActionListener(new java.awt.event.ActionListener() {
+        btnProntuario.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnProntuario.setText("Prontuario");
+        btnProntuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProntuariosActionPerformed(evt);
+                btnProntuarioActionPerformed(evt);
             }
         });
 
@@ -63,40 +60,41 @@ public class TelaInicial extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 286, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnGestaoMedicamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnProntuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(270, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnProntuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMedicamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(btnGestaoMedicamentos)
+                .addComponent(btnMedicamentos)
                 .addGap(18, 18, 18)
-                .addComponent(btnProntuarios)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addComponent(btnProntuario)
+                .addContainerGap(212, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     /*
     *  Chama a tela de medicamentos
     */
-    private void btnGestaoMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestaoMedicamentosActionPerformed
+    private void btnMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedicamentosActionPerformed
         // TODO add your handling code here:
         TelaMedicamento telaMedicamento = new TelaMedicamento(medicamentoController);
         telaMedicamento.setVisible(true);
         telaMedicamento.init();
-    }//GEN-LAST:event_btnGestaoMedicamentosActionPerformed
+    }//GEN-LAST:event_btnMedicamentosActionPerformed
 
-    private void btnProntuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProntuariosActionPerformed
- 
+    private void btnProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProntuarioActionPerformed
+        // TODO add your handling code here:
         TelaProntuario telaProntuario = new TelaProntuario();
         telaProntuario.setDefaultCloseOperation(TelaInicial.DISPOSE_ON_CLOSE);
         telaProntuario.setVisible(true);
-    }//GEN-LAST:event_btnProntuariosActionPerformed
+    }//GEN-LAST:event_btnProntuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,6 +122,7 @@ public class TelaInicial extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -131,12 +130,12 @@ public class TelaInicial extends javax.swing.JFrame {
                  MedicamentoIController medicamentoController = null;
                  TelaInicial telaInicial = new TelaInicial(medicamentoController);
                  telaInicial.setVisible(true);
-            }               
+            } 
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGestaoMedicamentos;
-    private javax.swing.JButton btnProntuarios;
+    private javax.swing.JButton btnMedicamentos;
+    private javax.swing.JButton btnProntuario;
     // End of variables declaration//GEN-END:variables
 }
