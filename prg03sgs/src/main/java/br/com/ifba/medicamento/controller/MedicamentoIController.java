@@ -52,6 +52,15 @@ public interface MedicamentoIController {
     public abstract List<Medicamento> findByNomeLikeIgnoreCase(String nome);
     
     /**
+     * Busca medicamentos com base no nome fornecido e ignora o case
+     * 
+     * @param nome o nome (ou parte do nome) dos medicamentos a serem buscados.
+     * @return uma lista de medicamentos correspondentes ao nome fornecido.
+     * @throws RuntimeException se ocorrer algum erro durante a operação.
+     */
+     public abstract List<Medicamento> findByNomeContainingIgnoreCase(String nome) throws RuntimeException;
+    
+    /**
      * Busca um medicamento pelo seu identificador único.
      * 
      * @param id o identificador único do medicamento.

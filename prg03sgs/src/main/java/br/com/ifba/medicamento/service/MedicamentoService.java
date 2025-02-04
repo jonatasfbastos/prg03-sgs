@@ -95,6 +95,11 @@ public class MedicamentoService implements MedicamentoIService{
     public List<Medicamento> findByNomeLikeIgnoreCase(String nome) throws RuntimeException{
        return medicamentoRepository.findByNomeLikeIgnoreCase(nome);
     }
+    
+    @Override
+    public List<Medicamento> findByNomeContainingIgnoreCase(String nome) throws RuntimeException {
+        return medicamentoRepository.findByNomeContainingIgnoreCase(nome);
+    }
 
     @Override
     public Medicamento findById(Long id) throws RuntimeException {

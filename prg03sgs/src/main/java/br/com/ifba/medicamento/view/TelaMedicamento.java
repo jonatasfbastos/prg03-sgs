@@ -66,7 +66,7 @@ public class TelaMedicamento extends javax.swing.JFrame {
     }
     
     public void updataTableBySearchNome(String nome) {
-        List<Medicamento> medicamentos = medicamentoController.findByNomeLikeIgnoreCase(nome);
+        List<Medicamento> medicamentos = medicamentoController.findByNomeContainingIgnoreCase(nome);
         
         if (medicamentos != null) {
             tabela.setRowCount(0);
@@ -136,7 +136,7 @@ public class TelaMedicamento extends javax.swing.JFrame {
         btnLimparCamposEditar = new javax.swing.JButton();
         btnEditarMedicamento = new javax.swing.JButton();
         lblLinhaSelecionada = new javax.swing.JLabel();
-        txtNomeMedicamento = new javax.swing.JTextField();
+        txtBuscarMedicamento = new javax.swing.JTextField();
         lblTextoNomeMedicamento = new javax.swing.JLabel();
         lblTextoLinhaSelecionada = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -541,7 +541,12 @@ public class TelaMedicamento extends javax.swing.JFrame {
         lblLinhaSelecionada.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         lblLinhaSelecionada.setText("0");
 
-        txtNomeMedicamento.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtBuscarMedicamento.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtBuscarMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarMedicamentoKeyPressed(evt);
+            }
+        });
 
         lblTextoNomeMedicamento.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         lblTextoNomeMedicamento.setText("Informe o nome do Medicamento");
@@ -595,7 +600,7 @@ public class TelaMedicamento extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblTextoNomeMedicamento)
                         .addGap(18, 18, 18)
-                        .addComponent(txtNomeMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBuscarMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblTextoLinhaSelecionada)
                         .addGap(18, 18, 18)
@@ -624,7 +629,7 @@ public class TelaMedicamento extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTextoNomeMedicamento)
-                            .addComponent(txtNomeMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtBuscarMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblTextoLinhaSelecionada)
                             .addComponent(lblLinhaSelecionada))
                         .addGap(29, 29, 29)
@@ -787,6 +792,15 @@ public class TelaMedicamento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRemoverActionPerformed
 
+    private void txtBuscarMedicamentoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarMedicamentoKeyPressed
+        String nome = txtBuscarMedicamento.getText();
+        if (!nome.equals("")) {
+            updataTableBySearchNome(nome);
+        } else {
+            updateTable();
+        }
+    }//GEN-LAST:event_txtBuscarMedicamentoKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -862,6 +876,7 @@ public class TelaMedicamento extends javax.swing.JFrame {
     private javax.swing.JLabel lblTituloEditar;
     private javax.swing.JLabel lblTituloMedicamento;
     private javax.swing.JTable tableMedicamento;
+    private javax.swing.JTextField txtBuscarMedicamento;
     private javax.swing.JTextField txtCategoriaCadastro;
     private javax.swing.JTextField txtCategoriaEditar;
     private javax.swing.JTextField txtDataFabricacaoCadastro;
@@ -876,7 +891,6 @@ public class TelaMedicamento extends javax.swing.JFrame {
     private javax.swing.JTextField txtLoteEditar;
     private javax.swing.JTextField txtNomeCadastro;
     private javax.swing.JTextField txtNomeEditar;
-    private javax.swing.JTextField txtNomeMedicamento;
     private javax.swing.JTextField txtQuantidadeCadastro;
     private javax.swing.JTextField txtQuantidadeEditar;
     private javax.swing.JTextField txtRegistroAnvisaCadastro;

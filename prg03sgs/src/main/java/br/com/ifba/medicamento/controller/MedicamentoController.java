@@ -46,6 +46,11 @@ public class MedicamentoController implements MedicamentoIController{
     public List<Medicamento> findByNomeLikeIgnoreCase(String nome) {
         return medicamentoIService.findByNomeLikeIgnoreCase(nome);
     }
+    
+    @Override
+    public List<Medicamento> findByNomeContainingIgnoreCase(String nome) {
+        return medicamentoIService.findByNomeContainingIgnoreCase(nome);
+    }
 
     @Override
     public Medicamento findById(Long id) throws RuntimeException {

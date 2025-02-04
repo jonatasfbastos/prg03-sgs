@@ -18,4 +18,7 @@ import org.springframework.stereotype.Repository;
 public interface MedicamentoRepository extends JpaRepository<Medicamento, Long>{
     // Utiliza o operador "LIKE" para busca com padrão e ignora o tipo de case
     List<Medicamento> findByNomeLikeIgnoreCase(String nome);
+    
+    // Busca por parte do nome, ignorando o case
+    List<Medicamento> findByNomeContainingIgnoreCase(String nome);
 }
