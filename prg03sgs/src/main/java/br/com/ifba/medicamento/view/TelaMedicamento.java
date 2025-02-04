@@ -535,7 +535,7 @@ public class TelaMedicamento extends javax.swing.JFrame {
                 .addGap(27, 27, 27))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         lblLinhaSelecionada.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
@@ -694,7 +694,13 @@ public class TelaMedicamento extends javax.swing.JFrame {
             String dataValid = txtDataValidadeCadastro.getText();
             medicamento.setDataFabricacao(LocalDate.parse(dataFabric , formatter));
             medicamento.setDataValidade(LocalDate.parse(dataValid , formatter));
+            
             medicamentoController.save(medicamento);
+            
+            JOptionPane.showMessageDialog(
+                        null, "Medicamento Adicionado",
+                        "Notificação", JOptionPane.INFORMATION_MESSAGE);
+            
         } catch (DateTimeParseException e) {
             JOptionPane.showMessageDialog(
                 null, "Formato de datas informados é Invalido, preenche conforme indicado!",
@@ -747,7 +753,12 @@ public class TelaMedicamento extends javax.swing.JFrame {
             String dataValid = txtDataValidadeEditar.getText();
             medicamento.setDataFabricacao(LocalDate.parse(dataFabric , formatter));
             medicamento.setDataValidade(LocalDate.parse(dataValid , formatter));
+            
             medicamentoController.update(medicamento);
+            
+            JOptionPane.showMessageDialog(
+                        null, "Medicamento Editado",
+                        "Notificação", JOptionPane.INFORMATION_MESSAGE);
         } catch (DateTimeParseException e) {
             JOptionPane.showMessageDialog(
                 null, "Formato de datas informados é Invalido, preenche conforme indicado!",
@@ -779,10 +790,13 @@ public class TelaMedicamento extends javax.swing.JFrame {
                 if (resposta == JOptionPane.YES_OPTION) {
                     medicamentoController.delete(medicamento);
                     updateTable();
+                    JOptionPane.showMessageDialog(
+                        null, "Medicamento Removido",
+                        "Notificação", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(
-                    null, "Operação Cancelada",
-                    "Notificação", JOptionPane.INFORMATION_MESSAGE);
+                        null, "Operação Cancelada",
+                        "Notificação", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         } else {
