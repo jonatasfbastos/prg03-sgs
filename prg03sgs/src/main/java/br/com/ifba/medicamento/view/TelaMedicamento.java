@@ -415,9 +415,19 @@ public class TelaMedicamento extends javax.swing.JFrame {
 
         btnLimparCamposEditar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnLimparCamposEditar.setText("Limpar");
+        btnLimparCamposEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparCamposEditarActionPerformed(evt);
+            }
+        });
 
         btnEditarMedicamento.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnEditarMedicamento.setText("Editar");
+        btnEditarMedicamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarMedicamentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout TelaEditarMedicamentoLayout = new javax.swing.GroupLayout(TelaEditarMedicamento.getContentPane());
         TelaEditarMedicamento.getContentPane().setLayout(TelaEditarMedicamentoLayout);
@@ -640,7 +650,13 @@ public class TelaMedicamento extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        TelaEditarMedicamento.setVisible(true);
+        if (Integer.parseInt(lblLinhaSelecionada.getText()) > 0) {
+            TelaEditarMedicamento.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(
+                null, "Nenhum Medicamento foi selecionado para edição!",
+                "Alerta", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void tableMedicamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMedicamentoMouseClicked
@@ -698,6 +714,47 @@ public class TelaMedicamento extends javax.swing.JFrame {
     private void TelaEditarMedicamentoWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_TelaEditarMedicamentoWindowClosed
         updateTable();
     }//GEN-LAST:event_TelaEditarMedicamentoWindowClosed
+
+    private void btnEditarMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarMedicamentoActionPerformed
+        long idItem = (long) tabela.getValueAt(Integer.parseInt(lblLinhaSelecionada.getText()) - 1, 0);
+        
+        Medicamento medicamento = new Medicamento();
+        medicamento.setId(idItem);
+        medicamento.setNome(txtNomeEditar.getText());
+        medicamento.setCategoria(txtCategoriaEditar.getText());
+        medicamento.setQuantidade(Integer.parseInt(txtQuantidadeEditar.getText()));
+        medicamento.setLote(txtLoteEditar.getText());
+        medicamento.setInstrucaoArmazenamento(txtInstrucaoArmazenamentoEditar.getText());
+        medicamento.setRegistroAnvisa(txtRegistroAnvisaEditar.getText());
+        medicamento.setTipoReceita(txtTipoReceitaEditar.getText());
+        medicamento.setDescricao(txtDescricaoEditar.getText());
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        try {
+            String dataFabric = txtDataFabricacaoEditar.getText();
+            String dataValid = txtDataValidadeEditar.getText();
+            medicamento.setDataFabricacao(LocalDate.parse(dataFabric , formatter));
+            medicamento.setDataValidade(LocalDate.parse(dataValid , formatter));
+            medicamentoController.update(medicamento);
+        } catch (DateTimeParseException e) {
+            JOptionPane.showMessageDialog(
+                null, "Formato de datas informados é Invalido, preenche conforme indicado!",
+                "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnEditarMedicamentoActionPerformed
+
+    private void btnLimparCamposEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparCamposEditarActionPerformed
+        txtNomeEditar.setText("");
+        txtCategoriaEditar.setText("");
+        txtQuantidadeEditar.setText("");
+        txtDataFabricacaoEditar.setText("dd-mm-yyyy");
+        txtDataValidadeEditar.setText("dd-mm-yyyy");
+        txtLoteEditar.setText("");
+        txtInstrucaoArmazenamentoEditar.setText("");
+        txtRegistroAnvisaEditar.setText("");
+        txtTipoReceitaEditar.setText("");
+        txtDescricaoEditar.setText("");
+    }//GEN-LAST:event_btnLimparCamposEditarActionPerformed
 
     /**
      * @param args the command line arguments
