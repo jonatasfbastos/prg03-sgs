@@ -70,6 +70,7 @@ public class TelaInicial extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaMedicamento telaMedicamento = new TelaMedicamento(medicamentoController);
         telaMedicamento.setVisible(true);
+        telaMedicamento.init();
     }//GEN-LAST:event_btnGestaoMedicamentosActionPerformed
 
     /**

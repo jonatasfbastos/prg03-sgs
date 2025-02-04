@@ -38,13 +38,15 @@ public class TelaMedicamento extends javax.swing.JFrame {
     }
     
     @PostConstruct
-    private void init () {
+    public void init () {
+        System.out.println("init() chamado");
         if (!GraphicsEnvironment.isHeadless()) {
             initTable();
         }
     }
     
     private void initTable () {
+        System.out.println("initTable() chamado");
         List<Medicamento> medicamentos = medicamentoController.findAll();
         for (Medicamento medicamento : medicamentos) {
             tabela.addRow(new Object[]{medicamento.getId(), medicamento.getNome(), 
@@ -577,6 +579,11 @@ public class TelaMedicamento extends javax.swing.JFrame {
 
         btnRemover.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnRemover.setText("Remover");
+        btnRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -756,6 +763,30 @@ public class TelaMedicamento extends javax.swing.JFrame {
         txtDescricaoEditar.setText("");
     }//GEN-LAST:event_btnLimparCamposEditarActionPerformed
 
+    private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
+        if (Integer.parseInt(lblLinhaSelecionada.getText()) > 0) {
+            long idItem = (long) tabela.getValueAt(Integer.parseInt(lblLinhaSelecionada.getText()) - 1, 0);
+            Medicamento medicamento = medicamentoController.findById(idItem);
+            if (medicamento != null) {
+                int resposta = JOptionPane.showConfirmDialog(
+                    null, "Tem certeza que deseja excluir ?",
+                    "Alerta", JOptionPane.WARNING_MESSAGE);
+                if (resposta == JOptionPane.YES_OPTION) {
+                    medicamentoController.delete(medicamento);
+                    updateTable();
+                } else {
+                    JOptionPane.showMessageDialog(
+                    null, "Operação Cancelada",
+                    "Notificação", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(
+                null, "Nenhum Medicamento foi selecionado!",
+                "Alerta", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnRemoverActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -789,7 +820,6 @@ public class TelaMedicamento extends javax.swing.JFrame {
                 MedicamentoIController medicamentoController = null;
                 TelaMedicamento telaMedicamento = new TelaMedicamento(medicamentoController);
                 telaMedicamento.setVisible(true);
-                telaMedicamento.init();
             }
         });
     }

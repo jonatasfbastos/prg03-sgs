@@ -306,3 +306,437 @@
 2025-02-04 09:25:46 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-02-04 09:25:46 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-02-04 09:25:46 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 09:27:19 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Starting Prg03sgsApplicationTests using Java 21.0.4 with PID 13036 (started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 09:27:19 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 09:27:19 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 09:27:19 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 1 JPA repository interface.
+2025-02-04 09:27:20 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 09:27:20 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 09:27:20 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 09:27:20 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 09:27:20 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 09:27:20 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7ec3a8bd
+2025-02-04 09:27:20 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 09:27:20 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 09:27:20 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 09:27:21 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 09:27:21 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:27:21 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Started Prg03sgsApplicationTests in 2.863 seconds (process running for 3.714)
+2025-02-04 09:27:22 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:27:22 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 09:27:22 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 09:32:53 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Starting Prg03sgsApplicationTests using Java 21.0.4 with PID 2528 (started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 09:32:53 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 09:32:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 09:32:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 1 JPA repository interface.
+2025-02-04 09:32:54 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 09:32:54 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 09:32:54 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 09:32:54 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 09:32:54 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 09:32:54 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@56a05324
+2025-02-04 09:32:54 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 09:32:54 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 09:32:54 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 09:32:55 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 09:32:55 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:32:56 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Started Prg03sgsApplicationTests in 2.857 seconds (process running for 3.716)
+2025-02-04 09:32:56 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:32:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 09:32:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 09:33:37 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Starting Prg03sgsApplicationTests using Java 21.0.4 with PID 12364 (started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 09:33:37 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 09:33:37 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 09:33:37 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 1 JPA repository interface.
+2025-02-04 09:33:37 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 09:33:37 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 09:33:38 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 09:33:38 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 09:33:38 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 09:33:38 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@56a05324
+2025-02-04 09:33:38 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 09:33:38 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 09:33:38 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 09:33:39 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 09:33:39 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:33:39 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Started Prg03sgsApplicationTests in 2.831 seconds (process running for 3.692)
+2025-02-04 09:33:40 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:33:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 09:33:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 09:33:48 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.4 with PID 19888 (C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs\target\classes started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 09:33:48 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 09:33:49 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 09:33:49 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 1 JPA repository interface.
+2025-02-04 09:33:49 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 09:33:49 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 09:33:49 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 09:33:49 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 09:33:49 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 09:33:49 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e29f4f6
+2025-02-04 09:33:49 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 09:33:49 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 09:33:49 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 09:33:50 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 09:33:50 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:33:51 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 3.007 seconds (process running for 3.269)
+2025-02-04 09:33:55 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0
+2025-02-04 09:33:58 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0 where m1_0.id=?
+2025-02-04 09:34:04 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0 where m1_0.id=?
+2025-02-04 09:34:06 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0 where m1_0.id=?
+2025-02-04 09:34:06 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0 where m1_0.id=?
+2025-02-04 09:34:06 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - delete from medicamentos where id=?
+2025-02-04 09:34:11 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0
+2025-02-04 09:34:15 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:34:15 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 09:34:15 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 09:35:13 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.4 with PID 3648 (C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs\target\classes started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 09:35:13 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 09:35:14 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 09:35:14 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 1 JPA repository interface.
+2025-02-04 09:35:14 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 09:35:14 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 09:35:14 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 09:35:14 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 09:35:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 09:35:14 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@773014d3
+2025-02-04 09:35:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 09:35:14 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 09:35:14 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 09:35:15 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 09:35:15 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:35:16 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 2.998 seconds (process running for 3.258)
+2025-02-04 09:35:20 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0
+2025-02-04 09:35:23 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0 where m1_0.id=?
+2025-02-04 09:35:28 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0 where m1_0.id=?
+2025-02-04 09:35:28 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0 where m1_0.id=?
+2025-02-04 09:35:28 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - delete from medicamentos where id=?
+2025-02-04 09:35:28 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0
+2025-02-04 09:35:38 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:35:38 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 09:35:38 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 09:42:46 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Starting Prg03sgsApplicationTests using Java 21.0.4 with PID 6052 (started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 09:42:46 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 09:42:46 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 09:42:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59 ms. Found 1 JPA repository interface.
+2025-02-04 09:42:47 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 09:42:47 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 09:42:47 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 09:42:47 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 09:42:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 09:42:47 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7ec3a8bd
+2025-02-04 09:42:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 09:42:47 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 09:42:47 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 09:42:48 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 09:42:48 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:42:49 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Started Prg03sgsApplicationTests in 3.072 seconds (process running for 3.938)
+2025-02-04 09:42:49 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:42:49 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 09:42:49 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 09:43:00 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Starting Prg03sgsApplicationTests using Java 21.0.4 with PID 13316 (started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 09:43:00 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 09:43:00 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 09:43:00 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 1 JPA repository interface.
+2025-02-04 09:43:01 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 09:43:01 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 09:43:01 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 09:43:01 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 09:43:01 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 09:43:01 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2a99ca99
+2025-02-04 09:43:01 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 09:43:01 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 09:43:01 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 09:43:02 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 09:43:02 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:43:03 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Started Prg03sgsApplicationTests in 2.91 seconds (process running for 3.788)
+2025-02-04 09:43:03 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:43:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 09:43:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 09:43:10 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.4 with PID 22932 (C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs\target\classes started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 09:43:10 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 09:43:10 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 09:43:11 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 51 ms. Found 1 JPA repository interface.
+2025-02-04 09:43:11 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 09:43:11 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 09:43:11 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 09:43:11 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 09:43:11 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 09:43:11 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4cb957b8
+2025-02-04 09:43:11 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 09:43:11 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 09:43:11 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 09:43:12 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 09:43:12 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:43:13 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 3.032 seconds (process running for 3.296)
+2025-02-04 09:43:21 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:43:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 09:43:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 09:43:28 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.4 with PID 2340 (C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs\target\classes started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 09:43:28 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 09:43:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 09:43:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 47 ms. Found 1 JPA repository interface.
+2025-02-04 09:43:29 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 09:43:29 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 09:43:29 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 09:43:29 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 09:43:29 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 09:43:29 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a1a256d
+2025-02-04 09:43:29 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 09:43:29 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 09:43:29 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 09:43:30 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 09:43:30 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:43:31 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 2.983 seconds (process running for 3.246)
+2025-02-04 09:43:45 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:43:45 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 09:43:45 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 09:44:12 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.4 with PID 7432 (C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs\target\classes started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 09:44:12 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 09:44:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 09:44:13 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interface.
+2025-02-04 09:44:13 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 09:44:13 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 09:44:13 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 09:44:13 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 09:44:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 09:44:13 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e29f4f6
+2025-02-04 09:44:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 09:44:13 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 09:44:13 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 09:44:14 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 09:44:14 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:44:15 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 3.009 seconds (process running for 3.269)
+2025-02-04 09:44:17 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 09:44:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 09:44:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 10:09:41 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.4 with PID 14608 (C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs\target\classes started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 10:09:41 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 10:09:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 10:09:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 1 JPA repository interface.
+2025-02-04 10:09:42 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 10:09:42 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 10:09:42 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 10:09:42 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 10:09:42 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 10:09:42 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1a538ed8
+2025-02-04 10:09:42 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 10:09:42 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 10:09:42 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 10:09:43 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 10:09:43 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:09:44 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 2.984 seconds (process running for 3.239)
+2025-02-04 10:10:06 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:10:06 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 10:10:06 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 10:11:12 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.4 with PID 10300 (C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs\target\classes started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 10:11:12 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 10:11:13 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 10:11:13 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 1 JPA repository interface.
+2025-02-04 10:11:13 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 10:11:13 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 10:11:13 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 10:11:13 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 10:11:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 10:11:14 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@706ceca6
+2025-02-04 10:11:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 10:11:14 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 10:11:14 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 10:11:14 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 10:11:14 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:11:15 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 2.975 seconds (process running for 3.237)
+2025-02-04 10:12:58 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.4 with PID 21152 (C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs\target\classes started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 10:12:58 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 10:12:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 10:12:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 1 JPA repository interface.
+2025-02-04 10:12:59 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 10:12:59 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 10:12:59 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 10:12:59 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 10:12:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 10:13:00 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@78910096
+2025-02-04 10:13:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 10:13:00 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 10:13:00 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 10:13:00 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 10:13:00 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:13:01 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 3.051 seconds (process running for 3.328)
+2025-02-04 10:13:13 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:13:13 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 10:13:13 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 10:13:15 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:13:15 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 10:13:15 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 10:17:39 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Starting Prg03sgsApplicationTests using Java 21.0.4 with PID 19424 (started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 10:17:39 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 10:17:40 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 10:17:40 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 1 JPA repository interface.
+2025-02-04 10:17:40 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 10:17:40 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 10:17:40 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 10:17:40 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 10:17:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 10:17:40 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@11e71181
+2025-02-04 10:17:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 10:17:41 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 10:17:41 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 10:17:41 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 10:17:41 [main] DEBUG org.hibernate.SQL - create table anamnese (id bigint not null, condicoes varchar(255), queixas varchar(255), sintomas varchar(255), primary key (id)) engine=InnoDB
+2025-02-04 10:17:41 [main] DEBUG org.hibernate.SQL - create table anamnese_seq (next_val bigint) engine=InnoDB
+2025-02-04 10:17:41 [main] DEBUG org.hibernate.SQL - insert into anamnese_seq values ( 1 )
+2025-02-04 10:17:41 [main] DEBUG org.hibernate.SQL - alter table pacientes modify column cpf varchar(11) not null
+2025-02-04 10:17:41 [main] DEBUG org.hibernate.SQL - alter table pacientes add column endereco varchar(255)
+2025-02-04 10:17:41 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:17:42 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Started Prg03sgsApplicationTests in 3.117 seconds (process running for 3.972)
+2025-02-04 10:17:43 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:17:43 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 10:17:43 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 10:19:27 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Starting Prg03sgsApplicationTests using Java 21.0.4 with PID 7008 (started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 10:19:27 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 10:19:27 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 10:19:27 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 1 JPA repository interface.
+2025-02-04 10:19:27 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 10:19:27 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 10:19:28 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 10:19:28 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 10:19:28 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 10:19:28 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@342beaf6
+2025-02-04 10:19:28 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 10:19:28 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 10:19:28 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 10:19:29 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 10:19:29 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:19:29 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Started Prg03sgsApplicationTests in 2.895 seconds (process running for 3.767)
+2025-02-04 10:19:30 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:19:30 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 10:19:30 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 10:19:41 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.4 with PID 10760 (C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs\target\classes started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 10:19:41 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 10:19:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 10:19:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 1 JPA repository interface.
+2025-02-04 10:19:41 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 10:19:42 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 10:19:42 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 10:19:42 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 10:19:42 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 10:19:42 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4cb957b8
+2025-02-04 10:19:42 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 10:19:42 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 10:19:42 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 10:19:43 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 10:19:43 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:19:43 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 2.976 seconds (process running for 3.235)
+2025-02-04 10:19:45 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0
+2025-02-04 10:19:50 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:19:50 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 10:19:50 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 10:26:01 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Starting Prg03sgsApplicationTests using Java 21.0.4 with PID 19308 (started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 10:26:01 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 10:26:01 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 10:26:01 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 1 JPA repository interface.
+2025-02-04 10:26:01 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 10:26:01 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 10:26:01 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 10:26:02 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 10:26:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 10:26:02 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7f0d8eff
+2025-02-04 10:26:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 10:26:02 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 10:26:02 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 10:26:03 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 10:26:03 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:26:03 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Started Prg03sgsApplicationTests in 2.951 seconds (process running for 3.837)
+2025-02-04 10:26:04 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:26:04 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 10:26:04 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 10:26:26 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.4 with PID 7496 (C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs\target\classes started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 10:26:26 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 10:26:27 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 10:26:27 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 1 JPA repository interface.
+2025-02-04 10:26:27 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 10:26:27 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 10:26:27 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 10:26:27 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 10:26:27 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 10:26:28 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4cb957b8
+2025-02-04 10:26:28 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 10:26:28 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 10:26:28 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 10:26:28 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 10:26:28 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:26:29 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 3.007 seconds (process running for 3.269)
+2025-02-04 10:30:14 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0
+2025-02-04 10:30:49 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select next_val as id_val from medicamentos_seq for update
+2025-02-04 10:30:49 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - update medicamentos_seq set next_val= ? where next_val=?
+2025-02-04 10:30:49 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - insert into medicamentos (categoria,data_fabricacao,data_validade,descricao,instrucao_armazenamento,lote,nome,quantidade,registro_anvisa,tipo_receita,id) values (?,?,?,?,?,?,?,?,?,?,?)
+2025-02-04 10:31:04 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - insert into medicamentos (categoria,data_fabricacao,data_validade,descricao,instrucao_armazenamento,lote,nome,quantidade,registro_anvisa,tipo_receita,id) values (?,?,?,?,?,?,?,?,?,?,?)
+2025-02-04 10:31:07 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0
+2025-02-04 10:31:14 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0 where m1_0.id=?
+2025-02-04 10:31:15 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0 where m1_0.id=?
+2025-02-04 10:31:15 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0 where m1_0.id=?
+2025-02-04 10:31:15 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - delete from medicamentos where id=?
+2025-02-04 10:31:15 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0
+2025-02-04 10:31:47 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0 where m1_0.id=?
+2025-02-04 10:31:47 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0 where m1_0.id=?
+2025-02-04 10:31:47 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - update medicamentos set categoria=?,data_fabricacao=?,data_validade=?,descricao=?,instrucao_armazenamento=?,lote=?,nome=?,quantidade=?,registro_anvisa=?,tipo_receita=? where id=?
+2025-02-04 10:31:51 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0
+2025-02-04 10:31:56 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:31:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 10:31:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 10:32:30 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Starting Prg03sgsApplicationTests using Java 21.0.4 with PID 16000 (started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 10:32:30 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 10:32:31 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 10:32:31 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 1 JPA repository interface.
+2025-02-04 10:32:31 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 10:32:31 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 10:32:31 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 10:32:32 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 10:32:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 10:32:32 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7f0d8eff
+2025-02-04 10:32:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 10:32:32 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 10:32:32 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 10:32:32 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 10:32:32 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:32:33 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Started Prg03sgsApplicationTests in 2.917 seconds (process running for 3.803)
+2025-02-04 10:32:34 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:32:34 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 10:32:34 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 10:32:44 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Starting Prg03sgsApplicationTests using Java 21.0.4 with PID 8032 (started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 10:32:44 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 10:32:44 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 10:32:44 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 1 JPA repository interface.
+2025-02-04 10:32:45 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 10:32:45 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 10:32:45 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 10:32:45 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 10:32:45 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 10:32:45 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4faf1f4
+2025-02-04 10:32:45 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 10:32:45 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 10:32:45 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 10:32:46 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 10:32:46 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:32:47 [main] INFO  b.c.i.p.Prg03sgsApplicationTests - Started Prg03sgsApplicationTests in 2.946 seconds (process running for 3.806)
+2025-02-04 10:32:47 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:32:47 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 10:32:47 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-04 10:32:55 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.4 with PID 11176 (C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs\target\classes started by rober in C:\Users\rober\OneDrive\Documentos\Github\prg03-sgs\prg03sgs)
+2025-02-04 10:32:55 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-04 10:32:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-04 10:32:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interface.
+2025-02-04 10:32:56 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-04 10:32:56 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-04 10:32:56 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-04 10:32:56 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-04 10:32:56 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-04 10:32:56 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@79e7188e
+2025-02-04 10:32:56 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-04 10:32:56 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-04 10:32:56 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-04 10:32:57 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-04 10:32:57 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:32:57 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 3.052 seconds (process running for 3.325)
+2025-02-04 10:33:14 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select m1_0.id,m1_0.categoria,m1_0.data_fabricacao,m1_0.data_validade,m1_0.descricao,m1_0.instrucao_armazenamento,m1_0.lote,m1_0.nome,m1_0.quantidade,m1_0.registro_anvisa,m1_0.tipo_receita from medicamentos m1_0
+2025-02-04 10:33:16 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-04 10:33:16 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-04 10:33:16 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
