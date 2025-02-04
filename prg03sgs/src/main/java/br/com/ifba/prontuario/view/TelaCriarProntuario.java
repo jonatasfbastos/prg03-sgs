@@ -5,7 +5,6 @@
 package br.com.ifba.prontuario.view;
 
 import br.com.ifba.anamnese.entity.Anamnese;
-import br.com.ifba.paciente.entity.Paciente;
 import br.com.ifba.prontuario.controller.ProntuarioIController;
 import br.com.ifba.prontuario.entity.Prontuario;
 import javax.swing.JOptionPane;
