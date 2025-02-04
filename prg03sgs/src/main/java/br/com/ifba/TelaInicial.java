@@ -6,7 +6,11 @@ package br.com.ifba;
 
 import br.com.ifba.medicamento.controller.MedicamentoIController;
 import br.com.ifba.medicamento.view.TelaMedicamento;
+import br.com.ifba.prontuario.view.TelaProntuario;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
 
@@ -18,6 +22,7 @@ public class TelaInicial extends javax.swing.JFrame {
     * Controller para acessar classe de medicamentos
     */
     private final MedicamentoIController medicamentoController;
+    
     
     {
         initComponents();
@@ -33,6 +38,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private void initComponents() {
 
         btnGestaoMedicamentos = new javax.swing.JButton();
+        btnProntuarios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,20 +50,32 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
+        btnProntuarios.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnProntuarios.setText("Prontuarios");
+        btnProntuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProntuariosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 286, Short.MAX_VALUE)
-                .addComponent(btnGestaoMedicamentos))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnGestaoMedicamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnProntuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(btnGestaoMedicamentos)
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnProntuarios)
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
         pack();
@@ -72,6 +90,13 @@ public class TelaInicial extends javax.swing.JFrame {
         telaMedicamento.setVisible(true);
         telaMedicamento.init();
     }//GEN-LAST:event_btnGestaoMedicamentosActionPerformed
+
+    private void btnProntuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProntuariosActionPerformed
+ 
+        TelaProntuario telaProntuario = new TelaProntuario();
+        telaProntuario.setDefaultCloseOperation(TelaInicial.DISPOSE_ON_CLOSE);
+        telaProntuario.setVisible(true);
+    }//GEN-LAST:event_btnProntuariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,5 +137,6 @@ public class TelaInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGestaoMedicamentos;
+    private javax.swing.JButton btnProntuarios;
     // End of variables declaration//GEN-END:variables
 }
