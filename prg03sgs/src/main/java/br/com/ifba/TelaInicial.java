@@ -7,6 +7,8 @@ package br.com.ifba;
 import br.com.ifba.medicamento.controller.MedicamentoIController;
 import br.com.ifba.medicamento.view.TelaMedicamento;
 import br.com.ifba.prontuario.view.TelaProntuario;
+import br.com.ifba.usuario.controller.UsuarioIController;
+import br.com.ifba.usuario.view.TelaUsuario;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -18,8 +20,8 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class TelaInicial extends javax.swing.JFrame {
 
-    
     private final MedicamentoIController medicamentoController;
+    private final UsuarioIController usuarioController;
     
     {
         initComponents();
@@ -36,6 +38,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         btnMedicamentos = new javax.swing.JButton();
         btnProntuario = new javax.swing.JButton();
+        btnUsuarios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +58,14 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
+        btnUsuarios.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnUsuarios.setText("Usuários");
+        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuariosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -63,7 +74,8 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addContainerGap(270, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnProntuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMedicamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnMedicamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
@@ -73,7 +85,9 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addComponent(btnMedicamentos)
                 .addGap(18, 18, 18)
                 .addComponent(btnProntuario)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnUsuarios)
+                .addContainerGap(170, Short.MAX_VALUE))
         );
 
         pack();
@@ -95,6 +109,12 @@ public class TelaInicial extends javax.swing.JFrame {
         telaProntuario.setDefaultCloseOperation(TelaInicial.DISPOSE_ON_CLOSE);
         telaProntuario.setVisible(true);
     }//GEN-LAST:event_btnProntuarioActionPerformed
+
+    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
+        TelaUsuario telaUsuario = new TelaUsuario(usuarioController);
+        telaUsuario.setVisible(true);
+        telaUsuario.carregarTela();
+    }//GEN-LAST:event_btnUsuariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,7 +148,8 @@ public class TelaInicial extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                  MedicamentoIController medicamentoController = null;
-                 TelaInicial telaInicial = new TelaInicial(medicamentoController);
+                 UsuarioIController usuarioController = null;
+                 TelaInicial telaInicial = new TelaInicial(medicamentoController, usuarioController);
                  telaInicial.setVisible(true);
             } 
         });
@@ -137,5 +158,6 @@ public class TelaInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMedicamentos;
     private javax.swing.JButton btnProntuario;
+    private javax.swing.JButton btnUsuarios;
     // End of variables declaration//GEN-END:variables
 }
