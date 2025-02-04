@@ -4,11 +4,15 @@
   <NonVisualComponents>
     <Container class="javax.swing.JFrame" name="TelaAdicionarMedicamento">
       <Properties>
+        <Property name="defaultCloseOperation" type="int" value="2"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[740, 361]"/>
         </Property>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="windowClosed" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="TelaAdicionarMedicamentoWindowClosed"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -218,6 +222,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="dd-mm-yyyy"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDataFabricacaoCadastroActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblDataValidadeCadastro">
           <Properties>
@@ -320,6 +327,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparCamposCadastroActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnCadastrarMedicamento">
           <Properties>
@@ -328,16 +338,23 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarMedicamentoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="TelaEditarMedicamento">
       <Properties>
+        <Property name="defaultCloseOperation" type="int" value="2"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[740, 361]"/>
         </Property>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="windowClosed" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="TelaEditarMedicamentoWindowClosed"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">

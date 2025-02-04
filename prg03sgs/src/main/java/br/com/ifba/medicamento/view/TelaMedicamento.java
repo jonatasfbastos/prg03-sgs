@@ -4,6 +4,7 @@
  */
 package br.com.ifba.medicamento.view;
 
+import br.com.ifba.infrastructure.util.StringUtil;
 import javax.swing.table.DefaultTableModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,11 @@ import br.com.ifba.medicamento.controller.MedicamentoIController;
 import br.com.ifba.medicamento.entity.Medicamento;
 import jakarta.annotation.PostConstruct;
 import java.awt.GraphicsEnvironment;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
+import javax.swing.JOptionPane;
 import org.springframework.context.annotation.Lazy;
 /**
  *
@@ -139,8 +144,14 @@ public class TelaMedicamento extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
         btnRemover = new javax.swing.JButton();
 
+        TelaAdicionarMedicamento.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         TelaAdicionarMedicamento.setMinimumSize(new java.awt.Dimension(740, 361));
         TelaAdicionarMedicamento.setResizable(false);
+        TelaAdicionarMedicamento.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                TelaAdicionarMedicamentoWindowClosed(evt);
+            }
+        });
 
         lblNomeCadastro.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         lblNomeCadastro.setText("Nome");
@@ -165,6 +176,11 @@ public class TelaMedicamento extends javax.swing.JFrame {
 
         txtDataFabricacaoCadastro.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtDataFabricacaoCadastro.setText("dd-mm-yyyy");
+        txtDataFabricacaoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataFabricacaoCadastroActionPerformed(evt);
+            }
+        });
 
         lblDataValidadeCadastro.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         lblDataValidadeCadastro.setText("Data De Validade");
@@ -204,9 +220,19 @@ public class TelaMedicamento extends javax.swing.JFrame {
 
         btnLimparCamposCadastro.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnLimparCamposCadastro.setText("Limpar");
+        btnLimparCamposCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparCamposCadastroActionPerformed(evt);
+            }
+        });
 
         btnCadastrarMedicamento.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnCadastrarMedicamento.setText("Cadastrar");
+        btnCadastrarMedicamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarMedicamentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout TelaAdicionarMedicamentoLayout = new javax.swing.GroupLayout(TelaAdicionarMedicamento.getContentPane());
         TelaAdicionarMedicamento.getContentPane().setLayout(TelaAdicionarMedicamentoLayout);
@@ -318,8 +344,14 @@ public class TelaMedicamento extends javax.swing.JFrame {
                         .addGap(27, 27, 27))))
         );
 
+        TelaEditarMedicamento.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         TelaEditarMedicamento.setMinimumSize(new java.awt.Dimension(740, 361));
         TelaEditarMedicamento.setResizable(false);
+        TelaEditarMedicamento.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                TelaEditarMedicamentoWindowClosed(evt);
+            }
+        });
 
         lblDataFabricacaoEditar.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         lblDataFabricacaoEditar.setText("Data De Fabricacao");
@@ -615,6 +647,57 @@ public class TelaMedicamento extends javax.swing.JFrame {
         linhaSelecionada = tableMedicamento.getSelectedRow();
         lblLinhaSelecionada.setText(Integer.toString(linhaSelecionada + 1));
     }//GEN-LAST:event_tableMedicamentoMouseClicked
+
+    private void btnCadastrarMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarMedicamentoActionPerformed
+        
+        Medicamento medicamento = new Medicamento();
+        medicamento.setNome(txtNomeCadastro.getText());
+        medicamento.setCategoria(txtCategoriaCadastro.getText());
+        medicamento.setQuantidade(Integer.parseInt(txtQuantidadeCadastro.getText()));
+        medicamento.setLote(txtLoteCadastro.getText());
+        medicamento.setInstrucaoArmazenamento(txtInstrucaoArmazenamentoCadastro.getText());
+        medicamento.setRegistroAnvisa(txtRegistroAnvisaCadastro.getText());
+        medicamento.setTipoReceita(txtTipoReceitaCadastro.getText());
+        medicamento.setDescricao(txtDescricaoCadastro.getText());
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        try {
+            String dataFabric = txtDataFabricacaoCadastro.getText();
+            String dataValid = txtDataValidadeCadastro.getText();
+            medicamento.setDataFabricacao(LocalDate.parse(dataFabric , formatter));
+            medicamento.setDataValidade(LocalDate.parse(dataValid , formatter));
+            medicamentoController.save(medicamento);
+        } catch (DateTimeParseException e) {
+            JOptionPane.showMessageDialog(
+                null, "Formato de datas informados é Invalido, preenche conforme indicado!",
+                "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnCadastrarMedicamentoActionPerformed
+
+    private void txtDataFabricacaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataFabricacaoCadastroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataFabricacaoCadastroActionPerformed
+
+    private void btnLimparCamposCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparCamposCadastroActionPerformed
+        txtNomeCadastro.setText("");
+        txtCategoriaCadastro.setText("");
+        txtQuantidadeCadastro.setText("");
+        txtDataFabricacaoCadastro.setText("dd-mm-yyyy");
+        txtDataValidadeCadastro.setText("dd-mm-yyyy");
+        txtLoteCadastro.setText("");
+        txtInstrucaoArmazenamentoCadastro.setText("");
+        txtRegistroAnvisaCadastro.setText("");
+        txtTipoReceitaCadastro.setText("");
+        txtDescricaoCadastro.setText("");
+    }//GEN-LAST:event_btnLimparCamposCadastroActionPerformed
+
+    private void TelaAdicionarMedicamentoWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_TelaAdicionarMedicamentoWindowClosed
+        updateTable();
+    }//GEN-LAST:event_TelaAdicionarMedicamentoWindowClosed
+
+    private void TelaEditarMedicamentoWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_TelaEditarMedicamentoWindowClosed
+        updateTable();
+    }//GEN-LAST:event_TelaEditarMedicamentoWindowClosed
 
     /**
      * @param args the command line arguments
