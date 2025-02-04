@@ -26,7 +26,7 @@ public class Paciente extends PersistenceEntity implements Serializable {
     @Column (name = "nome", nullable = false)
     @Getter @Setter private String nome;
     
-    @Column (name = "cpf", nullable = false)
+    @Column (name = "cpf", nullable = false, unique = true, length = 11)
     @Getter @Setter private String cpf;
     
     @Column (name = "data_nascimento", nullable = false)
@@ -38,16 +38,16 @@ public class Paciente extends PersistenceEntity implements Serializable {
     @Column (name = "estado_civil")
     @Getter @Setter private String estadoCivil;
     
-    @Column (name = "endereço")
-    @Getter @Setter private String endereço;
+    @Column (name = "endereco")
+    @Getter @Setter private String endereco;
     
     @Column (name = "contato")
     @Getter @Setter private String contato;
     
-    @Column (name = "nome_Responsavel")
+    @Column (name = "nome_responsavel")
     @Getter @Setter private String nomeResponsavel;
     
-    @Column (name = "contatoResponsavel")
+    @Column (name = "contato_responsavel")
     @Getter @Setter private String contatoResponsavel;
     
     
