@@ -23,7 +23,12 @@ import lombok.Setter;
  * @author sunhe
  */
 
-//Classe voltada para um objeto que trabalhe com visita domiciliar.
+/*
+Classe Principal de Visita Domiciliar da funcionalidade Gestão de Visitas Domiciliares.
+
+*/
+
+
 @Entity
 @NoArgsConstructor
 @Table(name = "visitas_feitas")//Tabela para guardar o histórico de visitas.

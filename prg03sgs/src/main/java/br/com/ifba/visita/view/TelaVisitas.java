@@ -26,21 +26,123 @@ public class TelaVisitas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtPegaBusca = new javax.swing.JTextField();
+        btnCadastrarVisita = new javax.swing.JButton();
+        btnEditarVisita = new javax.swing.JButton();
+        btnRemoverVisita = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblVisitas = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        txtPegaBusca.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        txtPegaBusca.setText("      pesquisar");
+        txtPegaBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPegaBuscaActionPerformed(evt);
+            }
+        });
+
+        btnCadastrarVisita.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btnCadastrarVisita.setText("CADASTRAR VISITA");
+        btnCadastrarVisita.setBorder(null);
+        btnCadastrarVisita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarVisitaActionPerformed(evt);
+            }
+        });
+
+        btnEditarVisita.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btnEditarVisita.setText("EDITAR VISITA");
+        btnEditarVisita.setBorder(null);
+        btnEditarVisita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarVisitaActionPerformed(evt);
+            }
+        });
+
+        btnRemoverVisita.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btnRemoverVisita.setText("APAGAR VISITA");
+        btnRemoverVisita.setBorder(null);
+        btnRemoverVisita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverVisitaActionPerformed(evt);
+            }
+        });
+
+        tblVisitas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tblVisitas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "DIGITADO POR", "DATA", "CONFERIDO POR", "NÚMERO DA FOLHA"
+            }
+        ));
+        jScrollPane1.setViewportView(tblVisitas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 505, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtPegaBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCadastrarVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEditarVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRemoverVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 126, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPegaBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCadastrarVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemoverVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtPegaBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPegaBuscaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPegaBuscaActionPerformed
+
+    private void btnCadastrarVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVisitaActionPerformed
+        // TODO add your handling code here:
+
+        //Linha que traz a tela de cadastrar curso para a principal.
+        new TelaCadastrarVisita().setVisible(true);
+    }//GEN-LAST:event_btnCadastrarVisitaActionPerformed
+
+    private void btnEditarVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarVisitaActionPerformed
+        // TODO add your handling code here:
+
+        new TelaEditarVisita().setVisible(true);
+
+    }//GEN-LAST:event_btnEditarVisitaActionPerformed
+
+    private void btnRemoverVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVisitaActionPerformed
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_btnRemoverVisitaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -81,5 +183,11 @@ public class TelaVisitas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastrarVisita;
+    private javax.swing.JButton btnEditarVisita;
+    private javax.swing.JButton btnRemoverVisita;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblVisitas;
+    private javax.swing.JTextField txtPegaBusca;
     // End of variables declaration//GEN-END:variables
 }

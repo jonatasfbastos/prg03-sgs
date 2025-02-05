@@ -26,21 +26,148 @@ public class TelaEditarVisita extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnEnviaEdicao = new javax.swing.JButton();
+        lblInfoNomeDigitador = new javax.swing.JLabel();
+        lblDataVisita = new javax.swing.JLabel();
+        lblInfoEdicao = new javax.swing.JLabel();
+        txtNomeDigitador = new javax.swing.JTextField();
+        txtIdCurso = new javax.swing.JTextField();
+        lblConferidoPor = new javax.swing.JLabel();
+        txtConferidoPor = new javax.swing.JTextField();
+        lblNumFolha = new javax.swing.JLabel();
+        txtNumFolha = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnEnviaEdicao.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEnviaEdicao.setText("ENVIAR");
+        btnEnviaEdicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviaEdicaoActionPerformed(evt);
+            }
+        });
+
+        lblInfoNomeDigitador.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblInfoNomeDigitador.setText("Digitado por:");
+
+        lblDataVisita.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDataVisita.setText("Data da Visita:");
+
+        lblInfoEdicao.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblInfoEdicao.setText("EDITAR VISITA");
+        lblInfoEdicao.setToolTipText("");
+
+        txtNomeDigitador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeDigitadorActionPerformed(evt);
+            }
+        });
+
+        txtIdCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdCursoActionPerformed(evt);
+            }
+        });
+
+        lblConferidoPor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblConferidoPor.setText("Conferido Por: ");
+
+        txtConferidoPor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtConferidoPorActionPerformed(evt);
+            }
+        });
+
+        lblNumFolha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNumFolha.setText("Número da Folha:");
+
+        txtNumFolha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumFolhaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblInfoNomeDigitador)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtNomeDigitador, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(lblDataVisita)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtIdCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblNumFolha)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNumFolha, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(99, 99, 99)
+                                .addComponent(btnEnviaEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblInfoEdicao)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblConferidoPor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtConferidoPor, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblInfoEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblInfoNomeDigitador)
+                    .addComponent(txtNomeDigitador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDataVisita)
+                    .addComponent(txtIdCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblConferidoPor)
+                    .addComponent(txtConferidoPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNumFolha)
+                    .addComponent(txtNumFolha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addComponent(btnEnviaEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEnviaEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviaEdicaoActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_btnEnviaEdicaoActionPerformed
+
+    private void txtNomeDigitadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeDigitadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeDigitadorActionPerformed
+
+    private void txtIdCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdCursoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdCursoActionPerformed
+
+    private void txtConferidoPorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConferidoPorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtConferidoPorActionPerformed
+
+    private void txtNumFolhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumFolhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumFolhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +205,15 @@ public class TelaEditarVisita extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEnviaEdicao;
+    private javax.swing.JLabel lblConferidoPor;
+    private javax.swing.JLabel lblDataVisita;
+    private javax.swing.JLabel lblInfoEdicao;
+    private javax.swing.JLabel lblInfoNomeDigitador;
+    private javax.swing.JLabel lblNumFolha;
+    private javax.swing.JTextField txtConferidoPor;
+    private javax.swing.JTextField txtIdCurso;
+    private javax.swing.JTextField txtNomeDigitador;
+    private javax.swing.JTextField txtNumFolha;
     // End of variables declaration//GEN-END:variables
 }
