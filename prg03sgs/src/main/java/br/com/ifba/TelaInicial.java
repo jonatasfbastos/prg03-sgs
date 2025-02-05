@@ -12,6 +12,8 @@ import br.com.ifba.medicamento.view.TelaMedicamento;
 import br.com.ifba.prontuario.view.TelaProntuario;
 import br.com.ifba.usuario.controller.UsuarioIController;
 import br.com.ifba.usuario.view.TelaUsuario;
+import br.com.ifba.visita.controller.VisitaIController;
+import br.com.ifba.visita.view.TelaVisitas;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -32,6 +34,7 @@ public class TelaInicial extends javax.swing.JFrame {
     
     private final MedicamentoIController medicamentoController;
     private final UsuarioIController usuarioController;
+    private final VisitaIController visitaController;
     
     @Autowired
     private ApplicationContext context;
@@ -181,6 +184,9 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void btnVisitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisitasActionPerformed
         // TODO add your handling code here:
+        TelaVisitas telaVisitas = new TelaVisitas(visitaController);
+        telaVisitas.setVisible(true);
+        
     }//GEN-LAST:event_btnVisitasActionPerformed
 
     /**
@@ -216,7 +222,8 @@ public class TelaInicial extends javax.swing.JFrame {
             public void run() {
                  MedicamentoIController medicamentoController = null;
                  UsuarioIController usuarioController = null;
-                 TelaInicial telaInicial = new TelaInicial(medicamentoController, usuarioController);
+                 VisitaIController visitaController = null;
+                 TelaInicial telaInicial = new TelaInicial(medicamentoController, usuarioController, visitaController);
                  telaInicial.setVisible(true);
             } 
         });

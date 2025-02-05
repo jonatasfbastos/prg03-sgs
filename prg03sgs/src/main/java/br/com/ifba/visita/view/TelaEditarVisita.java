@@ -4,17 +4,24 @@
  */
 package br.com.ifba.visita.view;
 
+import br.com.ifba.visita.controller.VisitaIController;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
 /**
  *
  * @author sunhe
  */
+
+@Component
+@RequiredArgsConstructor
 public class TelaEditarVisita extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaEditarVisita
-     */
-    public TelaEditarVisita() {
+    private final VisitaIController visitaController;
+    
+    {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -199,7 +206,10 @@ public class TelaEditarVisita extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaEditarVisita().setVisible(true);
+                //Injeção de dependência no Controller.
+                VisitaIController visitaController = null;
+                TelaEditarVisita telaEdt = new TelaEditarVisita(visitaController);
+                telaEdt.setVisible(true);
             }
         });
     }

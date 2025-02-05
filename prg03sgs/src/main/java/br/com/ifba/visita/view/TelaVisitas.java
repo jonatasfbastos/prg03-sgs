@@ -4,17 +4,28 @@
  */
 package br.com.ifba.visita.view;
 
+import br.com.ifba.visita.controller.VisitaIController;
+import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
 /**
  *
  * @author sunhe
  */
+
+@Component
+@RequiredArgsConstructor
 public class TelaVisitas extends javax.swing.JFrame {
 
+    private final VisitaIController visitaController;
+    
     /**
      * Creates new form TelaInicialGestaoVisitas
      */
-    public TelaVisitas() {
+    {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -126,15 +137,13 @@ public class TelaVisitas extends javax.swing.JFrame {
 
     private void btnCadastrarVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVisitaActionPerformed
         // TODO add your handling code here:
-
-        //Linha que traz a tela de cadastrar curso para a principal.
-        new TelaCadastrarVisita().setVisible(true);
+        
     }//GEN-LAST:event_btnCadastrarVisitaActionPerformed
 
     private void btnEditarVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarVisitaActionPerformed
         // TODO add your handling code here:
 
-        new TelaEditarVisita().setVisible(true);
+       
 
     }//GEN-LAST:event_btnEditarVisitaActionPerformed
 
@@ -177,7 +186,9 @@ public class TelaVisitas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaVisitas().setVisible(true);
+                VisitaIController visitaController = null;
+                TelaVisitas telaVis = new TelaVisitas(visitaController);
+                telaVis.setVisible(true);
             }
         });
     }
