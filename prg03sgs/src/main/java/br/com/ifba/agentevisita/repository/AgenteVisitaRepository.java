@@ -4,7 +4,6 @@
  */
 package br.com.ifba.agentevisita.repository;
 
-
 import br.com.ifba.agentevisita.entity.AgenteVisita;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;

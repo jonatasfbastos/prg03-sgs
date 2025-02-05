@@ -27,7 +27,7 @@ public class AgenteVisitaService implements AgenteVisitaIService{
     public void save(AgenteVisita agenteVisita) throws RuntimeException, IllegalArgumentException{
         if(agenteVisita == null){
             throw new RuntimeException ("Os dados não foram preenchidos!");
-        }if(StringUtil.isNullOrEmpty(agenteVisita.getNomeProfissional()) || 
+        }if(StringUtil.isNullOrEmpty(agenteVisita.getNome()) || 
             StringUtil.isNullOrEmpty(agenteVisita.getCbo()) || 
             StringUtil.isNullOrEmpty(agenteVisita.getCpfProfissional())){
             throw new IllegalArgumentException("Campos obrigatórios não podem ficar nulos!");
@@ -45,7 +45,7 @@ public class AgenteVisitaService implements AgenteVisitaIService{
         if(agenteVisita.getId() == null){
             throw new IllegalArgumentException("O ID do objeto está vazio!");
         }
-        if(StringUtil.isNullOrEmpty(agenteVisita.getNomeProfissional()) || 
+        if(StringUtil.isNullOrEmpty(agenteVisita.getNome()) || 
             StringUtil.isNullOrEmpty(agenteVisita.getCbo()) || 
             StringUtil.isNullOrEmpty(agenteVisita.getCpfProfissional())){
             throw new IllegalArgumentException("Campos obrigatórios não podem ficar nulos!");

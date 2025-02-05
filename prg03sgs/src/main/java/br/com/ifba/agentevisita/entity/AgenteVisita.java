@@ -40,7 +40,7 @@ public class AgenteVisita  extends PersistenceEntity  implements Serializable {
     @Getter @Setter private String cpfProfissional;
     
     @Column (name = "nome_agente", nullable = false)
-    @Getter @Setter private String nomeProfissional;
+    @Getter @Setter private String nome;
 
     @Column(name = "cns", nullable = false)
     //É o número único de identificação de cada usuário ou profissional no Sistema Único de Saúde (SUS).
@@ -74,7 +74,7 @@ public class AgenteVisita  extends PersistenceEntity  implements Serializable {
     }
     
     public boolean validarInformacoesProfissional(){
-        if(getCbo() == null || getNomeProfissional() == null || getCns() == null || getCpfProfissional() == null){
+        if(getCbo() == null || getNome() == null || getCns() == null || getCpfProfissional() == null){
             System.out.println("Informações do profissional estão incompletas.");
             return false;
         }else{
