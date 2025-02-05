@@ -17,10 +17,13 @@ import lombok.Setter;
  * Fornece um identificador único gerado automaticamente para as subclasses.
  * Pode ser utilizada como superclasse para outras entidades JPA.
  */
+
 @MappedSuperclass
 public class PersistenceEntity {
-    // Identificador único da entidade, gerado automaticamente
+    
+    //Identificador único da entidade, gerado automaticamente.
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter @Setter private Long id;
+    
 }

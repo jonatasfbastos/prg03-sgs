@@ -39,6 +39,7 @@ public class TelaInicial extends javax.swing.JFrame {
         btnMedicamentos = new javax.swing.JButton();
         btnProntuario = new javax.swing.JButton();
         btnUsuarios = new javax.swing.JButton();
+        btnVisitas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +67,15 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
+        btnVisitas.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnVisitas.setText("Visitas");
+        btnVisitas.setActionCommand("Visitas");
+        btnVisitas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisitasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,7 +85,8 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnProntuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMedicamentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVisitas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
@@ -87,7 +98,9 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addComponent(btnProntuario)
                 .addGap(18, 18, 18)
                 .addComponent(btnUsuarios)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnVisitas)
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         pack();
@@ -115,6 +128,10 @@ public class TelaInicial extends javax.swing.JFrame {
         telaUsuario.setVisible(true);
         telaUsuario.carregarTela();
     }//GEN-LAST:event_btnUsuariosActionPerformed
+
+    private void btnVisitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisitasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVisitasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,5 +176,6 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JButton btnMedicamentos;
     private javax.swing.JButton btnProntuario;
     private javax.swing.JButton btnUsuarios;
+    private javax.swing.JButton btnVisitas;
     // End of variables declaration//GEN-END:variables
 }
