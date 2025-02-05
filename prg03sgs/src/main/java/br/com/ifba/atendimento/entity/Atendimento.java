@@ -27,13 +27,13 @@ public class Atendimento extends PersistenceEntity implements Serializable {
     private String nomePaciente;
 
     @Column(name = "id_paciente", nullable = false)
-    private int idPaciente;
+    private Long idPaciente;
     
     @Column(name = "nome_funcionario", nullable = false)
     private String nomeFuncionario;
     
     @Column(name = "id_funcionario", nullable = false)
-    private String idFuncionario;
+    private Long idFuncionario;
     
     @Column(name = "data_hora_inicio")
     private LocalDateTime dataHoraInicio;
