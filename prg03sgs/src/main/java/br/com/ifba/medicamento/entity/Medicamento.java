@@ -4,12 +4,20 @@
  */
 package br.com.ifba.medicamento.entity;
 
+import br.com.ifba.fornecedor.entity.Fornecedor;
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -54,6 +62,13 @@ public class Medicamento extends PersistenceEntity implements Serializable{
     
     @Column (name = "descricao")
     @Getter @Setter private String descricao;
+    
+    @ManyToMany (fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "medicamento_fornecedor",
+        joinColumns = @JoinColumn(name = "medicamento_id"),
+        inverseJoinColumns = @JoinColumn(name = "fornecedor_id"))
+    @Getter @Setter private List<Fornecedor> fornecedores = new ArrayList<>();
     
     public boolean isVencido () {
         LocalDate dataAtual = LocalDate.now();
