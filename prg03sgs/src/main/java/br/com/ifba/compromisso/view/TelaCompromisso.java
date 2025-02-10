@@ -4,30 +4,35 @@
  */
 package br.com.ifba.compromisso.view;
 
-/**
-// Importações necessárias
 import javax.swing.*;
-import br.com.ifba.compromisso.service.CompromissoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import br.com.ifba.compromisso.entity.Compromisso;
+import br.com.ifba.compromisso.service.CompromissoService;
+import java.awt.HeadlessException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.awt.HeadlessException; **/
+import java.time.format.DateTimeParseException;
+import java.util.List;
+
 /**
  *
  * @author hiane
  */
 
 /**
- * Tela grafica para gerenciamento de
-compromissos
+ * Tela gráfica para gerenciamento de compromissos.
+ * Utiliza Spring Boot e JPA para persistência dos dados.
  */
-/**
-public class TelaCompromisso extends javax.swing.JFrame {
+@Component
+public class TelaCompromisso extends JFrame {
 
-    // Serviço para gerenciar os compromissos
-    private final CompromissoService compromissoService = new CompromissoService();
+    
+    // Injeção de dependência do serviço de compromissos
+    @Autowired
+    private CompromissoService compromissoService;
 
-    // Componentes da tela
+    // Componentes da interface gráfica
     private JTextField txtTitulo;
     private JTextField txtDescricao;
     private JTextField txtDataHora;
@@ -35,14 +40,101 @@ public class TelaCompromisso extends javax.swing.JFrame {
     private JButton btnSalvar;
     private JButton btnListar;
     private JTextArea txtAreaCompromissos;
-    
-    
-     //Construtor da tela
-    public TelaCompromisso() {
-        initComponents();
 
-}
+    /**
+     * Construtor da tela.
+     * Inicializa os componentes gráficos e configura a janela.
+     */
+    public TelaCompromisso() {
+        initComponents(); //Chama o método para inicializar os componentes.
+        
+    }
+    /**
+     * Método responsável por inicializar os componentes gráficos da tela.
+     */
     
+    /**
+     * Método para salvar um compromisso no banco de dados.
+     */
+    private void salvarCompromisso() {
+        try {
+            // Captura os dados informados pelo usuário
+            String titulo = txtTitulo.getText();
+            String descricao = txtDescricao.getText();
+            String dataHoraStr = txtDataHora.getText();
+            String local = txtLocal.getText();
+
+            // Verifica se todos os campos estão preenchidos
+            if (titulo.isEmpty() || descricao.isEmpty() || dataHoraStr.isEmpty() || local.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos!", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Converte a string da data e hora para LocalDateTime
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            LocalDateTime dataHora = LocalDateTime.parse(dataHoraStr, formatter);
+
+            // Cria um objeto Compromisso e salva no banco de dados
+            Compromisso compromisso = new Compromisso(null, titulo, descricao, dataHora, local);
+            compromissoService.criar(compromisso);
+
+            // Exibe mensagem de sucesso
+            JOptionPane.showMessageDialog(this, "Compromisso salvo com sucesso!");
+
+            // Limpa os campos após salvar
+            limparCampos();
+        } catch (DateTimeParseException e) {
+    JOptionPane.showMessageDialog(this, "Formato de data inválido! Use o formato yyyy-MM-dd HH:mm.", "Erro", JOptionPane.ERROR_MESSAGE);
+} catch (HeadlessException e) {
+    JOptionPane.showMessageDialog(this, "Erro na interface gráfica.", "Erro", JOptionPane.ERROR_MESSAGE);
+} }
+    
+    
+     /**
+     * Método para listar compromissos e exibi-los na área de texto.
+     */
+    private void listarCompromissos() {
+        // Limpa a área de texto antes de listar os compromissos
+        txtAreaCompromissos.setText("");
+
+        // Busca todos os compromissos no banco de dados
+        List<Compromisso> compromissos = compromissoService.listarTodos();
+
+        // Verifica se há compromissos cadastrados
+        if (compromissos.isEmpty()) {
+            txtAreaCompromissos.setText("Nenhum compromisso encontrado.");
+            return;
+        }
+
+        // Formata e exibe os compromissos na área de texto
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        for (Compromisso c : compromissos) {
+            txtAreaCompromissos.append(
+                "Título: " + c.getTitulo() + "\n" +
+                "Descrição: " + c.getDescricao() + "\n" +
+                "Data/Hora: " + c.getDataHora().format(formatter) + "\n" +
+                "Local: " + c.getLocal() + "\n" +
+                "-------------------------\n"
+            );
+        }
+    }
+    
+    /**
+     * Método para limpar os campos de entrada após salvar um compromisso.
+     */
+    private void limparCampos() {
+        txtTitulo.setText("");
+        txtDescricao.setText("");
+        txtDataHora.setText("");
+        txtLocal.setText("");
+    }
+
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -62,100 +154,17 @@ public class TelaCompromisso extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void initComponents() {
-        setTitle("Gestão de Compromissos");
-        setSize(400, 400);
-        
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setLayout(null); // Layout manual
 
-        // Criando e posicionando componentes
-        JLabel lblTitulo = new JLabel("Título:");
-        lblTitulo.setBounds(20, 20, 80, 25);
-        add(lblTitulo);
-
-        txtTitulo = new JTextField();
-        txtTitulo.setBounds(100, 20, 200, 25);
-        add(txtTitulo);
-
-        JLabel lblDescricao = new JLabel("Descrição:");
-        lblDescricao.setBounds(20, 60, 80, 25);
-        add(lblDescricao);
-
-        txtDescricao = new JTextField();
-        txtDescricao.setBounds(100, 60, 200, 25);
-        add(txtDescricao);
-
-        JLabel lblDataHora = new JLabel("Data e Hora:");
-        lblDataHora.setBounds(20, 100, 80, 25);
-        add(lblDataHora);
-
-        txtDataHora = new JTextField();
-        txtDataHora.setBounds(100, 100, 200, 25);
-        add(txtDataHora);
-
-        JLabel lblLocal = new JLabel("Local:");
-        lblLocal.setBounds(20, 140, 80, 25);
-        add(lblLocal);
-
-        txtLocal = new JTextField();
-        txtLocal.setBounds(100, 140, 200, 25);
-        add(txtLocal);
-
-        btnSalvar = new JButton("Salvar");
-        btnSalvar.setBounds(100, 180, 100, 30);
-        add(btnSalvar);
-
-        btnListar = new JButton("Listar");
-        btnListar.setBounds(210, 180, 100, 30);
-        add(btnListar);
-
-        txtAreaCompromissos = new JTextArea();
-        txtAreaCompromissos.setBounds(20, 220, 350, 120);
-        add(txtAreaCompromissos);
-
-        // Adicionando ações aos botões
-        btnSalvar.addActionListener(evt -> salvarCompromisso());
-        
-        btnListar.addActionListener(evt -> listarCompromissos());
-    }
-
-    // Método para salvar um compromisso
-    private void salvarCompromisso() {
-        try {
-            String titulo = txtTitulo.getText();
-            String descricao = txtDescricao.getText();
-            String dataHoraStr = txtDataHora.getText();
-            String local = txtLocal.getText();
-
-            // Formata a data e hora
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-            LocalDateTime dataHora = LocalDateTime.parse(dataHoraStr, formatter);
-
-            // Cria o compromisso e salva
-            Compromisso compromisso = new Compromisso(0, titulo, descricao, dataHora, local);
-            compromissoService.adicionarCompromisso(compromisso);
-
-            JOptionPane.showMessageDialog(this, "Compromisso salvo com sucesso!");
-        } catch (HeadlessException e) {
-            JOptionPane.showMessageDialog(this, "Erro ao salvar compromisso. Verifique o formato da data e hora (yyyy-MM-dd HH:mm).");
-        }
-    }
-
-    // Método para listar compromissos na tela
-    private void listarCompromissos() {
-        txtAreaCompromissos.setText("");
-        for (Compromisso c : compromissoService.listarCompromissos()) {
-            txtAreaCompromissos.append(c.getTitulo() + " - " + c.getDataHora().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")) + "\n");
-        }
-    }
-
+ /**
+     * Método principal para iniciar a aplicação.
+     * @param args
+     */
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(() -> new TelaCompromisso().setVisible(true));
+
+    SwingUtilities.invokeLater(() -> new TelaCompromisso().setVisible(true));
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
-**/

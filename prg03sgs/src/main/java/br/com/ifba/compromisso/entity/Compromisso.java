@@ -4,6 +4,11 @@
  */
 package br.com.ifba.compromisso.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
 /**
@@ -14,9 +19,14 @@ import java.time.LocalDateTime;
 /**
  * Classe que representa um Compromisso dentro do sistema.
  */
+@Entity
+@Table(name = "compromisso") // Define a tabela no banco de dados
 public class Compromisso {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String titulo;
     private String descricao;
     private LocalDateTime dataHora;
@@ -26,7 +36,7 @@ public class Compromisso {
     public Compromisso() {}
 
     // Construtor com parâmetros
-    public Compromisso(int id, String titulo, String descricao, LocalDateTime dataHora, String local) {
+    public Compromisso(Long id, String titulo, String descricao, LocalDateTime dataHora, String local) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -35,8 +45,8 @@ public class Compromisso {
     }
 
     // Métodos Getters e Setters
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getTitulo() { return titulo; }
     public void setTitulo(String titulo) { this.titulo = titulo; }

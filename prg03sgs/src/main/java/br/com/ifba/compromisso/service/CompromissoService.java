@@ -5,10 +5,12 @@
 package br.com.ifba.compromisso.service;
 
 // Importações necessárias
-import br.com.ifba.compromisso.dao.CompromissoDAO;
-import br.com.ifba.compromisso.dao.CompromissoDAOImpl;
 import br.com.ifba.compromisso.entity.Compromisso;
+import br.com.ifba.compromisso.repository.CompromissoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -16,29 +18,60 @@ import java.util.List;
  */
 
 /**
- * Camada de serviço responsável por regras de negócio dos compromissos.
+ * Serviço responsável por gerenciar operações relacionadas a compromissos.
  */
+@Service
 public class CompromissoService {
 
-    private CompromissoDAO compromissoDAO = new CompromissoDAOImpl();
+    @Autowired
+    private CompromissoRepository compromissoRepository;
 
-    public void adicionarCompromisso(Compromisso compromisso) {
-        compromissoDAO.criar(compromisso);
+    /**
+     * Salva um novo compromisso no banco de dados.
+     * @param compromisso
+     */
+    public void criar(Compromisso compromisso) {
+        compromissoRepository.save(compromisso);
+        System.out.println("Compromisso criado: " + compromisso.getTitulo());
     }
 
-    public Compromisso obterCompromisso(int id) {
-        return compromissoDAO.buscarPorId(id);
+    /**
+     * Busca um compromisso pelo ID.
+     * @param id
+     * @return 
+     */
+    public Compromisso buscarPorId(Long id) {
+        Optional<Compromisso> compromisso = compromissoRepository.findById(id);
+        return compromisso.orElse(null);
     }
 
-    public List<Compromisso> listarCompromissos() {
-        return compromissoDAO.listarTodos();
+    /**
+     * Lista todos os compromissos armazenados.
+     * @return 
+     */
+    public List<Compromisso> listarTodos() {
+        return compromissoRepository.findAll();
     }
 
-    public void atualizarCompromisso(Compromisso compromisso) {
-        compromissoDAO.atualizar(compromisso);
+    /**
+     * Atualiza um compromisso existente.
+     * @param compromisso
+     */
+    public void atualizar(Compromisso compromisso) {
+        if (compromissoRepository.existsById(compromisso.getId())) {
+            compromissoRepository.save(compromisso);
+            System.out.println("Compromisso atualizado: " + compromisso.getTitulo());
+        }
     }
 
-    public void removerCompromisso(int id) {
-        compromissoDAO.deletar(id);
+    /**
+     * Deleta um compromisso pelo ID.
+     * @param id
+     */
+    public void deletar(Long id) {
+        if (compromissoRepository.existsById(id)) {
+            compromissoRepository.deleteById(id);
+            System.out.println("Compromisso deletado com ID: " + id);
+        }
     }
 }
