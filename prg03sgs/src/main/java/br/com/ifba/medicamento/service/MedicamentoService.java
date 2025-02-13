@@ -33,49 +33,21 @@ public class MedicamentoService implements MedicamentoIService{
 
     @Override
     public void save(Medicamento medicamento) throws RuntimeException, IllegalArgumentException{
-        if (medicamento == null) {
-            throw new RuntimeException ("Dados nao preenchidos!");
+        if (validation(medicamento)) {
+            medicamentoRepository.save(medicamento);
         }
-        
-        if (StringUtil.isNullOrEmpty(medicamento.getNome()) || 
-            StringUtil.isNullOrEmpty(medicamento.getCategoria()) || 
-            StringUtil.isNullOrEmpty(medicamento.getRegistroAnvisa())) 
-        {
-            throw new IllegalArgumentException("Campos essenciais estao vazios");
-        }
-        
-        medicamento.setNome(StringUtil.trimExtraSpaces(medicamento.getNome()));
-        medicamento.setRegistroAnvisa(StringUtil.trimExtraSpaces(medicamento.getRegistroAnvisa()));
-        
-        medicamentoRepository.save(medicamento);
     }
 
     @Override
     public void update(Medicamento medicamento) throws RuntimeException, IllegalArgumentException, EntityNotFoundException{
         
-        if (medicamento == null) {
-            throw new RuntimeException ("Dados nao preenchidos!");
-        }
-        
-        if (medicamento.getId() == null) {
-            throw new IllegalArgumentException("O ID está vazio");
-        }
-        
-        if (StringUtil.isNullOrEmpty(medicamento.getNome()) || 
-            StringUtil.isNullOrEmpty(medicamento.getCategoria()) || 
-            StringUtil.isNullOrEmpty(medicamento.getRegistroAnvisa())) 
-        {
-            throw new IllegalArgumentException("Campos essenciais estão vazios");
-        }
-        
         if (findById(medicamento.getId()) == null) {
             throw new EntityNotFoundException("Medicamento não encontrado com o ID: " + medicamento.getId());
         }
         
-        medicamento.setNome(StringUtil.trimExtraSpaces(medicamento.getNome()));
-        medicamento.setRegistroAnvisa(StringUtil.trimExtraSpaces(medicamento.getRegistroAnvisa()));
-        
-        medicamentoRepository.save(medicamento);
+        if (validation(medicamento)) {
+            medicamentoRepository.save(medicamento);
+        }
     }
 
     @Override
@@ -107,5 +79,23 @@ public class MedicamentoService implements MedicamentoIService{
             throw new RuntimeException ("Medicamento nao encontrado no banco de dados!");
         }
         return medicamentoRepository.findById(id).orElse(null);
+    }
+    
+    public boolean validation (Medicamento medicamento) {
+        if (medicamento == null) {
+            throw new RuntimeException ("Dados nao preenchidos!");
+        }
+        
+        if (StringUtil.isNullOrEmpty(medicamento.getNome()) || 
+            StringUtil.isNullOrEmpty(medicamento.getCategoria()) || 
+            StringUtil.isNullOrEmpty(medicamento.getRegistroAnvisa())) 
+        {
+            throw new IllegalArgumentException("Campos essenciais estao vazios");
+        }
+        
+        medicamento.setNome(StringUtil.trimExtraSpaces(medicamento.getNome()));
+        medicamento.setRegistroAnvisa(StringUtil.trimExtraSpaces(medicamento.getRegistroAnvisa()));
+        
+        return true;
     }
 }
