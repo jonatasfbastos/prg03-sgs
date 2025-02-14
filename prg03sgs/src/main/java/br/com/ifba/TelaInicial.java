@@ -7,6 +7,7 @@ package br.com.ifba;
 import br.com.ifba.medicamento.controller.MedicamentoIController;
 import br.com.ifba.usuario.controller.UsuarioIController;
 import br.com.ifba.atendimento.view.TelaAtendimento;
+import br.com.ifba.campanhavacina.view.GestaoCampanhaVacina;
 import br.com.ifba.medicamento.controller.MedicamentoIController;
 import br.com.ifba.medicamento.view.TelaMedicamento;
 import br.com.ifba.prontuario.view.TelaProntuario;
@@ -62,6 +63,7 @@ public class TelaInicial extends javax.swing.JFrame {
         btnUsuarios = new javax.swing.JButton();
         btnProntuarios = new javax.swing.JButton();
         btnVisitas = new javax.swing.JButton();
+        btnCampanhaDeVacina = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,6 +111,14 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
+        btnCampanhaDeVacina.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnCampanhaDeVacina.setText("Campanha Vacina");
+        btnCampanhaDeVacina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCampanhaDeVacinaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,15 +131,17 @@ public class TelaInicial extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnVisitas, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnMedicamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnAtendimentos, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnProntuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnVisitas, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCampanhaDeVacina, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnProntuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -144,7 +156,9 @@ public class TelaInicial extends javax.swing.JFrame {
                     .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnProntuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnVisitas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVisitas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCampanhaDeVacina, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(254, Short.MAX_VALUE))
         );
 
@@ -189,6 +203,14 @@ public class TelaInicial extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnVisitasActionPerformed
 
+    private void btnCampanhaDeVacinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCampanhaDeVacinaActionPerformed
+        // TODO add your handling code here:
+        GestaoCampanhaVacina telaGestaoCampanhaVacina = context.getBean(GestaoCampanhaVacina.class);
+        
+        telaGestaoCampanhaVacina.setDefaultCloseOperation(GestaoCampanhaVacina.DISPOSE_ON_CLOSE);
+        telaGestaoCampanhaVacina.setVisible(true);
+    }//GEN-LAST:event_btnCampanhaDeVacinaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -231,6 +253,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtendimentos;
+    private javax.swing.JButton btnCampanhaDeVacina;
     private javax.swing.JButton btnMedicamentos;
     private javax.swing.JButton btnProntuarios;
     private javax.swing.JButton btnUsuarios;
