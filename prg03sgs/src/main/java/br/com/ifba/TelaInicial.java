@@ -185,7 +185,7 @@ public class TelaInicial extends javax.swing.JFrame {
     */
     private void btnMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedicamentosActionPerformed
         // TODO add your handling code here:
-        TelaMedicamento telaMedicamento = new TelaMedicamento(medicamentoController);
+        TelaMedicamento telaMedicamento = new TelaMedicamento(medicamentoController, fornecedorController);
         telaMedicamento.setVisible(true);
         telaMedicamento.init();
     }//GEN-LAST:event_btnMedicamentosActionPerformed

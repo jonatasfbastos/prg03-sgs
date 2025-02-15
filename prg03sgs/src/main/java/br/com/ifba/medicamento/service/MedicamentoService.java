@@ -4,10 +4,13 @@
  */
 package br.com.ifba.medicamento.service;
 
+import br.com.ifba.fornecedor.controller.FornecedorIController;
+import br.com.ifba.fornecedor.entity.Fornecedor;
 import br.com.ifba.infrastructure.util.StringUtil;
 import br.com.ifba.medicamento.entity.Medicamento;
 import br.com.ifba.medicamento.repository.MedicamentoRepository;
 import jakarta.persistence.EntityNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,6 +28,7 @@ import org.springframework.stereotype.Service;
 public class MedicamentoService implements MedicamentoIService{
 
     private final MedicamentoRepository medicamentoRepository;
+    private final FornecedorIController fornecedorController;
     
     @Override
     public List<Medicamento> findAll() throws RuntimeException {
@@ -91,6 +95,15 @@ public class MedicamentoService implements MedicamentoIService{
             StringUtil.isNullOrEmpty(medicamento.getRegistroAnvisa())) 
         {
             throw new IllegalArgumentException("Campos essenciais estao vazios");
+        }
+        
+        if (medicamento.getFornecedores() != null) {
+                List<Fornecedor> fornecedores = medicamento.getFornecedores();
+                    for (Fornecedor fornecedor : fornecedores) {
+                        if (fornecedorController.findById(fornecedor.getId()) == null) {
+                            throw new EntityNotFoundException("Fornecedor Nao Encontrado");
+                        }    
+                    }
         }
         
         medicamento.setNome(StringUtil.trimExtraSpaces(medicamento.getNome()));

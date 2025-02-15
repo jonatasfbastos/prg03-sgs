@@ -68,4 +68,12 @@ public interface FornecedorIService {
      * @return o fornecedor correspondente ao ID fornecido, ou {@code null} se não encontrado.
      */
     public abstract Fornecedor findById (Long id) throws RuntimeException;
+    
+    /**
+     * Busca um fornecedor pelo seu cnpj que é unico.
+     * 
+     * @param cnpj o cnpj do fornecedor.
+     * @return o fornecedor correspondente ao CNPJ fornecido, ou {@code null} se não encontrado.
+     */
+    public Fornecedor findByCnpj(String cnpj);
 }

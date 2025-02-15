@@ -58,4 +58,9 @@ public class FornecedorController implements FornecedorIController{
     public Fornecedor findById(Long id) {
         return fornecedorIService.findById(id);
     }
+
+    @Override
+    public Fornecedor findByCnpj(String cnpj) {
+        return fornecedorIService.findByCnpj(cnpj);
+    }
 }

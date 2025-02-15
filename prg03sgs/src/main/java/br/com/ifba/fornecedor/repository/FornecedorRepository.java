@@ -21,4 +21,7 @@ public interface FornecedorRepository extends JpaRepository<Fornecedor, Long>{
     
     // Busca por parte do nome, ignorando o case
     List<Fornecedor> findByRazaoSocialContainingIgnoreCase(String nome);
+    
+    //Busca pelo CNPJ
+    public Fornecedor findByCnpj(String cnpj);
 }

@@ -99,4 +99,16 @@ public class FornecedorService implements FornecedorIService{
         }
         return fornecedorRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public Fornecedor findByCnpj(String cnpj) {
+        if (StringUtil.isNullOrEmpty(cnpj)) {
+            throw new RuntimeException ("Fornecedor Invalido!");
+        }
+        try {
+            return fornecedorRepository.findByCnpj(cnpj);
+        } catch(Exception e) {
+            throw new RuntimeException ("Fornecedor nãp encontrado!");
+        } 
+    }
 }

@@ -4,6 +4,8 @@
  */
 package br.com.ifba.medicamento.view;
 
+import br.com.ifba.fornecedor.controller.FornecedorIController;
+import br.com.ifba.fornecedor.entity.Fornecedor;
 import br.com.ifba.infrastructure.util.StringUtil;
 import javax.swing.table.DefaultTableModel;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +17,7 @@ import java.awt.GraphicsEnvironment;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.springframework.context.annotation.Lazy;
@@ -30,6 +33,7 @@ public class TelaMedicamento extends javax.swing.JFrame {
     private final DefaultTableModel tabela = new DefaultTableModel(new Object[]{"ID", "Nome", "Categoria", "Data de Validade", "Quantidade"}, 0);
     
     private final MedicamentoIController medicamentoController;
+    private final FornecedorIController fornecedorController;
     
     private int linhaSelecionada = 0;
     
@@ -111,6 +115,8 @@ public class TelaMedicamento extends javax.swing.JFrame {
         lblDescricaoCadastro = new javax.swing.JLabel();
         btnLimparCamposCadastro = new javax.swing.JButton();
         btnCadastrarMedicamento = new javax.swing.JButton();
+        lblFornecedorCadastro = new javax.swing.JLabel();
+        txtFornecedorCadastro = new javax.swing.JTextField();
         TelaEditarMedicamento = new javax.swing.JFrame();
         lblDataFabricacaoEditar = new javax.swing.JLabel();
         txtTipoReceitaEditar = new javax.swing.JTextField();
@@ -135,6 +141,9 @@ public class TelaMedicamento extends javax.swing.JFrame {
         lblTipoReceitaEditar = new javax.swing.JLabel();
         btnLimparCamposEditar = new javax.swing.JButton();
         btnEditarMedicamento = new javax.swing.JButton();
+        lblFornecedorEditar = new javax.swing.JLabel();
+        txtFornecedorEditar = new javax.swing.JTextField();
+        lblDataValidadeCadastro1 = new javax.swing.JLabel();
         lblLinhaSelecionada = new javax.swing.JLabel();
         txtBuscarMedicamento = new javax.swing.JTextField();
         lblTextoNomeMedicamento = new javax.swing.JLabel();
@@ -236,37 +245,48 @@ public class TelaMedicamento extends javax.swing.JFrame {
             }
         });
 
+        lblFornecedorCadastro.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        lblFornecedorCadastro.setText("CNPJ Fornecedor");
+
+        txtFornecedorCadastro.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout TelaAdicionarMedicamentoLayout = new javax.swing.GroupLayout(TelaAdicionarMedicamento.getContentPane());
         TelaAdicionarMedicamento.getContentPane().setLayout(TelaAdicionarMedicamentoLayout);
         TelaAdicionarMedicamentoLayout.setHorizontalGroup(
             TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
-                        .addComponent(lblDataValidadeCadastro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDataValidadeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
-                        .addComponent(lblDataFabricacaoCadastro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDataFabricacaoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaAdicionarMedicamentoLayout.createSequentialGroup()
                                 .addComponent(lblNomeCadastro)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtNomeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
+                                .addGap(61, 61, 61)
                                 .addComponent(lblQuantidadeCadastro)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtQuantidadeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
-                            .addGap(22, 22, 22)
+                            .addGap(71, 71, 71)
                             .addComponent(lblCategoriaCadastro)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtCategoriaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtCategoriaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
+                                .addComponent(lblDataFabricacaoCadastro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtDataFabricacaoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
+                                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblFornecedorCadastro)
+                                    .addComponent(lblDataValidadeCadastro))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDataValidadeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFornecedorCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
                         .addGap(115, 115, 115)
@@ -337,7 +357,11 @@ public class TelaMedicamento extends javax.swing.JFrame {
                             .addComponent(txtDataValidadeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDescricaoCadastro)
                             .addComponent(txtDescricaoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(115, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblFornecedorCadastro)
+                            .addComponent(txtFornecedorCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(80, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaAdicionarMedicamentoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -431,13 +455,26 @@ public class TelaMedicamento extends javax.swing.JFrame {
             }
         });
 
+        lblFornecedorEditar.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        lblFornecedorEditar.setText("CNPJ Fornecedor");
+
+        txtFornecedorEditar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout TelaEditarMedicamentoLayout = new javax.swing.GroupLayout(TelaEditarMedicamento.getContentPane());
         TelaEditarMedicamento.getContentPane().setLayout(TelaEditarMedicamentoLayout);
         TelaEditarMedicamentoLayout.setHorizontalGroup(
             TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
+                .addGap(258, 258, 258)
+                .addComponent(lblTituloEditar)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
+                        .addComponent(lblFornecedorEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtFornecedorEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
                         .addComponent(lblDataValidadeEditar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -488,10 +525,6 @@ public class TelaMedicamento extends javax.swing.JFrame {
                                 .addComponent(btnLimparCamposEditar)
                                 .addGap(33, 33, 33)
                                 .addComponent(btnEditarMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-            .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
-                .addGap(258, 258, 258)
-                .addComponent(lblTituloEditar)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         TelaEditarMedicamentoLayout.setVerticalGroup(
             TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -528,12 +561,19 @@ public class TelaMedicamento extends javax.swing.JFrame {
                     .addComponent(txtDataValidadeEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDescricaoEditar)
                     .addComponent(txtDescricaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFornecedorEditar)
+                    .addComponent(txtFornecedorEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditarMedicamento)
                     .addComponent(btnLimparCamposEditar))
                 .addGap(27, 27, 27))
         );
+
+        lblDataValidadeCadastro1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        lblDataValidadeCadastro1.setText("Data De Validade");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -686,7 +726,7 @@ public class TelaMedicamento extends javax.swing.JFrame {
         medicamento.setInstrucaoArmazenamento(txtInstrucaoArmazenamentoCadastro.getText());
         medicamento.setRegistroAnvisa(txtRegistroAnvisaCadastro.getText());
         medicamento.setTipoReceita(txtTipoReceitaCadastro.getText());
-        medicamento.setDescricao(txtDescricaoCadastro.getText());
+        medicamento.setDescricao(txtDescricaoCadastro.getText());        
         
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         try {
@@ -694,6 +734,25 @@ public class TelaMedicamento extends javax.swing.JFrame {
             String dataValid = txtDataValidadeCadastro.getText();
             medicamento.setDataFabricacao(LocalDate.parse(dataFabric , formatter));
             medicamento.setDataValidade(LocalDate.parse(dataValid , formatter));
+            /*
+            * Se o for cadastrado algum fornecedor ao medicamento
+            * Será verificado se ele existe ou não.
+            * Só será verificado se algum cnpj for informado
+            */
+            if (!StringUtil.isNullOrEmpty(txtFornecedorCadastro.getText())) {
+                Fornecedor fornecedor = fornecedorController.findByCnpj(txtFornecedorCadastro.getText());
+                if (fornecedor.getId() != null) {
+                    List<Fornecedor> fornecedores = medicamento.getFornecedores();
+
+                    if (fornecedores == null) {
+                        fornecedores = new ArrayList<>();
+                    }
+
+                    fornecedores.add(fornecedor);
+
+                    medicamento.setFornecedores(fornecedores);
+                }
+            }
             
             medicamentoController.save(medicamento);
             
@@ -705,6 +764,10 @@ public class TelaMedicamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(
                 null, "Formato de datas informados é Invalido, preenche conforme indicado!",
                 "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                    null, "Dados Invalidos!",
+                    "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnCadastrarMedicamentoActionPerformed
 
@@ -723,6 +786,7 @@ public class TelaMedicamento extends javax.swing.JFrame {
         txtRegistroAnvisaCadastro.setText("");
         txtTipoReceitaCadastro.setText("");
         txtDescricaoCadastro.setText("");
+        txtFornecedorCadastro.setText("");
     }//GEN-LAST:event_btnLimparCamposCadastroActionPerformed
 
     private void TelaAdicionarMedicamentoWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_TelaAdicionarMedicamentoWindowClosed
@@ -754,6 +818,21 @@ public class TelaMedicamento extends javax.swing.JFrame {
             medicamento.setDataFabricacao(LocalDate.parse(dataFabric , formatter));
             medicamento.setDataValidade(LocalDate.parse(dataValid , formatter));
             
+            if (!StringUtil.isNullOrEmpty(txtFornecedorEditar.getText())) {
+                Fornecedor fornecedor = fornecedorController.findByCnpj(txtFornecedorEditar.getText());
+                if (fornecedor.getId() != null) {
+                    List<Fornecedor> fornecedores = medicamento.getFornecedores();
+
+                    if (fornecedores == null) {
+                        fornecedores = new ArrayList<>();
+                    }
+
+                    fornecedores.add(fornecedor);
+
+                    medicamento.setFornecedores(fornecedores);
+                }
+            }
+            
             medicamentoController.update(medicamento);
             
             JOptionPane.showMessageDialog(
@@ -763,6 +842,10 @@ public class TelaMedicamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(
                 null, "Formato de datas informados é Invalido, preenche conforme indicado!",
                 "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                    null, "Dados Invalidos!",
+                    "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnEditarMedicamentoActionPerformed
 
@@ -777,6 +860,7 @@ public class TelaMedicamento extends javax.swing.JFrame {
         txtRegistroAnvisaEditar.setText("");
         txtTipoReceitaEditar.setText("");
         txtDescricaoEditar.setText("");
+        txtFornecedorEditar.setText("");
     }//GEN-LAST:event_btnLimparCamposEditarActionPerformed
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
@@ -846,7 +930,8 @@ public class TelaMedicamento extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 MedicamentoIController medicamentoController = null;
-                TelaMedicamento telaMedicamento = new TelaMedicamento(medicamentoController);
+                FornecedorIController fornecedorController = null;
+                TelaMedicamento telaMedicamento = new TelaMedicamento(medicamentoController, fornecedorController);
                 telaMedicamento.setVisible(true);
             }
         });
@@ -868,9 +953,12 @@ public class TelaMedicamento extends javax.swing.JFrame {
     private javax.swing.JLabel lblDataFabricacaoCadastro;
     private javax.swing.JLabel lblDataFabricacaoEditar;
     private javax.swing.JLabel lblDataValidadeCadastro;
+    private javax.swing.JLabel lblDataValidadeCadastro1;
     private javax.swing.JLabel lblDataValidadeEditar;
     private javax.swing.JLabel lblDescricaoCadastro;
     private javax.swing.JLabel lblDescricaoEditar;
+    private javax.swing.JLabel lblFornecedorCadastro;
+    private javax.swing.JLabel lblFornecedorEditar;
     private javax.swing.JLabel lblInstrucaoArmazenamentoCadastro;
     private javax.swing.JLabel lblInstrucaoArmazenamentoEditar;
     private javax.swing.JLabel lblLinhaSelecionada;
@@ -899,6 +987,8 @@ public class TelaMedicamento extends javax.swing.JFrame {
     private javax.swing.JTextField txtDataValidadeEditar;
     private javax.swing.JTextField txtDescricaoCadastro;
     private javax.swing.JTextField txtDescricaoEditar;
+    private javax.swing.JTextField txtFornecedorCadastro;
+    private javax.swing.JTextField txtFornecedorEditar;
     private javax.swing.JTextField txtInstrucaoArmazenamentoCadastro;
     private javax.swing.JTextField txtInstrucaoArmazenamentoEditar;
     private javax.swing.JTextField txtLoteCadastro;
