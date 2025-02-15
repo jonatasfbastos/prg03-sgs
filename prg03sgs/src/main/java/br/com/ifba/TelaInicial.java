@@ -8,6 +8,8 @@ import br.com.ifba.medicamento.controller.MedicamentoIController;
 import br.com.ifba.usuario.controller.UsuarioIController;
 import br.com.ifba.atendimento.view.TelaAtendimento;
 import br.com.ifba.campanhavacina.view.GestaoCampanhaVacina;
+import br.com.ifba.fornecedor.controller.FornecedorIController;
+import br.com.ifba.fornecedor.view.TelaFornecedor;
 import br.com.ifba.medicamento.controller.MedicamentoIController;
 import br.com.ifba.medicamento.view.TelaMedicamento;
 import br.com.ifba.prontuario.view.TelaProntuario;
@@ -36,6 +38,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private final MedicamentoIController medicamentoController;
     private final UsuarioIController usuarioController;
     private final VisitaIController visitaController;
+    private final FornecedorIController fornecedorController;
     
     @Autowired
     private ApplicationContext context;
@@ -64,11 +67,11 @@ public class TelaInicial extends javax.swing.JFrame {
         btnProntuarios = new javax.swing.JButton();
         btnVisitas = new javax.swing.JButton();
         btnCampanhaDeVacina = new javax.swing.JButton();
+        btnFornecedores = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblTituloSistema.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblTituloSistema.setForeground(new java.awt.Color(0, 0, 0));
         lblTituloSistema.setText("SISTEMA DE GESTÃO DE SAÚDE");
 
         btnAtendimentos.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -119,6 +122,14 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
+        btnFornecedores.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnFornecedores.setText("Fornecedores");
+        btnFornecedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFornecedoresActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -137,7 +148,10 @@ public class TelaInicial extends javax.swing.JFrame {
                                 .addComponent(btnAtendimentos, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnVisitas, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnVisitas, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnFornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCampanhaDeVacina, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -158,7 +172,8 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVisitas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCampanhaDeVacina, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCampanhaDeVacina, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(254, Short.MAX_VALUE))
         );
 
@@ -211,6 +226,12 @@ public class TelaInicial extends javax.swing.JFrame {
         telaGestaoCampanhaVacina.setVisible(true);
     }//GEN-LAST:event_btnCampanhaDeVacinaActionPerformed
 
+    private void btnFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFornecedoresActionPerformed
+        TelaFornecedor telaFornecedor = new TelaFornecedor(fornecedorController);
+        telaFornecedor.setVisible(true);
+        telaFornecedor.init();
+    }//GEN-LAST:event_btnFornecedoresActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -245,7 +266,8 @@ public class TelaInicial extends javax.swing.JFrame {
                  MedicamentoIController medicamentoController = null;
                  UsuarioIController usuarioController = null;
                  VisitaIController visitaController = null;
-                 TelaInicial telaInicial = new TelaInicial(medicamentoController, usuarioController, visitaController);
+                 FornecedorIController fornecedorController = null;
+                 TelaInicial telaInicial = new TelaInicial(medicamentoController, usuarioController, visitaController, fornecedorController);
                  telaInicial.setVisible(true);
             } 
         });
@@ -254,6 +276,7 @@ public class TelaInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtendimentos;
     private javax.swing.JButton btnCampanhaDeVacina;
+    private javax.swing.JButton btnFornecedores;
     private javax.swing.JButton btnMedicamentos;
     private javax.swing.JButton btnProntuarios;
     private javax.swing.JButton btnUsuarios;

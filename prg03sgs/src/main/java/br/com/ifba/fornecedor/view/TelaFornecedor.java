@@ -92,6 +92,15 @@ public class TelaFornecedor extends javax.swing.JFrame {
         lblTituloFornecedor = new javax.swing.JLabel();
         btnAdicionar = new javax.swing.JButton();
 
+        TelaCadastroFornecedor.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        TelaCadastroFornecedor.setMinimumSize(new java.awt.Dimension(400, 294));
+        TelaCadastroFornecedor.setResizable(false);
+        TelaCadastroFornecedor.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                TelaCadastroFornecedorWindowClosed(evt);
+            }
+        });
+
         lblCnpjCadastro.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         lblCnpjCadastro.setText("CNPJ");
 
@@ -185,7 +194,7 @@ public class TelaFornecedor extends javax.swing.JFrame {
                     .addContainerGap(249, Short.MAX_VALUE)))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblLinhaSelecionada.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         lblLinhaSelecionada.setText("0");
@@ -301,6 +310,10 @@ public class TelaFornecedor extends javax.swing.JFrame {
         
         fornecedorController.save(fornecedor);
     }//GEN-LAST:event_btnFornecedorCadastro1ActionPerformed
+
+    private void TelaCadastroFornecedorWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_TelaCadastroFornecedorWindowClosed
+        updateTable();
+    }//GEN-LAST:event_TelaCadastroFornecedorWindowClosed
 
     /**
      * @param args the command line arguments
