@@ -35,6 +35,7 @@ public class CampanhaVacinaEditar extends javax.swing.JFrame {
         this.setLocationRelativeTo(null); // Centraliza a janela
     }
     
+    @Autowired
     private GestaoCampanhaVacina listarFrame; // Referência para o frame de listagem
     
     public CampanhaVacinaEditar(GestaoCampanhaVacina listarFrame) {
@@ -98,6 +99,12 @@ public class CampanhaVacinaEditar extends javax.swing.JFrame {
         dataInicio.setText("Data e Hora Inicio:");
 
         textFieldDataInicio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textFieldDataInicio.setText("dd/MM/yyyy HH:mm");
+        textFieldDataInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldDataInicioActionPerformed(evt);
+            }
+        });
 
         publicoAlvo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         publicoAlvo.setText("Publico Alvo:");
@@ -105,7 +112,7 @@ public class CampanhaVacinaEditar extends javax.swing.JFrame {
         textFieldPublicoAlvo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         nomeDaCampanha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nomeDaCampanha.setText("Digite o Nome : ");
+        nomeDaCampanha.setText("Nome da Campanha:");
 
         textFieldNomeCapanha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -128,6 +135,7 @@ public class CampanhaVacinaEditar extends javax.swing.JFrame {
         dataFim.setText("Data e Hora Fim:");
 
         textFieldDataFim.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textFieldDataFim.setText("dd/MM/yyyy HH:mm");
         textFieldDataFim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldDataFimActionPerformed(evt);
@@ -147,8 +155,8 @@ public class CampanhaVacinaEditar extends javax.swing.JFrame {
                         .addComponent(textFieldDataFim))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(local)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textFieldLocalDaAplicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textFieldLocalDaAplicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(dataInicio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -169,14 +177,14 @@ public class CampanhaVacinaEditar extends javax.swing.JFrame {
                         .addComponent(textFieldNomeCapanha))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lableNumeroID)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(textFildID)))
                 .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lableNumeroID)
                     .addComponent(textFildID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -188,7 +196,7 @@ public class CampanhaVacinaEditar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(local)
                     .addComponent(textFieldLocalDaAplicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dataInicio)
                     .addComponent(textFieldDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -273,6 +281,9 @@ public class CampanhaVacinaEditar extends javax.swing.JFrame {
 
                 // Salva as alterações no banco de dados
                 campanhaVacinaController.update(campanhaVacinaEntity);
+                
+                // Atualiza a tabela
+                listarFrame.readJTable();
 
                 JOptionPane.showMessageDialog(
                         this, 
@@ -299,6 +310,10 @@ public class CampanhaVacinaEditar extends javax.swing.JFrame {
     private void textFieldDataFimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldDataFimActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldDataFimActionPerformed
+
+    private void textFieldDataInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldDataInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldDataInicioActionPerformed
 
     /**
      * @param args the command line arguments

@@ -4,9 +4,11 @@
  */
 package br.com.ifba.funcionarios.entity;
 
+import br.com.ifba.campanhavacina.entity.CampanhaVacinaEntity;
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -58,5 +60,10 @@ public class Funcionarios extends PersistenceEntity implements Serializable {
     /** Salário do funcionário. Campo opcional. */
     @Column(name = "salario")
     @Getter @Setter private String salario;
+    
+    // "Funcionarios" == "Profissional da Saúde"
+    // Muitos 'Funcionarios' para uma 'Campanha De Vacinação'
+    @ManyToOne
+    @Getter @Setter private CampanhaVacinaEntity campanhaDeVacina;
     
 }

@@ -31,6 +31,7 @@ public class CampanhaVacinaExcluir extends javax.swing.JFrame {
         this.setLocationRelativeTo(null); // Centraliza a janela
     }
     
+    @Autowired
     private GestaoCampanhaVacina listarFrame; // Referência para o frame de listagem
     
     public CampanhaVacinaExcluir(GestaoCampanhaVacina listarFrame) {
@@ -125,6 +126,9 @@ public class CampanhaVacinaExcluir extends javax.swing.JFrame {
 
         // Remove o curso
         campanhaVacinaController.delete(CampanhaExcluir); 
+        
+        // Atualiza a tabela
+        listarFrame.readJTable();
         
         JOptionPane.showMessageDialog(
                     this, 

@@ -108,7 +108,6 @@ public class GestaoCampanhaVacina extends javax.swing.JFrame {
         buttonProcurarCurso = new javax.swing.JButton();
         scrollTabelaDeInfo = new javax.swing.JScrollPane();
         tabelaExibirCampanha = new javax.swing.JTable();
-        buttonAtualizarCampanha = new javax.swing.JButton();
         buttonExcluirCampanha = new javax.swing.JButton();
         buttonEditarCampanha = new javax.swing.JButton();
         buttonAdicionarCampanha = new javax.swing.JButton();
@@ -142,14 +141,6 @@ public class GestaoCampanhaVacina extends javax.swing.JFrame {
         tabelaExibirCampanha.setToolTipText("");
         scrollTabelaDeInfo.setViewportView(tabelaExibirCampanha);
 
-        buttonAtualizarCampanha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        buttonAtualizarCampanha.setText("Atualizar Tabela de Campanha");
-        buttonAtualizarCampanha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAtualizarCampanhaActionPerformed(evt);
-            }
-        });
-
         buttonExcluirCampanha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         buttonExcluirCampanha.setText("Excluir Campanha");
         buttonExcluirCampanha.addActionListener(new java.awt.event.ActionListener() {
@@ -159,7 +150,7 @@ public class GestaoCampanhaVacina extends javax.swing.JFrame {
         });
 
         buttonEditarCampanha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        buttonEditarCampanha.setText("Editar Campanha");
+        buttonEditarCampanha.setText("Atualizar Campanha");
         buttonEditarCampanha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonEditarCampanhaActionPerformed(evt);
@@ -167,7 +158,7 @@ public class GestaoCampanhaVacina extends javax.swing.JFrame {
         });
 
         buttonAdicionarCampanha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        buttonAdicionarCampanha.setText("Adicionar Campanha");
+        buttonAdicionarCampanha.setText("Criar Campanha");
         buttonAdicionarCampanha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAdicionarCampanhaActionPerformed(evt);
@@ -180,37 +171,32 @@ public class GestaoCampanhaVacina extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
+                .addComponent(scrollTabelaDeInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 792, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrollTabelaDeInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 792, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAtualizarCampanha, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonAdicionarCampanha, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonExcluirCampanha, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonEditarCampanha, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAdicionarCampanha, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonProcurarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(buttonAtualizarCampanha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(scrollTabelaDeInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(buttonAdicionarCampanha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonProcurarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(buttonEditarCampanha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(buttonExcluirCampanha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonProcurarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(18, 33, Short.MAX_VALUE)
-                        .addComponent(scrollTabelaDeInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))))
+                        .addGap(118, 118, 118))))
         );
 
         pack();
@@ -225,14 +211,6 @@ public class GestaoCampanhaVacina extends javax.swing.JFrame {
         cursoProcurar.setDefaultCloseOperation(CampanhaVacinaEditar.DISPOSE_ON_CLOSE);
         cursoProcurar.setVisible(true);      
     }//GEN-LAST:event_buttonProcurarCursoActionPerformed
-
-    private void buttonAtualizarCampanhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAtualizarCampanhaActionPerformed
-        // TODO add your handling code here:
-        
-        
-        // Atualiza a lista, exibe ela atualizada
-        readJTable();
-    }//GEN-LAST:event_buttonAtualizarCampanhaActionPerformed
 
     private void buttonExcluirCampanhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirCampanhaActionPerformed
         // TODO add your handling code here:
@@ -304,7 +282,6 @@ public class GestaoCampanhaVacina extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAdicionarCampanha;
-    private javax.swing.JButton buttonAtualizarCampanha;
     private javax.swing.JButton buttonEditarCampanha;
     private javax.swing.JButton buttonExcluirCampanha;
     private javax.swing.JButton buttonProcurarCurso;

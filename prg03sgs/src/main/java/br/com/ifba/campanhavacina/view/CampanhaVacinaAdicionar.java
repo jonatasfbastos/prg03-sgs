@@ -25,7 +25,7 @@ public class CampanhaVacinaAdicionar extends javax.swing.JFrame {
     
     @Autowired
     private CampanhaVacinaIController campanhaVacinaController;
-    
+        
     /**
      * Creates new form CursoAdicionar
      */
@@ -35,6 +35,7 @@ public class CampanhaVacinaAdicionar extends javax.swing.JFrame {
         
     }
   
+    @Autowired
     private GestaoCampanhaVacina listarFrame; // Referência para o frame de listagem
 
     public CampanhaVacinaAdicionar(GestaoCampanhaVacina listarFrame) {
@@ -85,7 +86,7 @@ public class CampanhaVacinaAdicionar extends javax.swing.JFrame {
         teste.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
         nomeDaCampanha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nomeDaCampanha.setText("Digite o Nome : ");
+        nomeDaCampanha.setText("Nome da Campanha : ");
 
         textFieldNomeCampanha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -116,6 +117,7 @@ public class CampanhaVacinaAdicionar extends javax.swing.JFrame {
         dataInico.setText("Data Inicio:");
 
         textFieldDataInicio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textFieldDataInicio.setText("dd/MM/yyyy HH:mm");
 
         publicoAlvo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         publicoAlvo.setText("Publico Alvo:");
@@ -126,48 +128,45 @@ public class CampanhaVacinaAdicionar extends javax.swing.JFrame {
         dataFim.setText("Data Fim:");
 
         textFieldDataFim.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textFieldDataFim.setText("dd/MM/yyyy HH:mm");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(175, 175, 175)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(224, 224, 224)
-                        .addComponent(btnSalvarCampanha, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(publicoAlvo)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(textFieldPublicoAlvo))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(disponibilidadeVacina)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(checkBoxDisponibilidadeVacina, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(nomeDaCampanha)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(textFieldNomeCampanha))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(dataInico)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(textFieldDataInicio))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(local)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(textFieldLocalDaAplicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(dataFim)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(textFieldDataFim)))
-                                .addGap(61, 61, 61)
-                                .addComponent(teste)))))
+                                .addComponent(nomeDaCampanha)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textFieldNomeCampanha))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(dataInico)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textFieldDataInicio))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(local)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textFieldLocalDaAplicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(dataFim)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textFieldDataFim))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(publicoAlvo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(textFieldPublicoAlvo)))
+                        .addGap(61, 61, 61)
+                        .addComponent(teste))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnSalvarCampanha, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(disponibilidadeVacina)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(checkBoxDisponibilidadeVacina, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -176,35 +175,36 @@ public class CampanhaVacinaAdicionar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(77, 77, 77)
-                        .addComponent(teste))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
+                        .addComponent(teste)
+                        .addGap(58, 58, 58))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(nomeDaCampanha)
                             .addComponent(textFieldNomeCampanha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(local)
-                            .addComponent(textFieldLocalDaAplicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
+                            .addComponent(textFieldLocalDaAplicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dataInico)
                     .addComponent(textFieldDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dataFim)
                     .addComponent(textFieldDataFim, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(publicoAlvo)
                     .addComponent(textFieldPublicoAlvo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(disponibilidadeVacina)
                     .addComponent(checkBoxDisponibilidadeVacina))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(btnSalvarCampanha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addGap(52, 52, 52))
         );
 
         pack();
@@ -237,6 +237,9 @@ public class CampanhaVacinaAdicionar extends javax.swing.JFrame {
 
             // Salva a campanha no banco
             campanhaVacinaController.save(campanhaVacinaEntity);
+            
+            // Atualiza a tabela
+            listarFrame.readJTable();
 
             JOptionPane.showMessageDialog(this, "Adicionado com sucesso!", 
                                               "Sucesso", JOptionPane.INFORMATION_MESSAGE);

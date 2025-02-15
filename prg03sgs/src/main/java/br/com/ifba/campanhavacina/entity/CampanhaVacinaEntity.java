@@ -4,12 +4,18 @@
  */
 package br.com.ifba.campanhavacina.entity;
 
+import br.com.ifba.funcionarios.entity.Funcionarios;
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,6 +51,11 @@ public class CampanhaVacinaEntity extends PersistenceEntity implements Serializa
     
     @Column(name = "publico_alvo", nullable = false)
     @Getter @Setter private String publicoAlvo;
+    
+    //Relacionamento Uma Campanha para varios Funcionarios 
+    //Quando salvar a Campanha vai salvar o Funcionario, isso é o cascade.
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "campanhaDeVacina")
+    @Getter @Setter private List<Funcionarios> funcionarios = new ArrayList<>();
     
     
 }
