@@ -33,11 +33,8 @@ profissional da saude, se for necessario).
 public class FichaVisita extends PersistenceEntity implements Serializable{
     
     //Atributos da classe FichaVisita com métodos getters e setters e suas respectivas colunas na tabela do BD.
-    @Column(name = "cabecalho_ficha", nullable = false)
-    @Getter @Setter private String cabecalho;
-    
-    @Column(name = "motivo_visita", nullable = false)
-    @Getter @Setter private String motivoVisita;
+    @Column(name = "nome", nullable = false)
+    @Getter @Setter private String nome;
     
     @Column(name = "busca_ativa", nullable = false)
     @Getter @Setter private boolean buscaAtiva;

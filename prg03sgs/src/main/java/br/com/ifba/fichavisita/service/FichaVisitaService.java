@@ -27,8 +27,8 @@ public class FichaVisitaService implements FichaVisitaIService{
     public void save(FichaVisita ficha) throws RuntimeException, IllegalArgumentException {
         if(ficha == null){
             throw new RuntimeException ("Os dados não foram preenchidos!");
-        }if(StringUtil.isNullOrEmpty(ficha.getCabecalho()) || 
-            StringUtil.isNullOrEmpty(ficha.getMotivoVisita())){
+        }if(StringUtil.isNullOrEmpty(ficha.getNome()) || 
+            StringUtil.isNullOrEmpty(ficha.getDesfecho())){
             throw new IllegalArgumentException("Campos obrigatórios não podem ficar nulos!");
         }
         
@@ -43,8 +43,8 @@ public class FichaVisitaService implements FichaVisitaIService{
         if(ficha.getId() == null){
             throw new IllegalArgumentException("O ID do objeto está vazio!");
         }
-        if(StringUtil.isNullOrEmpty(ficha.getCabecalho()) || 
-            StringUtil.isNullOrEmpty(ficha.getMotivoVisita())){
+        if(StringUtil.isNullOrEmpty(ficha.getNome()) || 
+            StringUtil.isNullOrEmpty(ficha.getDesfecho())){
             throw new IllegalArgumentException("Campos obrigatórios não podem ficar nulos!");
         }
         if(findById(ficha.getId()) == null){

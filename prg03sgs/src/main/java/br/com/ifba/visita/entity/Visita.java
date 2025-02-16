@@ -38,9 +38,6 @@ public class Visita extends PersistenceEntity implements Serializable{
     @Column(name = "id_visita", nullable = false, unique = true)
     @Getter @Setter private int idVisita;
     
-    @Column(name = "cabecalho_ficha", nullable = false)
-    @Getter @Setter private String cabecalho;
-    
     @Column(name = "motivo_visita", nullable = false)
     @Getter @Setter private String motivoVisita;
     

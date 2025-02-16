@@ -51,6 +51,7 @@ public class TelaCadastrarVisita extends javax.swing.JFrame {
         txtNumFolha = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setForeground(new java.awt.Color(204, 255, 204));
 
         lblInfoCadastro.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblInfoCadastro.setText("CADASTRAR VISITA");
@@ -132,11 +133,11 @@ public class TelaCadastrarVisita extends javax.swing.JFrame {
                         .addComponent(lblDataVisita)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtDataVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
-                .addComponent(lblInfoCadastro)
-                .addGap(79, 79, 79))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblInfoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

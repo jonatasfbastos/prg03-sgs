@@ -5,6 +5,7 @@
 package br.com.ifba.visita.view;
 
 import br.com.ifba.Prg03sgsApplication;
+import br.com.ifba.fichavisita.view.TelaCadastrarFicha;
 import br.com.ifba.visita.controller.VisitaIController;
 import br.com.ifba.visita.entity.Visita;
 import jakarta.annotation.PostConstruct;
@@ -199,6 +200,13 @@ public class TelaVisitas extends javax.swing.JFrame {
     //Botão para chamar a tela de cadastrar uma ficha.
     private void btnCadastrarFichaVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarFichaVisitaActionPerformed
         // TODO add your handling code here:
+        ConfigurableApplicationContext context = (ConfigurableApplicationContext) 
+            SpringApplication.run(Prg03sgsApplication.class);
+        
+        TelaCadastrarFicha telaCadFicha = context.getBean(TelaCadastrarFicha.class);
+        telaCadFicha.setDefaultCloseOperation(TelaVisitas.DISPOSE_ON_CLOSE);
+        telaCadFicha.setVisible(true);
+        
     }//GEN-LAST:event_btnCadastrarFichaVisitaActionPerformed
 
     /**
