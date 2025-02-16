@@ -94,18 +94,23 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
 
         pswRepeatPassword.setEchoChar('*');
 
+        lblVerifyName.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         lblVerifyName.setForeground(new java.awt.Color(255, 0, 0));
         lblVerifyName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        lblVerifyEmail.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         lblVerifyEmail.setForeground(new java.awt.Color(255, 0, 0));
         lblVerifyEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        lblVerifyPassword.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         lblVerifyPassword.setForeground(new java.awt.Color(255, 0, 0));
         lblVerifyPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        lblVerifyRepeatPassword.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         lblVerifyRepeatPassword.setForeground(new java.awt.Color(255, 0, 0));
         lblVerifyRepeatPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        lblVerifyAccessLevel.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         lblVerifyAccessLevel.setForeground(new java.awt.Color(255, 0, 0));
         lblVerifyAccessLevel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 

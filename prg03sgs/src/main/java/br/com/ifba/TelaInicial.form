@@ -24,57 +24,50 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace pref="223" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
-                      <Component id="lblTituloSistema" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btnCampanhaDeVacina" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                          <Component id="btnAtendimentos" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                          <Component id="btnMedicamentos" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                          <Component id="btnFornecedores" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnUsuarios" max="32767" attributes="0"/>
+                              <Component id="btnVisitas" max="32767" attributes="0"/>
+                              <Component id="btnProntuarios" min="-2" pref="180" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="263" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnMedicamentos" min="-2" pref="131" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnAtendimentos" min="-2" pref="131" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnUsuarios" min="-2" pref="131" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnVisitas" min="-2" pref="131" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnFornecedores" min="-2" pref="131" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnCampanhaDeVacina" min="-2" pref="131" max="-2" attributes="0"/>
-                          <Component id="btnProntuarios" min="-2" pref="131" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="lblTituloSistema" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Component id="lblTituloSistema" min="-2" pref="40" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnMedicamentos" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="btnAtendimentos" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="btnUsuarios" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="btnProntuarios" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnVisitas" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="btnCampanhaDeVacina" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="btnFornecedores" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="254" max="32767" attributes="0"/>
+              <Component id="btnAtendimentos" min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnCampanhaDeVacina" min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnFornecedores" min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnMedicamentos" min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnProntuarios" min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnUsuarios" min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnVisitas" min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace pref="71" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

@@ -86,9 +86,11 @@ public class TelaAlterarUsuario extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Email");
 
+        lblVerifyName.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         lblVerifyName.setForeground(new java.awt.Color(255, 0, 0));
         lblVerifyName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        lblVerifyEmail.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         lblVerifyEmail.setForeground(new java.awt.Color(255, 0, 0));
         lblVerifyEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
@@ -97,6 +99,7 @@ public class TelaAlterarUsuario extends javax.swing.JFrame {
 
         pswPassword.setEchoChar('*');
 
+        lblVerifyPassword.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         lblVerifyPassword.setForeground(new java.awt.Color(255, 0, 0));
         lblVerifyPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
@@ -105,6 +108,7 @@ public class TelaAlterarUsuario extends javax.swing.JFrame {
 
         pswRepeatPassword.setEchoChar('*');
 
+        lblVerifyRepeatPassword.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         lblVerifyRepeatPassword.setForeground(new java.awt.Color(255, 0, 0));
         lblVerifyRepeatPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
@@ -113,6 +117,7 @@ public class TelaAlterarUsuario extends javax.swing.JFrame {
 
         cbxAccessLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Parcial", "Total" }));
 
+        lblVerifyAccessLevel.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         lblVerifyAccessLevel.setForeground(new java.awt.Color(255, 0, 0));
         lblVerifyAccessLevel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
