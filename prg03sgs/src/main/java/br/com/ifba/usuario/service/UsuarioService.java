@@ -8,13 +8,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class UsuarioService implements UsuarioIService{
+public class UsuarioService implements UsuarioIService {
+
     //Injeção de dependência no Repository.
     private final UsuarioRepository usuarioRepository;
 
     @Override
     public Usuario save(Usuario usuario) throws RuntimeException {
-        return usuarioRepository.save(usuario);
+        if (usuario.getId() != null) {
+            throw new RuntimeException("Este usuário já existe");
+        } else {
+            return usuarioRepository.save(usuario);
+        }
     }
 
     @Override
@@ -25,6 +30,7 @@ public class UsuarioService implements UsuarioIService{
     @Override
     public void delete(Usuario usuario) throws RuntimeException {
         usuarioRepository.delete(usuario);
+
     }
 
     @Override
@@ -38,6 +44,11 @@ public class UsuarioService implements UsuarioIService{
     }
 
     @Override
+    public List<Usuario> findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCaseOrSenhaContainingIgnoreCaseOrNivelAcessoContainingIgnoreCase(String nome, String email, String senha, String nivelAcesso) throws RuntimeException {
+        return usuarioRepository.findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCaseOrSenhaContainingIgnoreCaseOrNivelAcessoContainingIgnoreCase(nome, email, senha, nivelAcesso);
+    }
+
+    @Override
     public List<Usuario> findByNome(String nome) throws RuntimeException {
         return usuarioRepository.findByNome(nome);
     }
@@ -46,4 +57,19 @@ public class UsuarioService implements UsuarioIService{
     public List<Usuario> findByEmail(String email) throws RuntimeException {
         return usuarioRepository.findByEmail(email);
     }
+
+    @Override
+    public List<Usuario> findBySenha(String senha) throws RuntimeException {
+        return usuarioRepository.findBySenha(senha);
+    }
+
+    @Override
+    public List<Usuario> findByNivelAcesso(String nivelAcesso) throws RuntimeException {
+        return usuarioRepository.findByNivelAcesso(nivelAcesso);
+    }
+
+    /*@Override
+    public List<Usuario> findByIdContainingOrNomeContainingIgnoreCaseOrEmailContainingIgnoreCaseOrSenhaContainingIgnoreCaseOrNivelAcessoContainingIgnoreCase(String id, String nome, String email, String senha, String nivelAcesso) throws RuntimeException {
+        return usuarioRepository.findByIdContainingOrNomeContainingIgnoreCaseOrEmailContainingIgnoreCaseOrSenhaContainingIgnoreCaseOrNivelAcessoContainingIgnoreCase(id, nome, email, senha, nivelAcesso);
+    }*/
 }

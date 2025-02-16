@@ -21,16 +21,17 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
     /**
      * Creates new form TelaAdicionarUsuario
      */
-    private TelaUsuario tU;
+    private TelaUsuario telaUsuario;
     private final UsuarioIController usuarioController;
-    
+
     {
         initComponents();
         setLocationRelativeTo(null);
     }
+
     //Vincula a TelaUsuario a esta, possibilitando que a tabela seja atualizada automaticamente após a inserção de um usuário.
-    public void vincularTela(TelaUsuario tU){
-        this.tU = tU;
+    public void vincularTela(TelaUsuario telaUsuario) {
+        this.telaUsuario = telaUsuario;
     }
 
     /**
@@ -42,7 +43,6 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
@@ -55,20 +55,16 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         pswPassword = new javax.swing.JPasswordField();
         pswRepeatPassword = new javax.swing.JPasswordField();
-        lblValidatePassword = new javax.swing.JLabel();
+        lblVerifyName = new javax.swing.JLabel();
+        lblVerifyEmail = new javax.swing.JLabel();
+        lblVerifyPassword = new javax.swing.JLabel();
+        lblVerifyRepeatPassword = new javax.swing.JLabel();
+        lblVerifyAccessLevel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("CRIAR USUÁRIO");
-
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Nome");
@@ -82,7 +78,7 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Nível de Acesso");
 
-        cbxAccessLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxAccessLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Parcial", "Total" }));
 
         btnSave.setText("Salvar");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -98,132 +94,192 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
 
         pswRepeatPassword.setEchoChar('*');
 
-        lblValidatePassword.setBackground(new java.awt.Color(255, 255, 255));
-        lblValidatePassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblValidatePassword.setText("...");
+        lblVerifyName.setForeground(new java.awt.Color(255, 0, 0));
+        lblVerifyName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(249, 249, 249)
-                        .addComponent(lblValidatePassword))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxAccessLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addComponent(jLabel3))
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                            .addComponent(pswPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pswRepeatPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName))))
-                .addContainerGap(84, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(258, 258, 258))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(247, 247, 247))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(47, 47, 47)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(pswPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(pswRepeatPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(lblValidatePassword)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbxAccessLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(54, 54, 54)
-                .addComponent(btnSave)
-                .addGap(55, 55, 55))
-        );
+        lblVerifyEmail.setForeground(new java.awt.Color(255, 0, 0));
+        lblVerifyEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        lblVerifyPassword.setForeground(new java.awt.Color(255, 0, 0));
+        lblVerifyPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        lblVerifyRepeatPassword.setForeground(new java.awt.Color(255, 0, 0));
+        lblVerifyRepeatPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        lblVerifyAccessLevel.setForeground(new java.awt.Color(255, 0, 0));
+        lblVerifyAccessLevel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblVerifyName, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblVerifyRepeatPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(pswRepeatPassword)
+                                    .addComponent(lblVerifyPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblVerifyEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtEmail)
+                                    .addComponent(pswPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxAccessLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblVerifyAccessLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(189, 189, 189))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(210, 210, 210))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblVerifyName, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblVerifyEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pswPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblVerifyPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pswRepeatPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblVerifyRepeatPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxAccessLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(lblVerifyAccessLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(btnSave)
+                .addGap(29, 29, 29))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
-
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         Usuario usuario = new Usuario();
+        boolean erro = false;
 
         usuario.setNome(txtName.getText());
         usuario.setEmail(txtEmail.getText());
         usuario.setSenha(new String(pswPassword.getPassword()));
-        
-        if(new String(pswPassword.getPassword()).equals(new String(pswRepeatPassword.getPassword()))){
-            lblValidatePassword.setText("As senhas coincidem!");
-        }else{
-            lblValidatePassword.setText("As senhas não coincidem!");
+        usuario.setNivelAcesso(cbxAccessLevel.getSelectedItem().toString());
+        //Verifica se o campo Nome está preenchido.
+        if (txtName.getText().equals("")) {
+            lblVerifyName.setText("Informe o nome!");
+            erro = true;
+        } else {
+            lblVerifyName.setText("");
         }
-        
-        try{
+        //Verifica se o campo E-mail está preenchido.
+        if (txtEmail.getText().equals("")) {
+            lblVerifyEmail.setText("Informe o e-mail!");
+            erro = true;
+        } else {
+            lblVerifyEmail.setText("");
+        }
+        //Verifica se o campo Senha está preenchido.
+        if (new String(pswPassword.getPassword()).equals("")) {
+            lblVerifyPassword.setText("Informe a senha!");
+            erro = true;
+        } else {
+            lblVerifyPassword.setText("");
+        }
+        //Verifica se há um Nível de Acesso selecionado.
+        if (cbxAccessLevel.getSelectedItem().equals("-")) {
+            lblVerifyAccessLevel.setText("Selecione o nível de acesso!");
+            erro = true;
+        } else {
+            lblVerifyAccessLevel.setText("");
+        }
+        //Verifica se o campo Repetir Senha está vazio ou com uma senha não correspondente.
+        if (new String(pswRepeatPassword.getPassword()).equals("")) {
+            lblVerifyRepeatPassword.setText("Repita a senha!");
+            erro = true;
+        } else if (this.validarSenha(usuario) == false && !new String(pswRepeatPassword.getPassword()).equals("")) {
+            lblVerifyRepeatPassword.setText("As senhas não correspondem!");
+            erro = true;
+        } else {
+            lblVerifyRepeatPassword.setText("");
+        }
+        //Se houver algum erro (Campo não preenchido ou senha não correspondente), o usuário não será criado.
+        if (erro == true) {
+            return;
+        }
+
+        try {
             usuarioController.save(usuario);
             JOptionPane.showMessageDialog(null, "Usuário criado com sucesso!");
-        }catch(Exception error){
-            JOptionPane.showMessageDialog(null, error, "Erro", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(null, error, "Erro ao criar usuário", JOptionPane.ERROR_MESSAGE);
         }
 
         this.limparCampos();
-        tU.atualizarTabela();
-        
+        telaUsuario.atualizarTabela();
         dispose();
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    //Verifica se as senhas digitadas nos campos "Senha" e "Repetir Senha" correspondem.
+    private Boolean validarSenha(Usuario usuario) {
+        if (!usuario.getSenha().equals(new String(pswRepeatPassword.getPassword()))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     //Limpa os campos de texto após o cadastro.
-    private void limparCampos(){
+    private void limparCampos() {
         txtName.setText("");
         txtEmail.setText("");
         pswPassword.setText("");
         pswRepeatPassword.setText("");
+        cbxAccessLevel.setSelectedItem("-");
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -257,8 +313,8 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
             public void run() {
                 //Injeção de dependência no Controller.
                 UsuarioIController usuarioController = null;
-                TelaCriarUsuario tCU = new TelaCriarUsuario(usuarioController);
-                tCU.setVisible(true);
+                TelaCriarUsuario telaCriarUsuario = new TelaCriarUsuario(usuarioController);
+                telaCriarUsuario.setVisible(true);
             }
         });
     }
@@ -272,8 +328,11 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblValidatePassword;
+    private javax.swing.JLabel lblVerifyAccessLevel;
+    private javax.swing.JLabel lblVerifyEmail;
+    private javax.swing.JLabel lblVerifyName;
+    private javax.swing.JLabel lblVerifyPassword;
+    private javax.swing.JLabel lblVerifyRepeatPassword;
     private javax.swing.JPasswordField pswPassword;
     private javax.swing.JPasswordField pswRepeatPassword;
     private javax.swing.JTextField txtEmail;

@@ -7,9 +7,11 @@ package br.com.ifba.usuario.view;
 import br.com.ifba.usuario.controller.UsuarioIController;
 import br.com.ifba.usuario.entity.Usuario;
 import jakarta.annotation.PostConstruct;
+import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
-import javax.swing.table.TableRowSorter;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -25,16 +27,36 @@ public class TelaUsuario extends javax.swing.JFrame {
      * Creates new form TelaUsuario
      */
     private final UsuarioIController usuarioController;
-    
+
     {
         initComponents();
         setLocationRelativeTo(null);
     }
+
     //A tela inicial é carregada com todos os usuários cadastrados na tabela, e com os botões Alterar e Remover desabilitados (Eles só estarão disponíveis caso um usuário seja selecionado na tabela).
     @PostConstruct
-    public void carregarTela(){
+    public void carregarTela() {
+        //Permite a seleção de múltiplas linhas na tabela.
+        tblUsers.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        //Realiza a contagem de linhas na tabela.
+        tblUsers.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                int linhasSelecionadas = tblUsers.getSelectedRowCount();
+                lblSelectedUsers.setText(Integer.toString(linhasSelecionadas));
+
+                if (linhasSelecionadas == 1) {
+                    desabilitarBotaoCriar();
+                } else if (linhasSelecionadas > 1) {
+                    desabilitarBotoesCriarAlterar();
+                } else {
+                    desabilitarBotoesAlterarRemover();
+                }
+            }
+        });
+        this.requestFocusInWindow();
         this.atualizarTabela();
-        this.desabilitarBotoes();
+        this.desabilitarBotoesAlterarRemover();
     }
 
     /**
@@ -46,23 +68,19 @@ public class TelaUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlMainBackground = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUsers = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
-        txtRead = new javax.swing.JTextField();
-        jPanel5 = new javax.swing.JPanel();
         btnCreate = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        txtRead = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        lblSelectedUsers = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        pnlMainBackground.setBackground(new java.awt.Color(255, 255, 255));
-        pnlMainBackground.addMouseListener(new java.awt.event.MouseAdapter() {
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnlMainBackgroundMouseClicked(evt);
+                formMouseClicked(evt);
             }
         });
 
@@ -80,39 +98,6 @@ public class TelaUsuario extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tblUsers);
-
-        jPanel2.setBackground(new java.awt.Color(0, 0, 255));
-
-        txtRead.setText("Pesquisar...");
-        txtRead.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtReadMouseClicked(evt);
-            }
-        });
-        txtRead.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtReadKeyReleased(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(txtRead, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(txtRead, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-
-        jPanel5.setBackground(new java.awt.Color(255, 0, 0));
 
         btnCreate.setText("Criar");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -135,193 +120,210 @@ public class TelaUsuario extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(58, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(112, Short.MAX_VALUE)
-                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110))
-        );
+        txtRead.setText("Pesquisar...");
+        txtRead.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtReadMouseClicked(evt);
+            }
+        });
+        txtRead.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtReadKeyReleased(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setText("Usuários selecionados:");
 
-        javax.swing.GroupLayout pnlMainBackgroundLayout = new javax.swing.GroupLayout(pnlMainBackground);
-        pnlMainBackground.setLayout(pnlMainBackgroundLayout);
-        pnlMainBackgroundLayout.setHorizontalGroup(
-            pnlMainBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMainBackgroundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlMainBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlMainBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        pnlMainBackgroundLayout.setVerticalGroup(
-            pnlMainBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMainBackgroundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlMainBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlMainBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        lblSelectedUsers.setText("-");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMainBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblSelectedUsers))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtRead)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(161, 161, 161))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMainBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(txtRead, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnDelete))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lblSelectedUsers))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //Abre a tela para a criação de um usuário.
+    //Abre a tela para a criação de um usuário. Somente um usuário pode ser criado por vez.
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         this.txtRead.setText("Pesquisar...");
         this.tblUsers.clearSelection();
-        this.desabilitarBotoes();
 
-        TelaCriarUsuario tCU = new TelaCriarUsuario(usuarioController);
-        tCU.vincularTela(this);
-        tCU.setVisible(true);
+        TelaCriarUsuario telaCriarUsuario = new TelaCriarUsuario(usuarioController);
+        telaCriarUsuario.vincularTela(this);
+        telaCriarUsuario.setVisible(true);
     }//GEN-LAST:event_btnCreateActionPerformed
-    //Abre a tela para a alteração das informações de um usuário.
+    //Abre a tela para a alteração das informações de um usuário. Somente um usuário pode ser editado por vez.
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        Usuario usuarioSelecionado = UsuarioSelecionadoTabela();
+        int linhaSelecionada = tblUsers.getSelectedRow();
+
+        Usuario usuarioSelecionado = UsuarioSelecionadoTabela(linhaSelecionada);
 
         this.txtRead.setText("Pesquisar...");
         this.tblUsers.clearSelection();
-        this.desabilitarBotoes();
 
-        TelaAlterarUsuario tAU = new TelaAlterarUsuario(usuarioController);
-        tAU.vincularTela(this);
-        tAU.capturarInformacoes(usuarioSelecionado);
-        tAU.setVisible(true);
+        TelaAlterarUsuario telaAlterarUsuario = new TelaAlterarUsuario(usuarioController);
+        telaAlterarUsuario.vincularTela(this);
+        telaAlterarUsuario.capturarInformacoes(usuarioSelecionado);
+        telaAlterarUsuario.setVisible(true);
     }//GEN-LAST:event_btnUpdateActionPerformed
-    //Abre um JOptionPane perguntando se deseja remover o usuário selecionado na tabela.
+    //Abre um JOptionPane perguntando se deseja remover um ou mais usuários selecionados na tabela.
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        Usuario usuarioSelecionado = this.UsuarioSelecionadoTabela();
+        int[] linhasSelecionadas = tblUsers.getSelectedRows();
 
         this.txtRead.setText("Pesquisar...");
         this.tblUsers.clearSelection();
-        this.desabilitarBotoes();
 
-        int jOP = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja remover esse usuário?", "Atenção!", JOptionPane.YES_NO_OPTION);
+        if (linhasSelecionadas.length == 1) {
+            int jOptionPane = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja remover este usuário?", "Atenção!", JOptionPane.YES_NO_OPTION);
 
-        if (jOP == JOptionPane.YES_OPTION) {
-            try {
-                usuarioController.delete(usuarioSelecionado);
-                JOptionPane.showMessageDialog(null, "Usuário removido com sucesso!");
-            } catch (Exception error) {
-                JOptionPane.showMessageDialog(null, error, "Erro", JOptionPane.ERROR_MESSAGE);
+            if (jOptionPane == JOptionPane.YES_OPTION) {
+                try {
+                    for (int i = 0; i < linhasSelecionadas.length; i++) {
+                        int indiceLinhaTabela = linhasSelecionadas[i];
+                        Usuario usuarioSelecionado = UsuarioSelecionadoTabela(indiceLinhaTabela);
+                        usuarioController.delete(usuarioSelecionado);
+                    }
+
+                    JOptionPane.showMessageDialog(null, "Usuário removido com sucesso!");
+                    this.atualizarTabela();
+                } catch (Exception error) {
+                    JOptionPane.showMessageDialog(null, error, "Erro ao remover usuário", JOptionPane.ERROR_MESSAGE);
+                }
             }
+        } else if (linhasSelecionadas.length > 0) {
+            int jOptionPane = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja remover estes " + linhasSelecionadas.length + " usuários?", "Atenção!", JOptionPane.YES_NO_OPTION);
 
-            this.atualizarTabela();
+            if (jOptionPane == JOptionPane.YES_OPTION) {
+                try {
+                    for (int i = 0; i < linhasSelecionadas.length; i++) {
+                        int indiceLinhaTabela = linhasSelecionadas[i];
+                        Usuario usuariosSelecionados = UsuarioSelecionadoTabela(indiceLinhaTabela);
+                        usuarioController.delete(usuariosSelecionados);
+                    }
+
+                    JOptionPane.showMessageDialog(null, linhasSelecionadas.length + " usuários removidos com sucesso!");
+                    this.atualizarTabela();
+                } catch (Exception error) {
+                    JOptionPane.showMessageDialog(null, error, "Erro ao remover usuário", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
     //Faz a varredura do texto inserido na barra de pesquisa e exibe os resultados correspondentes.
     private void txtReadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtReadKeyReleased
-        this.tblUsers.clearSelection();
-        this.desabilitarBotoes();
+        String textoPesquisado = txtRead.getText();
 
-        TabelaUsuarios tGC = (TabelaUsuarios) tblUsers.getModel();
-        TableRowSorter<TabelaUsuarios> tRS = new TableRowSorter<>(tGC);
+        if (!textoPesquisado.isEmpty()) {
+            List<Usuario> usuariosEncontrados = usuarioController.findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCaseOrSenhaContainingIgnoreCaseOrNivelAcessoContainingIgnoreCase(textoPesquisado, textoPesquisado, textoPesquisado, textoPesquisado);
 
-        tblUsers.setRowSorter(tRS);
-        tRS.setRowFilter(RowFilter.regexFilter("(?i)" + txtRead.getText()));
+            TabelaUsuarios tabelaUsuarios = new TabelaUsuarios(usuariosEncontrados);
+            tblUsers.setModel(tabelaUsuarios);
+        } else {
+            this.atualizarTabela();
+        }
     }//GEN-LAST:event_txtReadKeyReleased
     //Seleciona a barra de pesquisa para inserção de texto a ser pesquisado.
     private void txtReadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtReadMouseClicked
+        this.desabilitarTodosBotoes();
         this.tblUsers.clearSelection();
-        this.desabilitarBotoes();
         this.txtRead.setText("");
     }//GEN-LAST:event_txtReadMouseClicked
-    //Captura as informações do usuário selecionado na tabela.
+    //Captura o índice da linha de um usuário selecionado em determinada linha na tabela e passa para o método "UsuarioSelecionadoTabela".
     private void tblUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsersMouseClicked
         this.txtRead.setText("Pesquisar...");
-
-        if (this.UsuarioSelecionadoTabela() == null) {
-            this.desabilitarBotoes();
-        }
-
-        this.habilitarBotoes();
-        Usuario usuario = this.UsuarioSelecionadoTabela();
-    }//GEN-LAST:event_tblUsersMouseClicked
-    //Retira a seleção da tabela, da caixa de pesquisa e desabilita os botões de Alterar e Remover.
-    private void pnlMainBackgroundMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMainBackgroundMouseClicked
-        this.tblUsers.clearSelection();
-        this.desabilitarBotoes();
-        this.txtRead.setText("Pesquisar...");
-    }//GEN-LAST:event_pnlMainBackgroundMouseClicked
-    //Atualiza a tabela toda vez que um usuario é adicionado, alterado ou removido.
-    public void atualizarTabela() {
-        TabelaUsuarios tGC = new TabelaUsuarios(usuarioController.findAll());
-        tblUsers.setModel(tGC);
-    }
-
-    //Obtém as informações de um usuario cadastrado que está em determinada linha na tabela.
-    public Usuario UsuarioSelecionadoTabela() {
         int linhaSelecionada = tblUsers.getSelectedRow();
 
-        if (linhaSelecionada >= 0) {
-            TabelaUsuarios tU = (TabelaUsuarios) tblUsers.getModel();
-
-            Usuario usuario = tU.getObjetoUsuario(linhaSelecionada);
-            return usuario;
-        } else {
-            return null;
-        }
+        Usuario usuario = this.UsuarioSelecionadoTabela(linhaSelecionada);
+    }//GEN-LAST:event_tblUsersMouseClicked
+    //Retira a seleção da tabela, da caixa de pesquisa e desabilita os botões "Alterar" e "Remover".
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        this.requestFocusInWindow();
+        this.desabilitarBotoesAlterarRemover();
+        this.tblUsers.clearSelection();
+        this.txtRead.setText("Pesquisar...");
+        this.atualizarTabela();
+    }//GEN-LAST:event_formMouseClicked
+    //Atualiza a tabela toda vez que um usuario é adicionado, alterado ou removido.
+    public void atualizarTabela() {
+        TabelaUsuarios tabelaUsuarios = new TabelaUsuarios(usuarioController.findAll());
+        tblUsers.setModel(tabelaUsuarios);
     }
 
-    //Habilita os botões Alterar e Remover (Disponíveis somente se um usuário estiver selecionado na tabela).
-    private void habilitarBotoes() {
-        this.btnUpdate.setEnabled(true);
-        this.btnDelete.setEnabled(true);
+    //Obtém as informações de um ou mais usuarios cadastrados a partir do(s) índice(s) da(s) linha(s) selecionada(s) (Método relacionado ao Evento tblUsersMouseClicked).
+    public Usuario UsuarioSelecionadoTabela(int indiceLinhaTabela) {
+        TabelaUsuarios tabelaUsuarios = (TabelaUsuarios) tblUsers.getModel();
+        Usuario usuario = tabelaUsuarios.getObjetoUsuario(indiceLinhaTabela);
+        return usuario;
     }
 
-    //Desabilita os botões Alterar e Remover.
-    private void desabilitarBotoes() {
-        this.btnUpdate.setEnabled(false);
-        this.btnDelete.setEnabled(false);
+    //Para quando um usuário está selecionado na tabela.
+    private void desabilitarBotaoCriar() {
+        btnCreate.setEnabled(false);
+        btnUpdate.setEnabled(true);
+        btnDelete.setEnabled(true);
     }
-    
+
+    //Para quando mais de um usuário está selecionado na tabela.
+    private void desabilitarBotoesCriarAlterar() {
+        btnCreate.setEnabled(false);
+        btnUpdate.setEnabled(false);
+        btnDelete.setEnabled(true);
+    }
+
+    //Para quando nenhum usuário está selecionado na tabela.
+    private void desabilitarBotoesAlterarRemover() {
+        btnCreate.setEnabled(true);
+        btnUpdate.setEnabled(false);
+        btnDelete.setEnabled(false);
+    }
+
+    //Para quando a caixa de pesquisa está selecionada.
+    private void desabilitarTodosBotoes() {
+        btnCreate.setEnabled(false);
+        btnUpdate.setEnabled(false);
+        btnDelete.setEnabled(false);
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -355,8 +357,8 @@ public class TelaUsuario extends javax.swing.JFrame {
             public void run() {
                 //Injeção de dependência no Controller.
                 UsuarioIController usuarioController = null;
-                TelaUsuario tU = new TelaUsuario(usuarioController);
-                tU.setVisible(true);
+                TelaUsuario telaUsuario = new TelaUsuario(usuarioController);
+                telaUsuario.setVisible(true);
             }
         });
     }
@@ -365,11 +367,9 @@ public class TelaUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel pnlMainBackground;
+    private javax.swing.JLabel lblSelectedUsers;
     private javax.swing.JTable tblUsers;
     private javax.swing.JTextField txtRead;
     // End of variables declaration//GEN-END:variables
