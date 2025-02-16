@@ -38,6 +38,12 @@ public class Visita extends PersistenceEntity implements Serializable{
     @Column(name = "id_visita", nullable = false, unique = true)
     @Getter @Setter private int idVisita;
     
+    @Column(name = "cabecalho_ficha", nullable = false)
+    @Getter @Setter private String cabecalho;
+    
+    @Column(name = "motivo_visita", nullable = false)
+    @Getter @Setter private String motivoVisita;
+    
     @Column(name = "data_visita", nullable = false)
     @Getter @Setter private Date dataVisita;
     
@@ -47,9 +53,19 @@ public class Visita extends PersistenceEntity implements Serializable{
     @Column(name = "responsavel_registro", nullable = false)
     @Getter @Setter private String responsavelVisita;//Atributo p/ guardar o nome da pessoa que fez a visita.
     
+    @Column(name = "responsaveis_conferir", nullable = false)
+    @Getter @Setter private String conferidoPor;
+    
+    @Column(name = "responsaveis_digitacao", nullable = false)
+    @Getter @Setter private String digitadoPor;
+    
+    @Column(name = "numero_ficha", nullable = false, unique = true)
+    @Getter @Setter private int numeroFicha;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     
     private FichaVisita fichaDeVisita;//Objeto do tipo FichaVisita para obter dados da ficha do usuário visitado.
     

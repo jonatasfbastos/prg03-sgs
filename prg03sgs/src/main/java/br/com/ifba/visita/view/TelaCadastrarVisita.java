@@ -5,7 +5,12 @@
 package br.com.ifba.visita.view;
 
 import br.com.ifba.visita.controller.VisitaIController;
+import br.com.ifba.visita.entity.Visita;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,6 +22,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class TelaCadastrarVisita extends javax.swing.JFrame {
 
+    @Autowired
     private final VisitaIController visitaController;
     
     {
@@ -38,7 +44,7 @@ public class TelaCadastrarVisita extends javax.swing.JFrame {
         lblInfoNomeDigitador = new javax.swing.JLabel();
         lblDataVisita = new javax.swing.JLabel();
         txtNomeDigitador = new javax.swing.JTextField();
-        txtIdCurso = new javax.swing.JTextField();
+        txtDataVisita = new javax.swing.JTextField();
         lblConferidoPor = new javax.swing.JLabel();
         txtConferidoPor = new javax.swing.JTextField();
         lblNumFolha = new javax.swing.JLabel();
@@ -70,9 +76,9 @@ public class TelaCadastrarVisita extends javax.swing.JFrame {
             }
         });
 
-        txtIdCurso.addActionListener(new java.awt.event.ActionListener() {
+        txtDataVisita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdCursoActionPerformed(evt);
+                txtDataVisitaActionPerformed(evt);
             }
         });
 
@@ -98,36 +104,39 @@ public class TelaCadastrarVisita extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblInfoNomeDigitador)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtNomeDigitador, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblNumFolha)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtNumFolha, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(99, 99, 99)
+                                        .addComponent(btnEnviaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblConferidoPor)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtConferidoPor, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(lblDataVisita)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDataVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(83, Short.MAX_VALUE)
                 .addComponent(lblInfoCadastro)
                 .addGap(79, 79, 79))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblInfoNomeDigitador)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtNomeDigitador, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lblDataVisita)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtIdCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNumFolha)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNumFolha, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(99, 99, 99)
-                                .addComponent(btnEnviaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblConferidoPor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtConferidoPor, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +150,7 @@ public class TelaCadastrarVisita extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDataVisita)
-                    .addComponent(txtIdCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDataVisita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblConferidoPor)
@@ -160,6 +169,21 @@ public class TelaCadastrarVisita extends javax.swing.JFrame {
 
     private void btnEnviaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviaCadastroActionPerformed
         // TODO add your handling code here:
+     
+        Visita visita = new Visita();
+        String digitadoPor = txtNomeDigitador.getText();
+        LocalDateTime dataVisita = LocalDateTime.parse(txtDataVisita.getText(), 
+                DateTimeFormatter.ofPattern("dd/mm/yyyy"));
+        String conferidoPor = txtConferidoPor.getText();
+        int numeroFolha = Integer.parseInt(txtNumFolha.getText());
+        
+        if(digitadoPor.isEmpty() || conferidoPor.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Campos obrigatórios não preenchidos!", "Erro!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }else{
+            visitaController.save(visita);
+            JOptionPane.showMessageDialog(this, "Visita salva com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        }
 
     }//GEN-LAST:event_btnEnviaCadastroActionPerformed
 
@@ -168,10 +192,10 @@ public class TelaCadastrarVisita extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtNomeDigitadorActionPerformed
 
-    private void txtIdCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdCursoActionPerformed
+    private void txtDataVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataVisitaActionPerformed
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_txtIdCursoActionPerformed
+    }//GEN-LAST:event_txtDataVisitaActionPerformed
 
     private void txtConferidoPorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConferidoPorActionPerformed
         // TODO add your handling code here:
@@ -226,7 +250,7 @@ public class TelaCadastrarVisita extends javax.swing.JFrame {
     private javax.swing.JLabel lblInfoNomeDigitador;
     private javax.swing.JLabel lblNumFolha;
     private javax.swing.JTextField txtConferidoPor;
-    private javax.swing.JTextField txtIdCurso;
+    private javax.swing.JTextField txtDataVisita;
     private javax.swing.JTextField txtNomeDigitador;
     private javax.swing.JTextField txtNumFolha;
     // End of variables declaration//GEN-END:variables

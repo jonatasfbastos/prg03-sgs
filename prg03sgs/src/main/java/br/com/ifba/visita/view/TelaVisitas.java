@@ -4,9 +4,17 @@
  */
 package br.com.ifba.visita.view;
 
+import br.com.ifba.Prg03sgsApplication;
 import br.com.ifba.visita.controller.VisitaIController;
+import br.com.ifba.visita.entity.Visita;
 import jakarta.annotation.PostConstruct;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,17 +23,32 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-@RequiredArgsConstructor
 public class TelaVisitas extends javax.swing.JFrame {
 
-    private final VisitaIController visitaController;
+    @Autowired
+    private VisitaIController visitaController;
     
-    /**
-     * Creates new form TelaInicialGestaoVisitas
-     */
-    {
+    private ApplicationContext context;
+    
+    public TelaVisitas() {
         initComponents();
-        setLocationRelativeTo(null);
+    }
+    
+    private void listarTabela() {
+  
+        List<Visita> visitas = visitaController.findAll();
+   
+        DefaultTableModel tableModel = (DefaultTableModel) tblVisitas.getModel();
+        tableModel.setRowCount(0);
+
+        for(Visita visita : visitas) {
+            tableModel.addRow(new Object[]{
+            visita.getDigitadoPor(),
+            visita.getDataVisita(),
+            visita.getConferidoPor(),
+            visita.getNumeroFicha()
+            });
+        }
     }
 
     /**
@@ -43,6 +66,7 @@ public class TelaVisitas extends javax.swing.JFrame {
         btnRemoverVisita = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVisitas = new javax.swing.JTable();
+        btnCadastrarFichaVisita = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,6 +119,15 @@ public class TelaVisitas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblVisitas);
 
+        btnCadastrarFichaVisita.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btnCadastrarFichaVisita.setText("CADASTRAR FICHA");
+        btnCadastrarFichaVisita.setBorder(null);
+        btnCadastrarFichaVisita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarFichaVisitaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,12 +139,13 @@ public class TelaVisitas extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtPegaBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCadastrarVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCadastrarVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEditarVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnRemoverVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 126, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCadastrarFichaVisita, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -122,10 +156,11 @@ public class TelaVisitas extends javax.swing.JFrame {
                     .addComponent(txtPegaBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCadastrarVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEditarVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRemoverVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRemoverVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCadastrarFichaVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -137,21 +172,34 @@ public class TelaVisitas extends javax.swing.JFrame {
 
     private void btnCadastrarVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVisitaActionPerformed
         // TODO add your handling code here:
+        ConfigurableApplicationContext context = (ConfigurableApplicationContext) 
+            SpringApplication.run(Prg03sgsApplication.class);
         
+        TelaCadastrarVisita telaCadastrarVi = context.getBean(TelaCadastrarVisita.class);
+        telaCadastrarVi.setDefaultCloseOperation(TelaVisitas.DISPOSE_ON_CLOSE);
+        telaCadastrarVi.setVisible(true);
     }//GEN-LAST:event_btnCadastrarVisitaActionPerformed
 
     private void btnEditarVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarVisitaActionPerformed
         // TODO add your handling code here:
-
+        ConfigurableApplicationContext context = (ConfigurableApplicationContext) 
+            SpringApplication.run(Prg03sgsApplication.class);
+        
+        TelaEditarVisita telaEditarVi = context.getBean(TelaEditarVisita.class);
+        telaEditarVi.setDefaultCloseOperation(TelaVisitas.DISPOSE_ON_CLOSE);
+        telaEditarVi.setVisible(true);
        
-
     }//GEN-LAST:event_btnEditarVisitaActionPerformed
 
     private void btnRemoverVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVisitaActionPerformed
         // TODO add your handling code here:
 
-
     }//GEN-LAST:event_btnRemoverVisitaActionPerformed
+
+    //Botão para chamar a tela de cadastrar uma ficha.
+    private void btnCadastrarFichaVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarFichaVisitaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastrarFichaVisitaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,14 +234,13 @@ public class TelaVisitas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                VisitaIController visitaController = null;
-                TelaVisitas telaVis = new TelaVisitas(visitaController);
-                telaVis.setVisible(true);
+                new TelaVisitas().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastrarFichaVisita;
     private javax.swing.JButton btnCadastrarVisita;
     private javax.swing.JButton btnEditarVisita;
     private javax.swing.JButton btnRemoverVisita;

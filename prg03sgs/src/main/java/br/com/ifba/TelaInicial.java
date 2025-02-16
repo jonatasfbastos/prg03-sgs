@@ -37,7 +37,7 @@ public class TelaInicial extends javax.swing.JFrame {
     
     private final MedicamentoIController medicamentoController;
     private final UsuarioIController usuarioController;
-    private final VisitaIController visitaController;
+    //private final VisitaIController visitaController;
     private final FornecedorIController fornecedorController;
     
     @Autowired
@@ -213,8 +213,9 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void btnVisitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisitasActionPerformed
         // TODO add your handling code here:
-        TelaVisitas telaVisitas = new TelaVisitas(visitaController);
-        telaVisitas.setVisible(true);
+        TelaVisitas telaVisita = new TelaVisitas();
+        telaVisita.setDefaultCloseOperation(TelaInicial.DISPOSE_ON_CLOSE);
+        telaVisita.setVisible(true);
         
     }//GEN-LAST:event_btnVisitasActionPerformed
 
@@ -265,9 +266,8 @@ public class TelaInicial extends javax.swing.JFrame {
             public void run() {
                  MedicamentoIController medicamentoController = null;
                  UsuarioIController usuarioController = null;
-                 VisitaIController visitaController = null;
                  FornecedorIController fornecedorController = null;
-                 TelaInicial telaInicial = new TelaInicial(medicamentoController, usuarioController, visitaController, fornecedorController);
+                 TelaInicial telaInicial = new TelaInicial(medicamentoController, usuarioController, fornecedorController);
                  telaInicial.setVisible(true);
             } 
         });
