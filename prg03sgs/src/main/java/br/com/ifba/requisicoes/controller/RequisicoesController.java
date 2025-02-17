@@ -43,8 +43,4 @@ public class RequisicoesController implements RequisicoesIController{
         return requisicoesIService.findById(id);
     }
 
-    @Override
-    public List<Requisicoes> findByNomePaciente(String nomePaciente) throws RuntimeException {
-        return requisicoesIService.findByNomePaciente(nomePaciente);
-    }
 }

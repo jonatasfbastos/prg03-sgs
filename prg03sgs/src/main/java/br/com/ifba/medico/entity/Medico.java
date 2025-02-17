@@ -6,8 +6,11 @@ package br.com.ifba.medico.entity;
 
 import br.com.ifba.funcionarios.entity.Funcionarios;
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
+import br.com.ifba.requisicoes.entity.Requisicoes;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -28,7 +31,9 @@ public class Medico extends PersistenceEntity implements Serializable{
     @Getter @Setter private String especialidade;
     
     @OneToOne
-    @JoinColumn(name = "fucnionario_id", nullable = false)
-    
+    @JoinColumn(name = "fucnionario_id", nullable = false)    
     private Funcionarios funcionarios;
+    
+    @OneToOne(mappedBy = "medico", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Getter @Setter private Requisicoes requisicoes;
 }

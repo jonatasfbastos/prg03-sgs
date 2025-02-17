@@ -5,8 +5,12 @@
 package br.com.ifba.requisicoes.entity;
 
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
+import br.com.ifba.medico.entity.Medico;
+import br.com.ifba.paciente.entity.Paciente;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -25,17 +29,13 @@ import lombok.Setter;
 
 
 public class Requisicoes extends PersistenceEntity implements Serializable{
-    @Column(name = "nome_paciente", nullable = false)
-    @Getter @Setter private String nomePaciente;
-
-    @Column(name = "id_paciente", nullable = false)
-    @Getter @Setter private Long idPaciente;
+    @OneToOne
+    @JoinColumn(name = "paciente_id", nullable = false, unique = true)
+    @Getter @Setter private Paciente paciente;
     
-    @Column(name = "nome_funcionario", nullable = false)
-    @Getter @Setter private String nomeFuncionario;
-    
-    @Column(name = "id_funcionario", nullable = false)
-    @Getter @Setter private Long idFuncionario;
+    @OneToOne
+    @JoinColumn(name = "medico_id", nullable = false, unique = true)
+    @Getter @Setter private Medico medico;   
     
     @Column(name = "data_hora")
     @Getter private LocalDateTime dataHora;
@@ -45,4 +45,5 @@ public class Requisicoes extends PersistenceEntity implements Serializable{
     
     @Column(name = "observações")
     @Getter @Setter private String observacoes;
+    
 }

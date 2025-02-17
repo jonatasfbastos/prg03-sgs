@@ -66,14 +66,5 @@ public class RequisicoesService implements RequisicoesIService{
         }
     }
     
-    @Override
-    public List<Requisicoes> findByNomePaciente(String nomePaciente) {
-        //Verifica se o nome fornecido é nulo, caso seja, lança uma exceção informando que o nome não foi preenchido
-        if(nomePaciente == null || nomePaciente.trim().isEmpty()){
-            throw new RuntimeException ("Nome não preenchido");
-        } else {
-            //Retorna uma lista de atendimentos encontrados pelo nome utilizando o atendimentoRepository
-            return requisicoesRepository.findByNomePaciente(nomePaciente);
-        }
-    }
+    
 }

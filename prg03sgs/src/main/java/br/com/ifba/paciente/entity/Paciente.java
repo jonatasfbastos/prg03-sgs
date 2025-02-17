@@ -6,6 +6,7 @@ package br.com.ifba.paciente.entity;
 
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
 import br.com.ifba.prontuario.entity.Prontuario;
+import br.com.ifba.requisicoes.entity.Requisicoes;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -56,4 +57,8 @@ public class Paciente extends PersistenceEntity implements Serializable {
     
     @OneToOne(mappedBy = "paciente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Getter @Setter private Prontuario prontuario;
+    
+    @OneToOne(mappedBy = "paciente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Getter @Setter private Requisicoes requisicoes;
+    
 }

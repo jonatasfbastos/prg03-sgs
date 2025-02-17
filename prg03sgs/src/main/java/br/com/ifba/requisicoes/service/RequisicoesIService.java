@@ -22,6 +22,6 @@ public interface RequisicoesIService {
     
     public abstract Requisicoes findById(Long id);
     
-    public abstract List<Requisicoes> findByNomePaciente(String nomePaciente);
+    
     
 }

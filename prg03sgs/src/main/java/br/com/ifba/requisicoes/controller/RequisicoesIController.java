@@ -17,5 +17,5 @@ public interface RequisicoesIController {
     public abstract Requisicoes update(Requisicoes requisicoes);
     public abstract void delete(Requisicoes requisicoes);
     public abstract Requisicoes findById(Long id);
-    public abstract List<Requisicoes> findByNomePaciente(String nomePaciente);
+
 }
