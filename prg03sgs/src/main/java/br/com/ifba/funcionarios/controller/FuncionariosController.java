@@ -96,4 +96,15 @@ public class FuncionariosController implements FuncionariosIController {
     public Funcionarios findById(Long id) throws RuntimeException {
         return funcionariosIService.findById(id);
     }
+    
+    /**
+     * Método para buscar um funcionário pelo seu Cpf.
+     * @param cpf Cpf do funcionário.
+     * @return Objeto do funcionário correspondente ao Cpf fornecido.
+     * @throws RuntimeException caso o funcionário não seja encontrado.
+     */
+    @Override
+    public Funcionarios findByCpf(String cpf) throws RuntimeException {
+        return funcionariosIService.findByCpf(cpf);
+    }
 }

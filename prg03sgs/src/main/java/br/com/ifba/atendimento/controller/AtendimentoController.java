@@ -46,18 +46,5 @@ public class AtendimentoController implements AtendimentoIController{
     public Atendimento findById(Long id) throws RuntimeException {
         return atendimentoIService.findById(id);
     }
-
-    @Override
-    public List<Atendimento> findByNomeFuncionario(String nomeFuncionario) throws RuntimeException {
-        return atendimentoIService.findByNomeFuncionario(nomeFuncionario);
-    }
-
-    @Override
-    public List<Atendimento> findByNomeFuncionarioAndDataHoraInicioBetween(
-            String nomeFuncionario, LocalDateTime dataHoraInicio, LocalDateTime dataHoraFim) 
-            throws RuntimeException {
-        return atendimentoIService.findByNomeFuncionarioAndDataHoraInicioBetween(
-                nomeFuncionario, dataHoraInicio, dataHoraFim);
-    }
     
 }
