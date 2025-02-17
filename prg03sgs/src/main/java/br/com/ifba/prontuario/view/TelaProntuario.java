@@ -5,9 +5,13 @@
 package br.com.ifba.prontuario.view;
 
 import br.com.ifba.Prg03sgsApplication;
+import br.com.ifba.paciente.entity.Paciente;
 import br.com.ifba.prontuario.controller.ProntuarioIController;
 import br.com.ifba.prontuario.entity.Prontuario;
+import jakarta.annotation.PostConstruct;
+import jakarta.persistence.Entity;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -34,6 +38,11 @@ public class TelaProntuario extends javax.swing.JFrame {
     public TelaProntuario() {
         initComponents();
     }
+    
+    @PostConstruct
+    public void init() {
+        mostrarTabela();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,9 +54,7 @@ public class TelaProntuario extends javax.swing.JFrame {
     private void initComponents() {
 
         lblTitle1 = new javax.swing.JLabel();
-        btnEditar = new javax.swing.JButton();
-        btnCriar1 = new javax.swing.JButton();
-        btnAtualizar1 = new javax.swing.JButton();
+        btnAbrir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -59,34 +66,16 @@ public class TelaProntuario extends javax.swing.JFrame {
         lblTitle1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Prontuario");
-        getContentPane().add(lblTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 120, -1));
+        getContentPane().add(lblTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 40));
 
-        btnEditar.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btnEditar.setText("Editar");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+        btnAbrir.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        btnAbrir.setText("Abrir");
+        btnAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
+                btnAbrirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 160, 40));
-
-        btnCriar1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btnCriar1.setText("Criar");
-        btnCriar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCriar1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnCriar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 160, 40));
-
-        btnAtualizar1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btnAtualizar1.setText("Atualizar");
-        btnAtualizar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtualizar1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnAtualizar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 160, 40));
+        getContentPane().add(btnAbrir, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 150, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -99,7 +88,7 @@ public class TelaProntuario extends javax.swing.JFrame {
             .addGap(0, 20, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, 20));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, 20));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -112,7 +101,7 @@ public class TelaProntuario extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 10, -1));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 10, -1));
 
         tblProntuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -127,32 +116,41 @@ public class TelaProntuario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblProntuario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, 200));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        ConfigurableApplicationContext context = (ConfigurableApplicationContext) 
-            SpringApplication.run(Prg03sgsApplication.class);
-        
-        TelaEditarProntuario telaEditar = context.getBean(TelaEditarProntuario.class);
-        telaEditar.setDefaultCloseOperation(TelaProntuario.DISPOSE_ON_CLOSE);
-        telaEditar.setVisible(true);
-    }//GEN-LAST:event_btnEditarActionPerformed
-
-    private void btnCriar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriar1ActionPerformed
-        ConfigurableApplicationContext context = (ConfigurableApplicationContext) 
-            SpringApplication.run(Prg03sgsApplication.class);
-        
-        TelaCriarProntuario telaCriar = context.getBean(TelaCriarProntuario.class);
-        telaCriar.setDefaultCloseOperation(TelaProntuario.DISPOSE_ON_CLOSE);
-        telaCriar.setVisible(true);
-    }//GEN-LAST:event_btnCriar1ActionPerformed
-
-    private void btnAtualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizar1ActionPerformed
+    private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAtualizar1ActionPerformed
+        // Obtendo a linha selecionada na tabela
+    int linhaSelecionada = tblProntuario.getSelectedRow();
+     Paciente paciente = new Paciente();
+    if (linhaSelecionada != -1) {
+        long idPaciente = (long) tblProntuario.getValueAt(linhaSelecionada, 0);
+        
+        // Buscar paciente pelo ID no banco de dados
+        //Paciente paciente = prontuarioController.findById(idPaciente);
+
+        // Verifica se o paciente foi encontrado
+        if (paciente != null) {
+            JOptionPane.showMessageDialog(this, 
+                "Paciente Encontrado:\n" +
+                "ID: " + paciente.getId() + "\n" +
+                "Nome: " + paciente.getNome() + "\n" +
+                "CPF: " + paciente.getCpf() + "\n" +
+                "Sexo: " + paciente.getSexo() + "\n" +
+                "Data de Nascimento: " + paciente.getDataNascimento() + "\n" +
+                "Endereço: " + paciente.getEndereco() + "\n" +
+                "Contato: " + paciente.getContato() + "\n");
+    } else {
+        JOptionPane.showMessageDialog(this, "Paciente não encontrado.");
+    }
+    } else {
+        JOptionPane.showMessageDialog(this, "Selecione um paciente para abrir.");
+    }
+
+    }//GEN-LAST:event_btnAbrirActionPerformed
     
     private void mostrarTabela () {
   
@@ -171,6 +169,8 @@ public class TelaProntuario extends javax.swing.JFrame {
             });
         }
     }
+    
+   
     
     /**
      * @param args the command line arguments
@@ -208,9 +208,7 @@ public class TelaProntuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAtualizar1;
-    private javax.swing.JButton btnCriar1;
-    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnAbrir;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
