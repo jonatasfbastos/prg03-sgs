@@ -30,6 +30,7 @@ public class ProntuarioService implements ProntuarioIService {
     private final PacienteRepository pacienteRepository;
     
     // Lista todos os prontuários
+    @Override
     public List<Prontuario> findAll() throws RuntimeException {
         try {
             return prontuarioRepository.findAll();
