@@ -18,10 +18,4 @@ public interface AtendimentoIService {
     public abstract Atendimento update(Atendimento atendimento);
     public abstract void delete(Atendimento atendimento);
     public abstract Atendimento findById(Long id);
-    public abstract List<Atendimento> findByNomeFuncionario(String nomeFuncionario);
-    public abstract List<Atendimento> findByNomeFuncionarioAndDataHoraInicioBetween(
-        String nomeFuncionario, 
-        LocalDateTime dataHoraInicio, 
-        LocalDateTime dataHoraFim
-    );
 }

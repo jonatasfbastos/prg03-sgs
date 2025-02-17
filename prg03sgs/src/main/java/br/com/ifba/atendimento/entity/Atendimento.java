@@ -4,9 +4,17 @@
  */
 package br.com.ifba.atendimento.entity;
 
+import br.com.ifba.anamnese.entity.Anamnese;
+import br.com.ifba.funcionarios.entity.Funcionarios;
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
+import br.com.ifba.paciente.entity.Paciente;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -22,19 +30,7 @@ import lombok.Setter;
 @Table(name = "atendimentos")
 @Getter @Setter
 public class Atendimento extends PersistenceEntity implements Serializable {
-    
-    @Column(name = "nome_paciente", nullable = false)
-    private String nomePaciente;
 
-    @Column(name = "id_paciente", nullable = false)
-    private Long idPaciente;
-    
-    @Column(name = "nome_funcionario", nullable = false)
-    private String nomeFuncionario;
-    
-    @Column(name = "id_funcionario", nullable = false)
-    private Long idFuncionario;
-    
     @Column(name = "data_hora_inicio")
     private LocalDateTime dataHoraInicio;
     
@@ -43,5 +39,17 @@ public class Atendimento extends PersistenceEntity implements Serializable {
     
     @Column(name = "tipo_atendimento")
     private String tipoAtendimento;
-
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_funcionario")
+    private Funcionarios funcionario;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_paciente")
+    private Paciente paciente;
+    
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_anamnese")
+    private Anamnese anamnese;
+    
 }

@@ -64,20 +64,20 @@ public class TelaAtendimento extends javax.swing.JFrame {
 
         tblAtendimentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID do atendimento", "Nome do funcionário", "ID do funcionário", "Nome do paciente", "ID do paciente", "Tipo de atendimento", "Início", "Término"
+                "ID do atendimento", "Nome do funcionário", "CPF do funcionário", "Nome do paciente", "CPF do paciente", "Tipo de atendimento", "Queixas", "Condição física", "Início", "Término"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Long.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, true, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -90,7 +90,7 @@ public class TelaAtendimento extends javax.swing.JFrame {
         });
         scrollPane.setViewportView(tblAtendimentos);
 
-        getContentPane().add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 1010, 270));
+        getContentPane().add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1210, 290));
 
         btnCadastrarAtendimento.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCadastrarAtendimento.setText("Cadastrar");
@@ -108,7 +108,7 @@ public class TelaAtendimento extends javax.swing.JFrame {
         });
         getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 370, 50));
 
-        setSize(new java.awt.Dimension(1058, 457));
+        setSize(new java.awt.Dimension(1245, 457));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -132,22 +132,22 @@ public class TelaAtendimento extends javax.swing.JFrame {
                 /*Verifica se o texto digitado no campo de busca (ignorando maiúsculas/minúsculas)
                  *condiz com as informações no banco de dados
                  */
-                
                 String s = txtBuscar.getText().toLowerCase();
-                if (atendimento.getNomeFuncionario().toLowerCase().contains(s) 
-                    || atendimento.getNomePaciente().toLowerCase().contains(s)
+                if (atendimento.getFuncionario().getNome().toLowerCase().contains(s) 
                     || atendimento.getTipoAtendimento().toLowerCase().contains(s)
-                    || atendimento.getIdFuncionario().toString().contains(s)
-                    || atendimento.getIdPaciente().toString().contains(s)
+                    || atendimento.getFuncionario().getCpf().contains(s)
                     || atendimento.getId().toString().contains(s))  {
-                    //adiciona uma nova linha na tabela com as informações dos atendimentos
+                    
+                    //Adiciona uma nova linha na tabela com as informações dos atendimentos
                     tabela.addRow(new Object[]{
                         atendimento.getId(),
-                        atendimento.getNomeFuncionario(),
-                        atendimento.getIdFuncionario(),
-                        atendimento.getNomePaciente(),
-                        atendimento.getIdPaciente(),
+                        atendimento.getFuncionario().getNome(),
+                        atendimento.getFuncionario().getCpf(),
+                        atendimento.getPaciente().getNome(),
+                        atendimento.getPaciente().getCpf(),
                         atendimento.getTipoAtendimento(),
+                        atendimento.getAnamnese().getQueixas(),
+                        atendimento.getAnamnese().getCondicoes(),
                         atendimento.getDataHoraInicio(),
                         atendimento.getDataHoraFim()
                     }); 
@@ -165,9 +165,8 @@ public class TelaAtendimento extends javax.swing.JFrame {
            
     }//GEN-LAST:event_txtBuscarKeyReleased
 
-    
     public void carregarTabela() {
-        //Obtém o modelo de dados da tabela (DefaultTableModel) associada ao componente tblListaCurso
+        //Obtém o modelo de dados da tabela (DefaultTableModel) associada ao componente tblListaAtendimento
         DefaultTableModel tabela = (DefaultTableModel) tblAtendimentos.getModel();
         //Limpa todas as linhas da tabela antes de adicionar os novos resultados da busca
         tabela.setNumRows(0);
@@ -177,11 +176,13 @@ public class TelaAtendimento extends javax.swing.JFrame {
             for(Atendimento atendimento : atendimentoController.findAll()) {
                 tabela.addRow(new Object[]{
                     atendimento.getId(),
-                    atendimento.getNomeFuncionario(),
-                    atendimento.getIdFuncionario(),
-                    atendimento.getNomePaciente(),
-                    atendimento.getIdPaciente(),
+                    atendimento.getFuncionario().getNome(),
+                    atendimento.getFuncionario().getCpf(),
+                    atendimento.getPaciente().getNome(),
+                    atendimento.getPaciente().getCpf(),
                     atendimento.getTipoAtendimento(),
+                    atendimento.getAnamnese().getQueixas(),
+                    atendimento.getAnamnese().getCondicoes(),
                     atendimento.getDataHoraInicio(),
                     atendimento.getDataHoraFim()
                 });
@@ -196,7 +197,6 @@ public class TelaAtendimento extends javax.swing.JFrame {
             );
         }
     }
-    
     
     /**
      * @param args the command line arguments

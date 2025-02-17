@@ -4,8 +4,11 @@
  */
 package br.com.ifba.atendimento.view;
 
+import br.com.ifba.anamnese.entity.Anamnese;
 import br.com.ifba.atendimento.controller.AtendimentoIController;
 import br.com.ifba.atendimento.entity.Atendimento;
+import br.com.ifba.funcionarios.controller.FuncionariosIController;
+import br.com.ifba.funcionarios.entity.Funcionarios;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
@@ -23,9 +26,12 @@ public class TelaCadastrarAtendimento extends javax.swing.JFrame {
     private TelaAtendimento telaAtendimento;
     @Autowired
     private AtendimentoIController atendimentoController;
+    @Autowired
+    private FuncionariosIController funcionarioController;
 
     /**
      * Creates new form TelaCadastrarAtendimento
+     * @param telaAtendimento
      */
     public TelaCadastrarAtendimento(TelaAtendimento telaAtendimento) {
         this.telaAtendimento = telaAtendimento;
@@ -41,31 +47,37 @@ public class TelaCadastrarAtendimento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblNomeFuncionario = new javax.swing.JLabel();
-        lblNomePaciente = new javax.swing.JLabel();
+        lblCpfFuncionario = new javax.swing.JLabel();
+        lblCpfPaciente = new javax.swing.JLabel();
         lblTipoAtendimento = new javax.swing.JLabel();
         lblDataHoraInicio = new javax.swing.JLabel();
         lblDataHoraFim = new javax.swing.JLabel();
-        txtNomeFuncionario = new javax.swing.JTextField();
-        txtNomePaciente = new javax.swing.JTextField();
+        txtCpfFuncionario = new javax.swing.JTextField();
+        txtCpfPaciente = new javax.swing.JTextField();
         txtDataHoraFim = new javax.swing.JTextField();
         btnCadastrar = new javax.swing.JButton();
         txtTipoAtendimento = new javax.swing.JTextField();
         txtDataHoraInicio = new javax.swing.JTextField();
         lblFormatoDataHoraInicio = new javax.swing.JLabel();
         lblFormatoDataHoraFim = new javax.swing.JLabel();
+        lblQueixas = new javax.swing.JLabel();
+        lblCondicoes = new javax.swing.JLabel();
+        scrollPaneCondicoes = new javax.swing.JScrollPane();
+        txtCondicoes = new javax.swing.JTextArea();
+        scrollPaneQueixas = new javax.swing.JScrollPane();
+        txtQueixas = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SGS - Tela de Cadastro de Atendimentos");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNomeFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblNomeFuncionario.setText("Nome do funcionário:");
-        getContentPane().add(lblNomeFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 180, -1));
+        lblCpfFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblCpfFuncionario.setText("CPF do funcionário:");
+        getContentPane().add(lblCpfFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 160, -1));
 
-        lblNomePaciente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblNomePaciente.setText("Nome do paciente:");
-        getContentPane().add(lblNomePaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 160, -1));
+        lblCpfPaciente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblCpfPaciente.setText("CPF do paciente:");
+        getContentPane().add(lblCpfPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 140, -1));
 
         lblTipoAtendimento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblTipoAtendimento.setText("Tipo de atendimento:");
@@ -73,14 +85,14 @@ public class TelaCadastrarAtendimento extends javax.swing.JFrame {
 
         lblDataHoraInicio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblDataHoraInicio.setText("Data e hora de início:");
-        getContentPane().add(lblDataHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 180, -1));
+        getContentPane().add(lblDataHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 180, -1));
 
         lblDataHoraFim.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblDataHoraFim.setText("Data e hora de término:");
-        getContentPane().add(lblDataHoraFim, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 200, -1));
-        getContentPane().add(txtNomeFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 280, 30));
-        getContentPane().add(txtNomePaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 280, 30));
-        getContentPane().add(txtDataHoraFim, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 280, 30));
+        getContentPane().add(lblDataHoraFim, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 200, -1));
+        getContentPane().add(txtCpfFuncionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 280, 30));
+        getContentPane().add(txtCpfPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 280, 30));
+        getContentPane().add(txtDataHoraFim, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 280, 30));
 
         btnCadastrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnCadastrar.setText("Cadastrar");
@@ -89,45 +101,74 @@ public class TelaCadastrarAtendimento extends javax.swing.JFrame {
                 btnCadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 120, 50));
+        getContentPane().add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 530, 120, 50));
         getContentPane().add(txtTipoAtendimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 280, 30));
-        getContentPane().add(txtDataHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 280, 30));
+        getContentPane().add(txtDataHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 280, 30));
 
         lblFormatoDataHoraInicio.setForeground(new java.awt.Color(153, 153, 153));
         lblFormatoDataHoraInicio.setText("dd/MM/yyyy HH:mm");
-        getContentPane().add(lblFormatoDataHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 120, -1));
+        getContentPane().add(lblFormatoDataHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 120, -1));
 
         lblFormatoDataHoraFim.setForeground(new java.awt.Color(153, 153, 153));
         lblFormatoDataHoraFim.setText("dd/MM/yyyy HH:mm");
-        getContentPane().add(lblFormatoDataHoraFim, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 120, -1));
+        getContentPane().add(lblFormatoDataHoraFim, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, 120, -1));
 
-        setSize(new java.awt.Dimension(614, 363));
+        lblQueixas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblQueixas.setText("Queixas:");
+        getContentPane().add(lblQueixas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 70, -1));
+
+        lblCondicoes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblCondicoes.setText("Condição física:");
+        getContentPane().add(lblCondicoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 130, -1));
+
+        txtCondicoes.setColumns(20);
+        txtCondicoes.setRows(5);
+        scrollPaneCondicoes.setViewportView(txtCondicoes);
+
+        getContentPane().add(scrollPaneCondicoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 280, -1));
+
+        txtQueixas.setColumns(20);
+        txtQueixas.setRows(5);
+        scrollPaneQueixas.setViewportView(txtQueixas);
+
+        getContentPane().add(scrollPaneQueixas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 280, -1));
+
+        setSize(new java.awt.Dimension(614, 598));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // Salvando as informações da tela em variáveis
-        String nomeFuncionario = txtNomeFuncionario.getText();
-        String nomePaciente = txtNomePaciente.getText();
+        String cpfFuncionario = txtCpfFuncionario.getText();
+        String cpfPaciente = txtCpfPaciente.getText();
         String tipoAtendimento = txtTipoAtendimento.getText();
         LocalDateTime dataHoraInicio = LocalDateTime.parse(txtDataHoraInicio.getText(), 
                 DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
         LocalDateTime dataHoraFim = LocalDateTime.parse(txtDataHoraFim.getText(), 
                 DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
         
+        Anamnese anamnese = new Anamnese();
+        anamnese.setQueixas(txtQueixas.getText());
+        anamnese.setCondicoes(txtCondicoes.getText());
+        
         if(dataHoraInicio.isAfter(dataHoraFim)) {
             JOptionPane.showMessageDialog(
-                    null, 
+                    null,
                     "Insira data e hora de início anterior à data e hora de término.\n"
             );
-        } else {
-            //A verificação de funcionário e paciente só poderá ser feita após a criação dos CRUDs dessas entidades
+        } else if(funcionarioController.findByCpf(cpfFuncionario) == null) {
+            JOptionPane.showMessageDialog(
+                    null, 
+                    "Não existe funcionário com esse CPF.\n"
+            );
+        } else { //A verificação de funcionário e paciente só poderá ser feita após a criação dos CRUDs dessas entidades
+            
+            Funcionarios funcionario = funcionarioController.findByCpf(cpfFuncionario);
+            
             //Insere as informações no atendimento
             Atendimento atendimento = new Atendimento();
-            atendimento.setNomeFuncionario(nomeFuncionario);
-            atendimento.setIdFuncionario(6L);
-            atendimento.setNomePaciente(nomePaciente);
-            atendimento.setIdPaciente(3L);
+            atendimento.setAnamnese(anamnese);
+            atendimento.setFuncionario(funcionario);
             atendimento.setTipoAtendimento(tipoAtendimento);
             atendimento.setDataHoraInicio(dataHoraInicio);
             atendimento.setDataHoraFim(dataHoraFim);
@@ -178,17 +219,23 @@ public class TelaCadastrarAtendimento extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JLabel lblCondicoes;
+    private javax.swing.JLabel lblCpfFuncionario;
+    private javax.swing.JLabel lblCpfPaciente;
     private javax.swing.JLabel lblDataHoraFim;
     private javax.swing.JLabel lblDataHoraInicio;
     private javax.swing.JLabel lblFormatoDataHoraFim;
     private javax.swing.JLabel lblFormatoDataHoraInicio;
-    private javax.swing.JLabel lblNomeFuncionario;
-    private javax.swing.JLabel lblNomePaciente;
+    private javax.swing.JLabel lblQueixas;
     private javax.swing.JLabel lblTipoAtendimento;
+    private javax.swing.JScrollPane scrollPaneCondicoes;
+    private javax.swing.JScrollPane scrollPaneQueixas;
+    private javax.swing.JTextArea txtCondicoes;
+    private javax.swing.JTextField txtCpfFuncionario;
+    private javax.swing.JTextField txtCpfPaciente;
     private javax.swing.JTextField txtDataHoraFim;
     private javax.swing.JTextField txtDataHoraInicio;
-    private javax.swing.JTextField txtNomeFuncionario;
-    private javax.swing.JTextField txtNomePaciente;
+    private javax.swing.JTextArea txtQueixas;
     private javax.swing.JTextField txtTipoAtendimento;
     // End of variables declaration//GEN-END:variables
 }

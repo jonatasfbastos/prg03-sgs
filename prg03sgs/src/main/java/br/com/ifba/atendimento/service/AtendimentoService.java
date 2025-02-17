@@ -66,41 +66,5 @@ public class AtendimentoService implements AtendimentoIService{
             return atendimentoRepository.findById(id).orElseThrow(() -> new RuntimeException("Atendimento nao encontrado."));
         }
     }
-
-    @Override
-    public List<Atendimento> findByNomeFuncionario(String nomeFuncionario) {
-        //Verifica se o nome fornecido é nulo, caso seja, lança uma exceção informando que o nome não foi preenchido
-        if(nomeFuncionario == null || nomeFuncionario.trim().isEmpty()){
-            throw new RuntimeException ("Nome não preenchido");
-        } else {
-            //Retorna uma lista de atendimentos encontrados pelo nome utilizando o atendimentoRepository
-            return atendimentoRepository.findByNomeFuncionario(nomeFuncionario);
-        }
-    }
-
-    @Override
-    public List<Atendimento> findByNomeFuncionarioAndDataHoraInicioBetween(
-            String nomeFuncionario, LocalDateTime dataHoraInicio, LocalDateTime dataHoraFim) {
-        
-        //Verifica se o nome fornecido é nulo, caso seja, lança uma exceção informando que o nome não foi preenchido
-        if(nomeFuncionario == null || nomeFuncionario.trim().isEmpty()){
-            throw new RuntimeException ("Nome não preenchido");
-        //Verifica se a data de inicio fornecida é nula, caso seja, lança uma exceção informando que a data não foi preenchida
-        } else if(dataHoraInicio == null) {
-            throw new RuntimeException ("Data de início não preenchido");
-        //Verifica se a data final fornecida é nula, caso seja, lança uma exceção informando que a data não foi preenchida
-        } else if(dataHoraInicio == null) {
-            throw new RuntimeException ("Data de fim não preenchido");
-        //Verifica se a data inicial está após a data final. Caso esteja, lança uma exceção
-        } else if(dataHoraInicio.isAfter(dataHoraFim)) {
-            throw new RuntimeException ("Data de inicio é após a data de fim");
-        } else {
-            //Retorna a lista de atendimentos encontrados
-            return atendimentoRepository.findByNomeFuncionarioAndDataHoraInicioBetween(
-                nomeFuncionario, 
-                dataHoraInicio, 
-                dataHoraFim);
-        }   
-    }
     
 }
