@@ -5,11 +5,13 @@
 package br.com.ifba.medico.entity;
 
 import br.com.ifba.funcionarios.entity.Funcionarios;
+import br.com.ifba.infrastructure.entity.PersistenceEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import java.io.Serializable;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,7 +19,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "medicos")
 @NoArgsConstructor
-public class Medico {
+public class Medico extends PersistenceEntity implements Serializable{
     
     @Column(name = "coren", nullable = false)
     @Getter @Setter private String coren;
