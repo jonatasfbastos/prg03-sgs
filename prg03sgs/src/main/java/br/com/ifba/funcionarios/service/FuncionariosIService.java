@@ -79,4 +79,13 @@ public interface FuncionariosIService {
      * @throws RuntimeException Se ocorrer um erro na busca.
      */
     public abstract Funcionarios findById(Long id) throws RuntimeException;
+    
+    /**
+     * Busca um funcionário pelo seu ID.
+     * 
+     * @param cpf Cpf do funcionário.
+     * @return Funcionário correspondente ao Cpf informado.
+     * @throws RuntimeException Se ocorrer um erro na busca.
+     */
+    public abstract Funcionarios findByCpf(String cpf) throws RuntimeException;
 }

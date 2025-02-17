@@ -62,4 +62,12 @@ public interface FuncionariosIController {
      * @throws RuntimeException Caso o funcionário não seja encontrado.
      */
     public abstract Funcionarios findById(Long id) throws RuntimeException;
+    
+    /**
+     * Busca um funcionário pelo seu Cpf.
+     * @param cpf Cpf do funcionário.
+     * @return Objeto do funcionário correspondente ao Cpf informado.
+     * @throws RuntimeException Caso o funcionário não seja encontrado.
+     */
+    public abstract Funcionarios findByCpf(String cpf) throws RuntimeException;
 }

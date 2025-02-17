@@ -161,5 +161,21 @@ public class FuncionariosService implements FuncionariosIService {
         }
         return funcionariosRepository.findById(id).orElse(null);
     }
+
+    /**
+     * Busca um funcionário pelo seu ID.
+     * 
+     * @param cpf Cpf do funcionário.
+     * @return Funcionário correspondente ao Cpf informado ou exceção se não for encontrado.
+     * @throws RuntimeException Se o Cpf for nulo.
+     */
+    @Override
+    public Funcionarios findByCpf(String cpf) throws RuntimeException {
+        if (cpf == null) {
+            throw new RuntimeException("Funcionário não encontrado");
+        } else {
+            return funcionariosRepository.findByCpf(cpf);
+        }
+    }
 }
 

@@ -33,4 +33,11 @@ public interface FuncionariosRepository extends JpaRepository<Funcionarios, Long
      * @return Lista de funcionários que correspondem ao critério de busca.
      */
     List<Funcionarios> findByNomeContaining(String nome);
+    
+    /**
+     * Busca funcionários cujo cpf contenha um determinado valor.
+     * @param cpf Cpf do funcionário a ser pesquisado.
+     * @return funcionário que corresponde ao critério de busca.
+     */
+    Funcionarios findByCpf(String cpf);
 }
