@@ -4,10 +4,14 @@
  */
 package br.com.ifba.compromisso.entity;
 
+import br.com.ifba.usuario.entity.Usuario;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
@@ -31,6 +35,10 @@ public class Compromisso {
     private String descricao;
     private LocalDateTime dataHora;
     private String local;
+    //Relação com a classe Usuário (Cada compromisso pertence a um único usuário).
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)//Chave estrangeira (Foreign Key) que liga as tabelas "usuarios" e "compromisso" (O campo "usuario_id" ficará na tabela "compromisso").
+    private Usuario usuario;
 
     // Construtor padrão
     public Compromisso() {}
