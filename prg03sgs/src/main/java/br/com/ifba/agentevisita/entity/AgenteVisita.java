@@ -6,13 +6,17 @@ package br.com.ifba.agentevisita.entity;
 
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
 import br.com.ifba.visita.entity.Visita;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -67,6 +71,10 @@ public class AgenteVisita  extends PersistenceEntity  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    //Relação de AgenteVisita com uma ou várias (1:N) visitas (Visita).
+    @OneToMany(mappedBy = "agenteVisita", cascade = CascadeType.ALL)
+    @Getter @Setter private List<Visita> visitas = new ArrayList<>();
     
     //Métodos da classe AgenteVisita.
     public void associarVisita(Visita visita){

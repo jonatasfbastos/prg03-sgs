@@ -4,12 +4,18 @@
  */
 package br.com.ifba.fichavisita.entity;
 
+import br.com.ifba.agentevisita.entity.AgenteVisita;
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
+import br.com.ifba.paciente.entity.Paciente;
+import br.com.ifba.visita.entity.Visita;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import lombok.Getter;
@@ -63,6 +69,16 @@ public class FichaVisita extends PersistenceEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    //Relação de FichaVisita com um (1:1) paciente (Paciente).
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pacientes_id", referencedColumnName = "id")
+    @Getter @Setter private Paciente paciente;
+    
+    //Relação de FichaVisita com uma (1:1) visita (Visita).
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "visitas_id", referencedColumnName = "id")
+    @Getter @Setter private Visita visita;
     
     //Métodos da classe Visita.
     public void registrarVisita(){

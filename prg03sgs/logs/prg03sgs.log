@@ -3158,3 +3158,307 @@ Caused by: org.hibernate.AnnotationException: Association 'br.com.ifba.medico.en
 2025-02-16 22:56:02 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-02-16 22:56:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-02-16 22:56:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-16 23:12:57 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 23.0.1 with PID 46824 (C:\Users\sunhe\OneDrive\Documentos\GitHub\prg03-sgs\prg03sgs\target\classes started by sunhe in C:\Users\sunhe\OneDrive\Documentos\GitHub\prg03-sgs\prg03sgs)
+2025-02-16 23:12:57 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-16 23:12:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-16 23:12:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 118 ms. Found 13 JPA repository interfaces.
+2025-02-16 23:12:58 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-16 23:12:58 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-16 23:12:58 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-16 23:12:58 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-16 23:12:58 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-16 23:12:59 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e9474f
+2025-02-16 23:12:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-16 23:12:59 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-16 23:12:59 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-16 23:12:59 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: Collection 'br.com.ifba.agentevisita.entity.AgenteVisita.visitas' is 'mappedBy' a property named 'agentes_de_visita' which does not exist in the target entity 'br.com.ifba.visita.entity.Visita'
+2025-02-16 23:12:59 [main] WARN  o.s.c.a.AnnotationConfigApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'br.com.ifba.agentevisita.entity.AgenteVisita.visitas' is 'mappedBy' a property named 'agentes_de_visita' which does not exist in the target entity 'br.com.ifba.visita.entity.Visita'
+2025-02-16 23:12:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-16 23:12:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-16 23:12:59 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-02-16 23:12:59 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'br.com.ifba.agentevisita.entity.AgenteVisita.visitas' is 'mappedBy' a property named 'agentes_de_visita' which does not exist in the target entity 'br.com.ifba.visita.entity.Visita'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:149)
+	at br.com.ifba.Prg03sgsApplication.main(Prg03sgsApplication.java:18)
+Caused by: org.hibernate.AnnotationException: Collection 'br.com.ifba.agentevisita.entity.AgenteVisita.visitas' is 'mappedBy' a property named 'agentes_de_visita' which does not exist in the target entity 'br.com.ifba.visita.entity.Visita'
+	at org.hibernate.boot.model.internal.CollectionBinder.isReversePropertyInJoin(CollectionBinder.java:1639)
+	at org.hibernate.boot.model.internal.CollectionBinder.noAssociationTable(CollectionBinder.java:1653)
+	at org.hibernate.boot.model.internal.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1614)
+	at org.hibernate.boot.model.internal.CollectionBinder$1.secondPass(CollectionBinder.java:1605)
+	at org.hibernate.boot.model.internal.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1811)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1770)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:334)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	... 13 common frames omitted
+2025-02-16 23:13:54 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 23.0.1 with PID 44128 (C:\Users\sunhe\OneDrive\Documentos\GitHub\prg03-sgs\prg03sgs\target\classes started by sunhe in C:\Users\sunhe\OneDrive\Documentos\GitHub\prg03-sgs\prg03sgs)
+2025-02-16 23:13:54 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-16 23:13:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-16 23:13:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 139 ms. Found 13 JPA repository interfaces.
+2025-02-16 23:13:55 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-16 23:13:55 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-16 23:13:55 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-16 23:13:56 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-16 23:13:56 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-16 23:13:56 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@151ab2b9
+2025-02-16 23:13:56 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-16 23:13:56 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-16 23:13:56 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-16 23:13:56 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: Collection 'br.com.ifba.agentevisita.entity.AgenteVisita.visitas' is 'mappedBy' a property named 'agente_visita' which does not exist in the target entity 'br.com.ifba.visita.entity.Visita'
+2025-02-16 23:13:56 [main] WARN  o.s.c.a.AnnotationConfigApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'br.com.ifba.agentevisita.entity.AgenteVisita.visitas' is 'mappedBy' a property named 'agente_visita' which does not exist in the target entity 'br.com.ifba.visita.entity.Visita'
+2025-02-16 23:13:56 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-16 23:13:56 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-16 23:13:56 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-02-16 23:13:56 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'br.com.ifba.agentevisita.entity.AgenteVisita.visitas' is 'mappedBy' a property named 'agente_visita' which does not exist in the target entity 'br.com.ifba.visita.entity.Visita'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:149)
+	at br.com.ifba.Prg03sgsApplication.main(Prg03sgsApplication.java:18)
+Caused by: org.hibernate.AnnotationException: Collection 'br.com.ifba.agentevisita.entity.AgenteVisita.visitas' is 'mappedBy' a property named 'agente_visita' which does not exist in the target entity 'br.com.ifba.visita.entity.Visita'
+	at org.hibernate.boot.model.internal.CollectionBinder.isReversePropertyInJoin(CollectionBinder.java:1639)
+	at org.hibernate.boot.model.internal.CollectionBinder.noAssociationTable(CollectionBinder.java:1653)
+	at org.hibernate.boot.model.internal.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1614)
+	at org.hibernate.boot.model.internal.CollectionBinder$1.secondPass(CollectionBinder.java:1605)
+	at org.hibernate.boot.model.internal.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1811)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1770)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:334)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	... 13 common frames omitted
+2025-02-16 23:14:29 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 23.0.1 with PID 35080 (C:\Users\sunhe\OneDrive\Documentos\GitHub\prg03-sgs\prg03sgs\target\classes started by sunhe in C:\Users\sunhe\OneDrive\Documentos\GitHub\prg03-sgs\prg03sgs)
+2025-02-16 23:14:29 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-16 23:14:30 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-16 23:14:30 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 142 ms. Found 13 JPA repository interfaces.
+2025-02-16 23:14:30 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-16 23:14:30 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-16 23:14:30 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-16 23:14:31 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-16 23:14:31 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-16 23:14:31 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@78b7f805
+2025-02-16 23:14:31 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-16 23:14:31 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-16 23:14:31 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-16 23:14:31 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: Collection 'br.com.ifba.agentevisita.entity.AgenteVisita.visitas' is 'mappedBy' a property named 'AgenteVisita' which does not exist in the target entity 'br.com.ifba.visita.entity.Visita'
+2025-02-16 23:14:31 [main] WARN  o.s.c.a.AnnotationConfigApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'br.com.ifba.agentevisita.entity.AgenteVisita.visitas' is 'mappedBy' a property named 'AgenteVisita' which does not exist in the target entity 'br.com.ifba.visita.entity.Visita'
+2025-02-16 23:14:31 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-16 23:14:31 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-16 23:14:31 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-02-16 23:14:31 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'br.com.ifba.agentevisita.entity.AgenteVisita.visitas' is 'mappedBy' a property named 'AgenteVisita' which does not exist in the target entity 'br.com.ifba.visita.entity.Visita'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:149)
+	at br.com.ifba.Prg03sgsApplication.main(Prg03sgsApplication.java:18)
+Caused by: org.hibernate.AnnotationException: Collection 'br.com.ifba.agentevisita.entity.AgenteVisita.visitas' is 'mappedBy' a property named 'AgenteVisita' which does not exist in the target entity 'br.com.ifba.visita.entity.Visita'
+	at org.hibernate.boot.model.internal.CollectionBinder.isReversePropertyInJoin(CollectionBinder.java:1639)
+	at org.hibernate.boot.model.internal.CollectionBinder.noAssociationTable(CollectionBinder.java:1653)
+	at org.hibernate.boot.model.internal.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1614)
+	at org.hibernate.boot.model.internal.CollectionBinder$1.secondPass(CollectionBinder.java:1605)
+	at org.hibernate.boot.model.internal.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1811)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1770)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:334)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	... 13 common frames omitted
+2025-02-16 23:18:39 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 23.0.1 with PID 47148 (C:\Users\sunhe\OneDrive\Documentos\GitHub\prg03-sgs\prg03sgs\target\classes started by sunhe in C:\Users\sunhe\OneDrive\Documentos\GitHub\prg03-sgs\prg03sgs)
+2025-02-16 23:18:39 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-16 23:18:40 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-16 23:18:40 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 132 ms. Found 13 JPA repository interfaces.
+2025-02-16 23:18:40 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-16 23:18:40 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-16 23:18:40 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-16 23:18:41 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-16 23:18:41 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-16 23:18:41 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1859ffda
+2025-02-16 23:18:41 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-16 23:18:41 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-16 23:18:41 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-16 23:18:42 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table atendimentos add column id_anamnese bigint
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table fichas_visita add column visitas_id bigint
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table requisicoes add column medico_id bigint not null
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table requisicoes add column paciente_id bigint not null
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - create table visitas (id bigint not null, responsaveis_conferir varchar(255) not null, data_visita datetime(6) not null, descricao varchar(255) not null, responsaveis_digitacao varchar(255) not null, id_visita integer not null, motivo_visita varchar(255) not null, numero_ficha integer not null, responsavel_registro varchar(255) not null, agentes_de_visita_id bigint, fichas_visita_id bigint, primary key (id)) engine=InnoDB
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - create table visitas_seq (next_val bigint) engine=InnoDB
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - insert into visitas_seq values ( 1 )
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table atendimentos drop index UK8n1mttg310r55l3qi55wpp5aj
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table atendimentos add constraint UK8n1mttg310r55l3qi55wpp5aj unique (id_anamnese)
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table fichas_visita drop index UKr92isu9ywvjtdy0gann2dmjyf
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table fichas_visita add constraint UKr92isu9ywvjtdy0gann2dmjyf unique (visitas_id)
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table requisicoes drop index UK7r3aukkroxd3cvwry8wuiab79
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table requisicoes add constraint UK7r3aukkroxd3cvwry8wuiab79 unique (medico_id)
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table requisicoes drop index UKarth4c0x2un7fpck6v4316siu
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table requisicoes add constraint UKarth4c0x2un7fpck6v4316siu unique (paciente_id)
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table visitas drop index UK9u6jbper3o8f0x55rf6xmkj8m
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table visitas add constraint UK9u6jbper3o8f0x55rf6xmkj8m unique (id_visita)
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table visitas drop index UKlrrq4eitar3jxi0sdh5bqihc7
+2025-02-16 23:18:42 [main] DEBUG org.hibernate.SQL - alter table visitas add constraint UKlrrq4eitar3jxi0sdh5bqihc7 unique (numero_ficha)
+2025-02-16 23:18:43 [main] DEBUG org.hibernate.SQL - alter table visitas drop index UKi40l66dj2u7q6hr64qgga5k41
+2025-02-16 23:18:43 [main] DEBUG org.hibernate.SQL - alter table visitas add constraint UKi40l66dj2u7q6hr64qgga5k41 unique (agentes_de_visita_id)
+2025-02-16 23:18:43 [main] DEBUG org.hibernate.SQL - alter table visitas drop index UKpddn08tljirw292oqnvb1e17a
+2025-02-16 23:18:43 [main] DEBUG org.hibernate.SQL - alter table visitas add constraint UKpddn08tljirw292oqnvb1e17a unique (fichas_visita_id)
+2025-02-16 23:18:43 [main] DEBUG org.hibernate.SQL - alter table atendimentos add constraint FKs2meldrpd7dlnsnl18itsyuj3 foreign key (id_anamnese) references anamnese (id)
+2025-02-16 23:18:43 [main] DEBUG org.hibernate.SQL - alter table atendimentos add constraint FKet00hoo3yes7fkiaelk2jrpy4 foreign key (id_funcionario) references funcionarios (id)
+2025-02-16 23:18:43 [main] DEBUG org.hibernate.SQL - alter table atendimentos add constraint FKnb3vqt3i39mo5a6kdo0kts2r9 foreign key (id_paciente) references pacientes (id)
+2025-02-16 23:18:43 [main] DEBUG org.hibernate.SQL - alter table fichas_visita add constraint FKcrfky5iid30l7vw6q8jro5ctd foreign key (visitas_id) references visitas (id)
+2025-02-16 23:18:43 [main] DEBUG org.hibernate.SQL - alter table requisicoes add constraint FKr3c0bstpqb6f1was86qn25dwv foreign key (medico_id) references medicos (id)
+2025-02-16 23:18:43 [main] DEBUG org.hibernate.SQL - alter table requisicoes add constraint FKh55pscwj30vyfqen38jb0tadi foreign key (paciente_id) references pacientes (id)
+2025-02-16 23:18:43 [main] DEBUG org.hibernate.SQL - alter table visitas add constraint FKlpu55f287b0nrhpshtq813q1b foreign key (agentes_de_visita_id) references agentes_de_visita (id)
+2025-02-16 23:18:43 [main] DEBUG org.hibernate.SQL - alter table visitas add constraint FK1dpvs0nsm3n27174wimua9cco foreign key (fichas_visita_id) references fichas_visita (id)
+2025-02-16 23:18:43 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-16 23:18:44 [main] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-02-16 23:18:44 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-02-16 23:18:44 [AWT-EventQueue-0] ERROR b.c.i.c.view.GestaoCampanhaVacina - ❌ ERRO: cursoController nao foi injetado corretamente!
+2025-02-16 23:18:44 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-02-16 23:18:44 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-02-16 23:18:44 [main] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-02-16 23:18:44 [main] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-02-16 23:18:45 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 5.983 seconds (process running for 6.319)
+2025-02-16 23:18:55 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Starting application using Java 23.0.1 with PID 47148 (started by sunhe in C:\Users\sunhe\OneDrive\Documentos\GitHub\prg03-sgs\prg03sgs)
+2025-02-16 23:18:55 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-16 23:18:55 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-16 23:18:55 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 67 ms. Found 13 JPA repository interfaces.
+2025-02-16 23:18:55 [AWT-EventQueue-0] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-16 23:18:55 [AWT-EventQueue-0] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-16 23:18:55 [AWT-EventQueue-0] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-16 23:18:55 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-02-16 23:18:55 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5ebbde07
+2025-02-16 23:18:55 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-02-16 23:18:55 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-16 23:18:55 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-16 23:18:56 [AWT-EventQueue-0] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-16 23:18:56 [AWT-EventQueue-0] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-16 23:18:56 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-02-16 23:18:56 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-02-16 23:18:56 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-02-16 23:18:56 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-02-16 23:18:56 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-02-16 23:18:56 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Started application in 1.072 seconds (process running for 17.987)
+2025-02-16 23:18:56 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-02-16 23:18:56 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-02-16 23:18:56 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-02-16 23:18:56 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-02-16 23:18:58 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Starting application using Java 23.0.1 with PID 47148 (started by sunhe in C:\Users\sunhe\OneDrive\Documentos\GitHub\prg03-sgs\prg03sgs)
+2025-02-16 23:18:58 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-16 23:18:58 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-16 23:18:58 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 42 ms. Found 13 JPA repository interfaces.
+2025-02-16 23:18:58 [AWT-EventQueue-0] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-16 23:18:58 [AWT-EventQueue-0] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-16 23:18:58 [AWT-EventQueue-0] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-16 23:18:58 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-02-16 23:18:58 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3424ae2c
+2025-02-16 23:18:58 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-02-16 23:18:58 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-16 23:18:58 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-16 23:18:58 [AWT-EventQueue-0] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-16 23:18:58 [AWT-EventQueue-0] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-16 23:18:58 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-02-16 23:18:59 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-02-16 23:18:59 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-02-16 23:18:59 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-02-16 23:18:59 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-02-16 23:18:59 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Started application in 0.809 seconds (process running for 20.483)
+2025-02-16 23:18:59 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-02-16 23:18:59 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-02-16 23:18:59 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-02-16 23:18:59 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-02-16 23:19:10 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-16 23:19:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-16 23:19:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-02-16 23:19:10 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-16 23:19:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-02-16 23:19:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-02-16 23:19:10 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-16 23:19:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2025-02-16 23:19:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2025-02-16 23:20:31 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 23.0.1 with PID 44684 (C:\Users\sunhe\OneDrive\Documentos\GitHub\prg03-sgs\prg03sgs\target\classes started by sunhe in C:\Users\sunhe\OneDrive\Documentos\GitHub\prg03-sgs\prg03sgs)
+2025-02-16 23:20:31 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-16 23:20:32 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-16 23:20:32 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 123 ms. Found 13 JPA repository interfaces.
+2025-02-16 23:20:32 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-16 23:20:32 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-02-16 23:20:32 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-16 23:20:32 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-16 23:20:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-02-16 23:20:33 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3e546734
+2025-02-16 23:20:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-02-16 23:20:33 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-16 23:20:33 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-16 23:20:34 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-16 23:20:34 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-16 23:20:34 [main] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-02-16 23:20:35 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-02-16 23:20:35 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-02-16 23:20:35 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-02-16 23:20:35 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-02-16 23:20:35 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-02-16 23:20:35 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-02-16 23:20:35 [main] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-02-16 23:20:35 [main] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-02-16 23:20:35 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 4.617 seconds (process running for 4.91)
+2025-02-16 23:20:47 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-16 23:20:47 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-02-16 23:20:47 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -4,13 +4,19 @@
  */
 package br.com.ifba.visita.entity;
 
+import br.com.ifba.agentevisita.entity.AgenteVisita;
 import br.com.ifba.fichavisita.entity.FichaVisita;
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
@@ -28,10 +34,9 @@ Classe Principal de Visita Domiciliar da funcionalidade Gestão de Visitas Domic
 
 */
 
-
 @Entity
 @NoArgsConstructor
-@Table(name = "visitas_feitas")//Tabela para guardar o histórico de visitas.
+@Table(name = "visitas")//Tabela para guardar o histórico de visitas.
 public class Visita extends PersistenceEntity implements Serializable{
     
     //Atributos da classe Visita com métodos getters e setters e suas respectivas colunas na tabela do BD.
@@ -63,7 +68,14 @@ public class Visita extends PersistenceEntity implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    
-    private FichaVisita fichaDeVisita;//Objeto do tipo FichaVisita para obter dados da ficha do usuário visitado.
+    //Relação de Visita com uma (1:1) ficha de visita (FichaVisita).
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fichas_visita_id", referencedColumnName = "id")
+    @Getter @Setter private FichaVisita fichaVisita;
+  
+    //Relação de Visita a um (1:1) agente de visita (AgenteVisita).
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "agentes_de_visita_id", referencedColumnName = "id")
+    @Getter @Setter private AgenteVisita agenteVisita;
     
 }
