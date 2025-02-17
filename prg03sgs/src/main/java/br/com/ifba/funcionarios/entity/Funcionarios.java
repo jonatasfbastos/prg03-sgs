@@ -5,13 +5,17 @@
 package br.com.ifba.funcionarios.entity;
 
 import br.com.ifba.campanhavacina.entity.CampanhaVacinaEntity;
+import br.com.ifba.administrativo.entity.Administrativo;
+import br.com.ifba.enfermeiro.entiity.Enfermeiro;
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
+import br.com.ifba.medico.entity.Medico;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
-import java.time.LocalDate;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,7 +29,7 @@ import lombok.Setter;
  * Autor: Rafael
  */
 @Entity
-@Table(name = "Funcionarios")
+@Table(name = "funcionarios")
 @NoArgsConstructor
 public class Funcionarios extends PersistenceEntity implements Serializable {
     
@@ -65,5 +69,14 @@ public class Funcionarios extends PersistenceEntity implements Serializable {
     // Muitos 'Funcionarios' para uma 'Campanha De Vacinação'
     @ManyToOne
     @Getter @Setter private CampanhaVacinaEntity campanhaDeVacina;
+    
+    @OneToOne (fetch = FetchType.LAZY)
+    @Getter @Setter private Enfermeiro enfermeiro;
+    
+    @OneToOne (fetch = FetchType.LAZY)
+    @Getter @Setter private Medico medico;
+    
+    @OneToOne (fetch = FetchType.LAZY)
+    @Getter @Setter private Administrativo administrativo;
     
 }
