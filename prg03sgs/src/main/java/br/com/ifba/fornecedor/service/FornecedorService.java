@@ -32,40 +32,17 @@ public class FornecedorService implements FornecedorIService{
     }
 
     @Override
-    public void save(Fornecedor fornecedor) throws RuntimeException, IllegalArgumentException {
-        
-        if (fornecedor == null) {
-            throw new RuntimeException ("Dados nao preenchidos!");
-        }
-        
-        if (StringUtil.isNullOrEmpty(fornecedor.getCnpj()) ||
-            StringUtil.isNullOrEmpty(fornecedor.getRazaoSocial())) 
-        {
-            throw new IllegalArgumentException("Campos essenciais estao vazios");
-        }
-        
-        fornecedor.setCnpj(StringUtil.trimExtraSpaces(fornecedor.getCnpj()));
-        fornecedor.setRazaoSocial(StringUtil.trimExtraSpaces(fornecedor.getRazaoSocial()));
-         
-        fornecedorRepository.save(fornecedor);
+    public void save(Fornecedor fornecedor) throws RuntimeException, IllegalArgumentException {   
+        if (validation(fornecedor)) {
+            fornecedorRepository.save(fornecedor);
+        }  
     }
 
     @Override
     public void update(Fornecedor fornecedor) throws RuntimeException, IllegalArgumentException {
-        if (fornecedor == null) {
-            throw new RuntimeException ("Dados nao preenchidos!");
-        }
-        
-        if (StringUtil.isNullOrEmpty(fornecedor.getCnpj()) ||
-            StringUtil.isNullOrEmpty(fornecedor.getRazaoSocial())) 
-        {
-            throw new IllegalArgumentException("Campos essenciais estao vazios");
-        }
-        
-        fornecedor.setCnpj(StringUtil.trimExtraSpaces(fornecedor.getCnpj()));
-        fornecedor.setRazaoSocial(StringUtil.trimExtraSpaces(fornecedor.getRazaoSocial()));
-        
-        fornecedorRepository.save(fornecedor);
+        if (validation(fornecedor)) {
+            fornecedorRepository.save(fornecedor);
+        } 
     }
 
     @Override
@@ -110,5 +87,21 @@ public class FornecedorService implements FornecedorIService{
         } catch(Exception e) {
             throw new RuntimeException ("Fornecedor nãp encontrado!");
         } 
+    }
+    
+    public boolean validation(Fornecedor fornecedor) {
+        if (fornecedor == null) {
+            throw new RuntimeException ("Dados nao preenchidos!");
+        }
+        
+        if (StringUtil.isNullOrEmpty(fornecedor.getCnpj()) ||
+            StringUtil.isNullOrEmpty(fornecedor.getRazaoSocial())) 
+        {
+            throw new IllegalArgumentException("Campos essenciais estao vazios");
+        }
+        
+        fornecedor.setCnpj(StringUtil.trimExtraSpaces(fornecedor.getCnpj()));
+        fornecedor.setRazaoSocial(StringUtil.trimExtraSpaces(fornecedor.getRazaoSocial()));
+        return true;
     }
 }
