@@ -69,25 +69,4 @@ public class Medicamento extends PersistenceEntity implements Serializable{
         joinColumns = @JoinColumn(name = "medicamento_id"),
         inverseJoinColumns = @JoinColumn(name = "fornecedor_id"))
     @Getter @Setter private List<Fornecedor> fornecedores = new ArrayList<>();
-    
-    public boolean isVencido () {
-        LocalDate dataAtual = LocalDate.now();
-        if (dataAtual.isAfter(getDataValidade())) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    public void adicionarEstoque (long quantidade) {
-        if (quantidade > 0) {
-            setQuantidade(getQuantidade() + quantidade);
-        }
-    }
-    
-    public void removerEstoque (long quantidade) {
-        if (quantidade > 0 && quantidade <= getQuantidade()) {
-            setQuantidade(getQuantidade() - quantidade);
-        }
-    }
 }
