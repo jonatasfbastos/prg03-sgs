@@ -35,7 +35,12 @@ public class TelaVisitas extends javax.swing.JFrame {
         initComponents();
     }
     
-    private void listarTabela() {
+    @PostConstruct
+    public void init() {
+        listarTabela();
+    }
+    
+    public void listarTabela() {
   
         List<Visita> visitas = visitaController.findAll();
    

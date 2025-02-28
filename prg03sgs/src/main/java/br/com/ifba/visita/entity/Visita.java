@@ -19,6 +19,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,20 +41,17 @@ Classe Principal de Visita Domiciliar da funcionalidade Gestão de Visitas Domic
 @Table(name = "visitas")//Tabela para guardar o histórico de visitas.
 public class Visita extends PersistenceEntity implements Serializable{
     
-    //Atributos da classe Visita com métodos getters e setters e suas respectivas colunas na tabela do BD.
-    @Column(name = "id_visita", nullable = false, unique = true)
-    @Getter @Setter private int idVisita;
-    
-    @Column(name = "motivo_visita", nullable = false)
+    //Atributos da classe Visita com métodos getters e setters e suas respectivas colunas na tabela do BD.   
+    @Column(name = "motivo_visita")
     @Getter @Setter private String motivoVisita;
     
     @Column(name = "data_visita", nullable = false)
-    @Getter @Setter private Date dataVisita;
+    @Getter @Setter private LocalDate dataVisita;
     
-    @Column(name = "descricao", nullable = false)
+    @Column(name = "descricao")
     @Getter @Setter private String descricaoMotivo;//Atributo p/ guardar a descrição do motivo da visita.
     
-    @Column(name = "responsavel_registro", nullable = false)
+    @Column(name = "responsavel_registro")
     @Getter @Setter private String responsavelVisita;//Atributo p/ guardar o nome da pessoa que fez a visita.
     
     @Column(name = "responsaveis_conferir", nullable = false)

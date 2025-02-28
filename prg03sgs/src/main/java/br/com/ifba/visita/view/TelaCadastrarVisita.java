@@ -6,9 +6,13 @@ package br.com.ifba.visita.view;
 
 import br.com.ifba.visita.controller.VisitaIController;
 import br.com.ifba.visita.entity.Visita;
+import jakarta.annotation.PostConstruct;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -22,6 +26,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class TelaCadastrarVisita extends javax.swing.JFrame {
 
+    private TelaVisitas telaVisitas;
     @Autowired
     private final VisitaIController visitaController;
     
@@ -173,8 +178,8 @@ public class TelaCadastrarVisita extends javax.swing.JFrame {
      
         Visita visita = new Visita();
         String digitadoPor = txtNomeDigitador.getText();
-        LocalDateTime dataVisita = LocalDateTime.parse(txtDataVisita.getText(), 
-                DateTimeFormatter.ofPattern("dd/mm/yyyy"));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String dataVisita = txtDataVisita.getText();
         String conferidoPor = txtConferidoPor.getText();
         int numeroFolha = Integer.parseInt(txtNumFolha.getText());
         
@@ -182,8 +187,15 @@ public class TelaCadastrarVisita extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Campos obrigatórios não preenchidos!", "Erro!", JOptionPane.ERROR_MESSAGE);
             return;
         }else{
+            visita.setDigitadoPor(digitadoPor);
+            visita.setDataVisita(LocalDate.parse(dataVisita, formatter));
+            visita.setConferidoPor(conferidoPor);
+            visita.setNumeroFicha(numeroFolha);
+            
             visitaController.save(visita);
             JOptionPane.showMessageDialog(this, "Visita salva com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            telaVisitas.listarTabela();
+            this.dispose();
         }
 
     }//GEN-LAST:event_btnEnviaCadastroActionPerformed

@@ -27,8 +27,8 @@ public class VisitaService implements VisitaIService{
     public void save(Visita visita) throws RuntimeException, IllegalArgumentException {
        if(visita == null){
             throw new RuntimeException ("Os dados não foram preenchidos!");
-        }if(StringUtil.isNullOrEmpty(visita.getDescricaoMotivo()) || 
-            StringUtil.isNullOrEmpty(visita.getResponsavelVisita())){
+        }if(StringUtil.isNullOrEmpty(visita.getConferidoPor()) || 
+            StringUtil.isNullOrEmpty(visita.getDigitadoPor())){
             throw new IllegalArgumentException("Campos obrigatórios não podem ficar nulos!");
         }
         
@@ -43,8 +43,8 @@ public class VisitaService implements VisitaIService{
         if(visita.getId() == null){
             throw new IllegalArgumentException("O ID do objeto está vazio!");
         }
-        if(StringUtil.isNullOrEmpty(visita.getDescricaoMotivo()) || 
-            StringUtil.isNullOrEmpty(visita.getResponsavelVisita())){
+        if(StringUtil.isNullOrEmpty(visita.getConferidoPor()) || 
+            StringUtil.isNullOrEmpty(visita.getDigitadoPor())){
             throw new IllegalArgumentException("Campos obrigatórios não podem ficar nulos!");
         }
         if(findById(visita.getId()) == null){
@@ -77,6 +77,17 @@ public class VisitaService implements VisitaIService{
     @Override
     public List<Visita> findAll() throws RuntimeException {
         return visitaRepository.findAll();
+    }
+    
+    public boolean verificacaoCampos(Visita visita){
+        if(visita == null){
+            throw new RuntimeException ("Os dados não foram preenchidos!");
+        }if(StringUtil.isNullOrEmpty(visita.getConferidoPor()) || 
+            StringUtil.isNullOrEmpty(visita.getDigitadoPor())){
+            throw new IllegalArgumentException("Campos obrigatórios não podem ficar nulos!");
+        }
+        
+        return true; 
     }
     
 }
