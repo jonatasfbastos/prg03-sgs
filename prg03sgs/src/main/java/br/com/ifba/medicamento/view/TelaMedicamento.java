@@ -19,7 +19,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.ListModel;
 import org.springframework.context.annotation.Lazy;
 /**
  *
@@ -116,7 +118,10 @@ public class TelaMedicamento extends javax.swing.JFrame {
         btnLimparCamposCadastro = new javax.swing.JButton();
         btnCadastrarMedicamento = new javax.swing.JButton();
         lblFornecedorCadastro = new javax.swing.JLabel();
-        txtFornecedorCadastro = new javax.swing.JTextField();
+        comboBoxCnpjFornecedor = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listFornecedores = new javax.swing.JList<>();
+        btnAdicionarFornecedorCadastro = new javax.swing.JButton();
         TelaEditarMedicamento = new javax.swing.JFrame();
         lblDataFabricacaoEditar = new javax.swing.JLabel();
         txtTipoReceitaEditar = new javax.swing.JTextField();
@@ -142,8 +147,10 @@ public class TelaMedicamento extends javax.swing.JFrame {
         btnLimparCamposEditar = new javax.swing.JButton();
         btnEditarMedicamento = new javax.swing.JButton();
         lblFornecedorEditar = new javax.swing.JLabel();
-        txtFornecedorEditar = new javax.swing.JTextField();
-        lblDataValidadeCadastro1 = new javax.swing.JLabel();
+        comboBoxCnpjFornecedorEditar = new javax.swing.JComboBox<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        listFornecedoresEditar = new javax.swing.JList<>();
+        btnAdicionarFornecedorEditar = new javax.swing.JButton();
         lblLinhaSelecionada = new javax.swing.JLabel();
         txtBuscarMedicamento = new javax.swing.JTextField();
         lblTextoNomeMedicamento = new javax.swing.JLabel();
@@ -156,7 +163,7 @@ public class TelaMedicamento extends javax.swing.JFrame {
         btnRemover = new javax.swing.JButton();
 
         TelaAdicionarMedicamento.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        TelaAdicionarMedicamento.setMinimumSize(new java.awt.Dimension(740, 361));
+        TelaAdicionarMedicamento.setMinimumSize(new java.awt.Dimension(901, 485));
         TelaAdicionarMedicamento.setResizable(false);
         TelaAdicionarMedicamento.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -248,7 +255,21 @@ public class TelaMedicamento extends javax.swing.JFrame {
         lblFornecedorCadastro.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         lblFornecedorCadastro.setText("CNPJ Fornecedor");
 
-        txtFornecedorCadastro.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        comboBoxCnpjFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxCnpjFornecedorActionPerformed(evt);
+            }
+        });
+
+        jScrollPane2.setViewportView(listFornecedores);
+
+        btnAdicionarFornecedorCadastro.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnAdicionarFornecedorCadastro.setText("Adiconar Fornecedor");
+        btnAdicionarFornecedorCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarFornecedorCadastroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout TelaAdicionarMedicamentoLayout = new javax.swing.GroupLayout(TelaAdicionarMedicamento.getContentPane());
         TelaAdicionarMedicamento.getContentPane().setLayout(TelaAdicionarMedicamentoLayout);
@@ -284,94 +305,96 @@ public class TelaMedicamento extends javax.swing.JFrame {
                                     .addComponent(lblFornecedorCadastro)
                                     .addComponent(lblDataValidadeCadastro))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDataValidadeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFornecedorCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane2)
+                                    .addComponent(txtDataValidadeCadastro)
+                                    .addComponent(comboBoxCnpjFornecedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addGap(36, 36, 36)
                 .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblDescricaoCadastro)
-                            .addComponent(lblTipoReceitaCadastro)
-                            .addComponent(lblRegistroAnvisaCadastro))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtRegistroAnvisaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTipoReceitaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDescricaoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaAdicionarMedicamentoLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
                         .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblInstrucaoArmazenamentoCadastro)
                             .addComponent(lblLoteCadastro))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtLoteCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                            .addComponent(txtInstrucaoArmazenamentoCadastro))
-                        .addGap(20, 20, 20))))
-            .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
-                .addGap(248, 248, 248)
-                .addComponent(lblTituloCadastro)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtInstrucaoArmazenamentoCadastro)
+                            .addComponent(txtLoteCadastro)))
+                    .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
+                                .addComponent(btnLimparCamposCadastro)
+                                .addGap(33, 33, 33)
+                                .addComponent(btnCadastrarMedicamento))
+                            .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
+                                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblDescricaoCadastro)
+                                    .addComponent(lblTipoReceitaCadastro)
+                                    .addComponent(lblRegistroAnvisaCadastro))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtTipoReceitaCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                                    .addComponent(txtDescricaoCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                                    .addComponent(txtRegistroAnvisaCadastro)))))
+                    .addComponent(btnAdicionarFornecedorCadastro))
+                .addGap(49, 49, 49))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaAdicionarMedicamentoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLimparCamposCadastro)
-                .addGap(33, 33, 33)
-                .addComponent(btnCadastrarMedicamento)
-                .addGap(26, 26, 26))
+                .addComponent(lblTituloCadastro)
+                .addGap(317, 317, 317))
         );
         TelaAdicionarMedicamentoLayout.setVerticalGroup(
             TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaAdicionarMedicamentoLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addContainerGap()
                 .addComponent(lblTituloCadastro)
-                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(72, 72, 72)
+                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNomeCadastro)
+                    .addComponent(txtNomeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLoteCadastro)
+                    .addComponent(txtLoteCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCategoriaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCategoriaCadastro)
+                    .addComponent(lblInstrucaoArmazenamentoCadastro)
+                    .addComponent(txtInstrucaoArmazenamentoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblQuantidadeCadastro)
+                    .addComponent(txtQuantidadeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRegistroAnvisaCadastro)
+                    .addComponent(txtRegistroAnvisaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDataFabricacaoCadastro)
+                    .addComponent(txtDataFabricacaoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTipoReceitaCadastro)
+                    .addComponent(txtTipoReceitaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDataValidadeCadastro)
+                    .addComponent(txtDataValidadeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDescricaoCadastro)
+                    .addComponent(txtDescricaoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFornecedorCadastro)
+                    .addComponent(comboBoxCnpjFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(TelaAdicionarMedicamentoLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNomeCadastro)
-                            .addComponent(txtNomeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblLoteCadastro)
-                            .addComponent(txtLoteCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCategoriaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCategoriaCadastro)
-                            .addComponent(lblInstrucaoArmazenamentoCadastro)
-                            .addComponent(txtInstrucaoArmazenamentoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblQuantidadeCadastro)
-                            .addComponent(txtQuantidadeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblRegistroAnvisaCadastro)
-                            .addComponent(txtRegistroAnvisaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblDataFabricacaoCadastro)
-                            .addComponent(txtDataFabricacaoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTipoReceitaCadastro)
-                            .addComponent(txtTipoReceitaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblDataValidadeCadastro)
-                            .addComponent(txtDataValidadeCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDescricaoCadastro)
-                            .addComponent(txtDescricaoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblFornecedorCadastro)
-                            .addComponent(txtFornecedorCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(80, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaAdicionarMedicamentoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAdicionarFornecedorCadastro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                         .addGroup(TelaAdicionarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnCadastrarMedicamento)
                             .addComponent(btnLimparCamposCadastro))
-                        .addGap(27, 27, 27))))
+                        .addGap(25, 25, 25))))
         );
 
         TelaEditarMedicamento.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        TelaEditarMedicamento.setMinimumSize(new java.awt.Dimension(740, 361));
+        TelaEditarMedicamento.setMinimumSize(new java.awt.Dimension(748, 526));
         TelaEditarMedicamento.setResizable(false);
         TelaEditarMedicamento.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -458,60 +481,69 @@ public class TelaMedicamento extends javax.swing.JFrame {
         lblFornecedorEditar.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         lblFornecedorEditar.setText("CNPJ Fornecedor");
 
-        txtFornecedorEditar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jScrollPane3.setViewportView(listFornecedoresEditar);
+
+        btnAdicionarFornecedorEditar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnAdicionarFornecedorEditar.setText("Adiconar Fornecedor");
+        btnAdicionarFornecedorEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarFornecedorEditarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout TelaEditarMedicamentoLayout = new javax.swing.GroupLayout(TelaEditarMedicamento.getContentPane());
         TelaEditarMedicamento.getContentPane().setLayout(TelaEditarMedicamentoLayout);
         TelaEditarMedicamentoLayout.setHorizontalGroup(
             TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
-                .addGap(258, 258, 258)
-                .addComponent(lblTituloEditar)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
-                        .addComponent(lblFornecedorEditar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtFornecedorEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
-                        .addComponent(lblDataValidadeEditar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDataValidadeEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
-                        .addComponent(lblDataFabricacaoEditar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDataFabricacaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaEditarMedicamentoLayout.createSequentialGroup()
                                 .addComponent(lblNomeEditar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtNomeEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
+                                .addGap(60, 60, 60)
                                 .addComponent(lblQuantidadeEditar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtQuantidadeEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
-                            .addGap(22, 22, 22)
+                            .addGap(70, 70, 70)
                             .addComponent(lblCategoriaEditar)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtCategoriaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaEditarMedicamentoLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblInstrucaoArmazenamentoEditar)
-                            .addComponent(lblLoteEditar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtLoteEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                            .addComponent(txtInstrucaoArmazenamentoEditar))
-                        .addGap(20, 20, 20))
+                            .addComponent(txtCategoriaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
-                        .addGap(115, 115, 115)
+                        .addContainerGap()
+                        .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
+                                .addComponent(lblDataFabricacaoEditar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtDataFabricacaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
+                                .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblFornecedorEditar)
+                                    .addComponent(lblDataValidadeEditar))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtDataValidadeEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(comboBoxCnpjFornecedorEditar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addGap(36, 36, 36)
+                .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblInstrucaoArmazenamentoEditar)
+                    .addComponent(lblLoteEditar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtLoteEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                    .addComponent(txtInstrucaoArmazenamentoEditar))
+                .addGap(20, 20, 20))
+            .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
+                .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
+                        .addGap(258, 258, 258)
+                        .addComponent(lblTituloEditar))
+                    .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
+                        .addGap(381, 381, 381)
                         .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblDescricaoEditar)
                             .addComponent(lblTipoReceitaEditar)
@@ -524,7 +556,14 @@ public class TelaMedicamento extends javax.swing.JFrame {
                             .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
                                 .addComponent(btnLimparCamposEditar)
                                 .addGap(33, 33, 33)
-                                .addComponent(btnEditarMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addComponent(btnEditarMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaEditarMedicamentoLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(btnAdicionarFornecedorEditar)
+                .addGap(247, 247, 247))
         );
         TelaEditarMedicamentoLayout.setVerticalGroup(
             TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -564,16 +603,19 @@ public class TelaMedicamento extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFornecedorEditar)
-                    .addComponent(txtFornecedorEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                    .addComponent(comboBoxCnpjFornecedorEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TelaEditarMedicamentoLayout.createSequentialGroup()
+                        .addComponent(btnAdicionarFornecedorEditar)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(TelaEditarMedicamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditarMedicamento)
                     .addComponent(btnLimparCamposEditar))
                 .addGap(27, 27, 27))
         );
-
-        lblDataValidadeCadastro1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        lblDataValidadeCadastro1.setText("Data De Validade");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -698,11 +740,19 @@ public class TelaMedicamento extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDataValidadeEditarActionPerformed
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
+        List<Fornecedor> fornecedores = fornecedorController.findAll();
+        for (Fornecedor fornecedor : fornecedores) {
+            comboBoxCnpjFornecedor.addItem(fornecedor.getCnpj());
+        }
         TelaAdicionarMedicamento.setVisible(true);
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         if (Integer.parseInt(lblLinhaSelecionada.getText()) > 0) {
+            List<Fornecedor> fornecedores = fornecedorController.findAll();
+            for (Fornecedor fornecedor : fornecedores) {
+                comboBoxCnpjFornecedorEditar.addItem(fornecedor.getCnpj());
+            }
             TelaEditarMedicamento.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(
@@ -734,25 +784,16 @@ public class TelaMedicamento extends javax.swing.JFrame {
             String dataValid = txtDataValidadeCadastro.getText();
             medicamento.setDataFabricacao(LocalDate.parse(dataFabric , formatter));
             medicamento.setDataValidade(LocalDate.parse(dataValid , formatter));
-            /*
-            * Se o for cadastrado algum fornecedor ao medicamento
-            * Será verificado se ele existe ou não.
-            * Só será verificado se algum cnpj for informado
-            */
-            if (!StringUtil.isNullOrEmpty(txtFornecedorCadastro.getText())) {
-                Fornecedor fornecedor = fornecedorController.findByCnpj(txtFornecedorCadastro.getText());
-                if (fornecedor.getId() != null) {
-                    List<Fornecedor> fornecedores = medicamento.getFornecedores();
-
-                    if (fornecedores == null) {
-                        fornecedores = new ArrayList<>();
-                    }
-
+            
+            List<Fornecedor> fornecedores = new ArrayList();
+            ListModel<String> listaAux = listFornecedores.getModel();
+            for (int i = 0; i < listaAux.getSize(); i++) {
+                Fornecedor fornecedor = fornecedorController.findByCnpj(listaAux.getElementAt(i));
+                if (fornecedor != null) {
                     fornecedores.add(fornecedor);
-
-                    medicamento.setFornecedores(fornecedores);
                 }
             }
+            medicamento.setFornecedores(fornecedores);
             
             medicamentoController.save(medicamento);
             
@@ -786,7 +827,8 @@ public class TelaMedicamento extends javax.swing.JFrame {
         txtRegistroAnvisaCadastro.setText("");
         txtTipoReceitaCadastro.setText("");
         txtDescricaoCadastro.setText("");
-        txtFornecedorCadastro.setText("");
+        DefaultListModel<String> model = (DefaultListModel<String>) listFornecedores.getModel();
+        model.clear();
     }//GEN-LAST:event_btnLimparCamposCadastroActionPerformed
 
     private void TelaAdicionarMedicamentoWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_TelaAdicionarMedicamentoWindowClosed
@@ -818,20 +860,15 @@ public class TelaMedicamento extends javax.swing.JFrame {
             medicamento.setDataFabricacao(LocalDate.parse(dataFabric , formatter));
             medicamento.setDataValidade(LocalDate.parse(dataValid , formatter));
             
-            if (!StringUtil.isNullOrEmpty(txtFornecedorEditar.getText())) {
-                Fornecedor fornecedor = fornecedorController.findByCnpj(txtFornecedorEditar.getText());
-                if (fornecedor.getId() != null) {
-                    List<Fornecedor> fornecedores = medicamento.getFornecedores();
-
-                    if (fornecedores == null) {
-                        fornecedores = new ArrayList<>();
-                    }
-
+            List<Fornecedor> fornecedores = new ArrayList();
+            ListModel<String> listaAux = listFornecedoresEditar.getModel();
+            for (int i = 0; i < listaAux.getSize(); i++) {
+                Fornecedor fornecedor = fornecedorController.findByCnpj(listaAux.getElementAt(i));
+                if (fornecedor != null) {
                     fornecedores.add(fornecedor);
-
-                    medicamento.setFornecedores(fornecedores);
                 }
             }
+            medicamento.setFornecedores(fornecedores);
             
             medicamentoController.update(medicamento);
             
@@ -860,7 +897,8 @@ public class TelaMedicamento extends javax.swing.JFrame {
         txtRegistroAnvisaEditar.setText("");
         txtTipoReceitaEditar.setText("");
         txtDescricaoEditar.setText("");
-        txtFornecedorEditar.setText("");
+        DefaultListModel<String> model = (DefaultListModel<String>) listFornecedoresEditar.getModel();
+        model.clear();
     }//GEN-LAST:event_btnLimparCamposEditarActionPerformed
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
@@ -898,6 +936,30 @@ public class TelaMedicamento extends javax.swing.JFrame {
             updateTable();
         }
     }//GEN-LAST:event_txtBuscarMedicamentoKeyPressed
+
+    private void btnAdicionarFornecedorCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarFornecedorCadastroActionPerformed
+        DefaultListModel lista = new DefaultListModel();
+        ListModel<String> listaAux = listFornecedores.getModel();
+        for (int i = 0; i < listaAux.getSize(); i++) {
+            lista.addElement(listaAux.getElementAt(i));
+        }
+        lista.addElement(comboBoxCnpjFornecedor.getSelectedItem());
+        listFornecedores.setModel(lista);
+    }//GEN-LAST:event_btnAdicionarFornecedorCadastroActionPerformed
+
+    private void btnAdicionarFornecedorEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarFornecedorEditarActionPerformed
+        DefaultListModel lista = new DefaultListModel();
+        ListModel<String> listaAux = listFornecedoresEditar.getModel();
+        for (int i = 0; i < listaAux.getSize(); i++) {
+            lista.addElement(listaAux.getElementAt(i));
+        }
+        lista.addElement(comboBoxCnpjFornecedorEditar.getSelectedItem());
+        listFornecedoresEditar.setModel(lista);
+    }//GEN-LAST:event_btnAdicionarFornecedorEditarActionPerformed
+
+    private void comboBoxCnpjFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxCnpjFornecedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxCnpjFornecedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -941,19 +1003,24 @@ public class TelaMedicamento extends javax.swing.JFrame {
     private javax.swing.JFrame TelaAdicionarMedicamento;
     private javax.swing.JFrame TelaEditarMedicamento;
     private javax.swing.JButton btnAdicionar;
+    private javax.swing.JButton btnAdicionarFornecedorCadastro;
+    private javax.swing.JButton btnAdicionarFornecedorEditar;
     private javax.swing.JButton btnCadastrarMedicamento;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEditarMedicamento;
     private javax.swing.JButton btnLimparCamposCadastro;
     private javax.swing.JButton btnLimparCamposEditar;
     private javax.swing.JButton btnRemover;
+    private javax.swing.JComboBox<String> comboBoxCnpjFornecedor;
+    private javax.swing.JComboBox<String> comboBoxCnpjFornecedorEditar;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblCategoriaCadastro;
     private javax.swing.JLabel lblCategoriaEditar;
     private javax.swing.JLabel lblDataFabricacaoCadastro;
     private javax.swing.JLabel lblDataFabricacaoEditar;
     private javax.swing.JLabel lblDataValidadeCadastro;
-    private javax.swing.JLabel lblDataValidadeCadastro1;
     private javax.swing.JLabel lblDataValidadeEditar;
     private javax.swing.JLabel lblDescricaoCadastro;
     private javax.swing.JLabel lblDescricaoEditar;
@@ -977,6 +1044,8 @@ public class TelaMedicamento extends javax.swing.JFrame {
     private javax.swing.JLabel lblTituloCadastro;
     private javax.swing.JLabel lblTituloEditar;
     private javax.swing.JLabel lblTituloMedicamento;
+    private javax.swing.JList<String> listFornecedores;
+    private javax.swing.JList<String> listFornecedoresEditar;
     private javax.swing.JTable tableMedicamento;
     private javax.swing.JTextField txtBuscarMedicamento;
     private javax.swing.JTextField txtCategoriaCadastro;
@@ -987,8 +1056,6 @@ public class TelaMedicamento extends javax.swing.JFrame {
     private javax.swing.JTextField txtDataValidadeEditar;
     private javax.swing.JTextField txtDescricaoCadastro;
     private javax.swing.JTextField txtDescricaoEditar;
-    private javax.swing.JTextField txtFornecedorCadastro;
-    private javax.swing.JTextField txtFornecedorEditar;
     private javax.swing.JTextField txtInstrucaoArmazenamentoCadastro;
     private javax.swing.JTextField txtInstrucaoArmazenamentoEditar;
     private javax.swing.JTextField txtLoteCadastro;
