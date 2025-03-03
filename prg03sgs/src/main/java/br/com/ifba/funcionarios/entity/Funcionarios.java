@@ -6,7 +6,7 @@ package br.com.ifba.funcionarios.entity;
 
 import br.com.ifba.campanhavacina.entity.CampanhaVacinaEntity;
 import br.com.ifba.administrativo.entity.Administrativo;
-import br.com.ifba.enfermeiro.entiity.Enfermeiro;
+import br.com.ifba.enfermeiro.entity.Enfermeiro;
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
 import br.com.ifba.medico.entity.Medico;
 import jakarta.persistence.Column;
