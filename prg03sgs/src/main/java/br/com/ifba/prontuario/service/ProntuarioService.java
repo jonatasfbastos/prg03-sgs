@@ -5,13 +5,11 @@
 package br.com.ifba.prontuario.service;
 
 
-import br.com.ifba.paciente.repository.PacienteRepository;
 import br.com.ifba.prontuario.entity.Prontuario;
 import br.com.ifba.prontuario.repository.ProntuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -23,11 +21,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ProntuarioService implements ProntuarioIService {
     
-    @Autowired // Injeta o repositório do Prontuário
     private final ProntuarioRepository prontuarioRepository;
     
-    @Autowired // Injeta o repositório do Paciente
-    private final PacienteRepository pacienteRepository;
     
     // Lista todos os prontuários
     @Override
@@ -45,11 +40,6 @@ public class ProntuarioService implements ProntuarioIService {
         // Verifica se o paciente está associado ao prontuário
         if (prontuario.getPaciente() == null || prontuario.getPaciente().getId() == null) {
             throw new IllegalArgumentException("Paciente é obrigatório para o prontuário.");
-        }
-
-        // Verifica se o paciente existe no banco de dados
-        if (!pacienteRepository.existsById(prontuario.getPaciente().getId())) {
-            throw new IllegalArgumentException("Paciente com ID " + prontuario.getPaciente().getId() + " não encontrado.");
         }
 
         try {
