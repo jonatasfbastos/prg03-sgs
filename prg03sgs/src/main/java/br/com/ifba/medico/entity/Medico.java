@@ -31,8 +31,8 @@ public class Medico extends PersistenceEntity implements Serializable{
     @Getter @Setter private String especialidade;
     
     @OneToOne
-    @JoinColumn(name = "fucnionario_id", nullable = false)    
-    private Funcionarios funcionarios;
+    @JoinColumn(name = "medico_id", nullable = false)    
+    private Funcionarios funcionario;
     
     @OneToOne(mappedBy = "medico", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Getter @Setter private Requisicoes requisicoes;
