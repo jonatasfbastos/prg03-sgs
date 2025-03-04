@@ -13,9 +13,9 @@ public class TabelaUsuarios extends AbstractTableModel {
     private final int COL_NOME = 1;
     private final int COL_EMAIL = 2;
     private final int COL_SENHA = 3;
-    private final int COL_NIVELACESSO = 4;
+    private final int COL_PERFILUSUARIO = 4;
 
-    //Armazena todos os cursos cadastrados em uma lista, que funcionará como as linhas da JTable.
+    //Armazena todos os usuários cadastrados em uma lista, que funcionará como as linhas da JTable.
     public TabelaUsuarios(List<Usuario> listaUsuarios) {
         this.listaUsuarios = listaUsuarios;
     }
@@ -44,8 +44,8 @@ public class TabelaUsuarios extends AbstractTableModel {
                 return "Email";
             case COL_SENHA:
                 return "Senha";
-            case COL_NIVELACESSO:
-                return "Nível de Acesso";
+            case COL_PERFILUSUARIO:
+                return "Perfil de Usuário";
             default:
                 break;
         }
@@ -65,14 +65,14 @@ public class TabelaUsuarios extends AbstractTableModel {
             return usuario.getEmail();
         } else if (columnIndex == COL_SENHA) {
             return usuario.getSenha();
-        } else if (columnIndex == COL_NIVELACESSO) {
-            return usuario.getNivelAcesso();
+        } else if (columnIndex == COL_PERFILUSUARIO) {
+            return usuario.getPerfilUsuario();
         }
 
         return "-";
     }
 
-    //Pega as informações de um curso cadastrado em determinada linha da JTable.
+    //Pega as informações de um usuário cadastrado em determinada linha da JTable.
     public Usuario getObjetoUsuario(int row) {
         return this.listaUsuarios.get(row);
     }

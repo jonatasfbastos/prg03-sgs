@@ -15,11 +15,7 @@ public class UsuarioService implements UsuarioIService {
 
     @Override
     public Usuario save(Usuario usuario) throws RuntimeException {
-        if (usuario.getId() != null) {
-            throw new RuntimeException("Este usuário já existe");
-        } else {
-            return usuarioRepository.save(usuario);
-        }
+        return usuarioRepository.save(usuario);
     }
 
     @Override
@@ -44,32 +40,8 @@ public class UsuarioService implements UsuarioIService {
     }
 
     @Override
-    public List<Usuario> findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCaseOrSenhaContainingIgnoreCaseOrNivelAcessoContainingIgnoreCase(String nome, String email, String senha, String nivelAcesso) throws RuntimeException {
-        return usuarioRepository.findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCaseOrSenhaContainingIgnoreCaseOrNivelAcessoContainingIgnoreCase(nome, email, senha, nivelAcesso);
+    public List<Usuario> findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCase(String nome, String email) throws RuntimeException {
+        return usuarioRepository.findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCase(nome, email);
     }
 
-    @Override
-    public List<Usuario> findByNome(String nome) throws RuntimeException {
-        return usuarioRepository.findByNome(nome);
-    }
-
-    @Override
-    public List<Usuario> findByEmail(String email) throws RuntimeException {
-        return usuarioRepository.findByEmail(email);
-    }
-
-    @Override
-    public List<Usuario> findBySenha(String senha) throws RuntimeException {
-        return usuarioRepository.findBySenha(senha);
-    }
-
-    @Override
-    public List<Usuario> findByNivelAcesso(String nivelAcesso) throws RuntimeException {
-        return usuarioRepository.findByNivelAcesso(nivelAcesso);
-    }
-
-    /*@Override
-    public List<Usuario> findByIdContainingOrNomeContainingIgnoreCaseOrEmailContainingIgnoreCaseOrSenhaContainingIgnoreCaseOrNivelAcessoContainingIgnoreCase(String id, String nome, String email, String senha, String nivelAcesso) throws RuntimeException {
-        return usuarioRepository.findByIdContainingOrNomeContainingIgnoreCaseOrEmailContainingIgnoreCaseOrSenhaContainingIgnoreCaseOrNivelAcessoContainingIgnoreCase(id, nome, email, senha, nivelAcesso);
-    }*/
 }

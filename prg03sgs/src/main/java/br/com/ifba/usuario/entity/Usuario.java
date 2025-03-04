@@ -2,6 +2,7 @@ package br.com.ifba.usuario.entity;
 
 import br.com.ifba.compromisso.entity.Compromisso;
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
+import br.com.ifba.perfilusuario.entity.PerfilUsuario;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,10 +30,13 @@ public class Usuario extends PersistenceEntity implements Serializable {
     //A senha não pode ser nula.
     @Column(name = "senha", nullable = false)
     private String senha;
-    //O nível de acesso não pode ser nulo.
-    @Column(name = "nivel_acesso", nullable = false)
-    private String nivelAcesso;
+    //O perfil de usuário não pode ser nulo.
+    @Column(name = "perfil_usuario", nullable = false)
+    private PerfilUsuario perfilUsuario;
     //Relação com a classe Compromisso (Um usuário pode ter vários compromissos).
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Compromisso> compromissos = new ArrayList<>();
+    //Relação com a classe PerfilUsuario (Um usuário pode ter vários perfis).
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<PerfilUsuario> perfisUsuario = new ArrayList<>();
 }

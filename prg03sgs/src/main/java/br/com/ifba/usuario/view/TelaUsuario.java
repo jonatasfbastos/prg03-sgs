@@ -27,7 +27,7 @@ public class TelaUsuario extends javax.swing.JFrame {
      * Creates new form TelaUsuario
      */
     private final UsuarioIController usuarioController;
-
+    //Inicia os componentes visuais.
     {
         initComponents();
         setLocationRelativeTo(null);
@@ -147,7 +147,7 @@ public class TelaUsuario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -189,6 +189,7 @@ public class TelaUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     //Abre a tela para a criação de um usuário. Somente um usuário pode ser criado por vez.
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+       
         this.txtRead.setText("Pesquisar...");
         this.tblUsers.clearSelection();
 
@@ -198,6 +199,7 @@ public class TelaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCreateActionPerformed
     //Abre a tela para a alteração das informações de um usuário. Somente um usuário pode ser editado por vez.
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+    
         int linhaSelecionada = tblUsers.getSelectedRow();
 
         Usuario usuarioSelecionado = UsuarioSelecionadoTabela(linhaSelecionada);
@@ -253,12 +255,12 @@ public class TelaUsuario extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
-    //Faz a varredura do texto inserido na barra de pesquisa e exibe os resultados correspondentes.
+    //Faz a varredura do texto inserido na barra de pesquisa e exibe os resultados correspondentes (Apenas para Nome e E-mail).
     private void txtReadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtReadKeyReleased
         String textoPesquisado = txtRead.getText();
 
         if (!textoPesquisado.isEmpty()) {
-            List<Usuario> usuariosEncontrados = usuarioController.findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCaseOrSenhaContainingIgnoreCaseOrNivelAcessoContainingIgnoreCase(textoPesquisado, textoPesquisado, textoPesquisado, textoPesquisado);
+            List<Usuario> usuariosEncontrados = usuarioController.findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCase(textoPesquisado, textoPesquisado);
 
             TabelaUsuarios tabelaUsuarios = new TabelaUsuarios(usuariosEncontrados);
             tblUsers.setModel(tabelaUsuarios);
@@ -287,7 +289,8 @@ public class TelaUsuario extends javax.swing.JFrame {
         this.txtRead.setText("Pesquisar...");
         this.atualizarTabela();
     }//GEN-LAST:event_formMouseClicked
-    //Atualiza a tabela toda vez que um usuario é adicionado, alterado ou removido.
+
+   //Atualiza a tabela toda vez que um usuario é adicionado, alterado ou removido.
     public void atualizarTabela() {
         TabelaUsuarios tabelaUsuarios = new TabelaUsuarios(usuarioController.findAll());
         tblUsers.setModel(tabelaUsuarios);
@@ -359,7 +362,7 @@ public class TelaUsuario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //Injeção de dependência no Controller.
+                //Realiza a injeção de dependência no UsuarioController.
                 UsuarioIController usuarioController = null;
                 TelaUsuario telaUsuario = new TelaUsuario(usuarioController);
                 telaUsuario.setVisible(true);

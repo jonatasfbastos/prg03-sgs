@@ -4,8 +4,10 @@
  */
 package br.com.ifba.usuario.view;
 
+import br.com.ifba.perfilusuario.entity.PerfilUsuario;
 import br.com.ifba.usuario.controller.UsuarioIController;
 import br.com.ifba.usuario.entity.Usuario;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -23,13 +25,14 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
      */
     private TelaUsuario telaUsuario;
     private final UsuarioIController usuarioController;
-
+    
+    //Inicia os componentes visuais.
     {
         initComponents();
         setLocationRelativeTo(null);
     }
 
-    //Vincula a TelaUsuario a esta, possibilitando que a tabela seja atualizada automaticamente após a inserção de um usuário.
+    //Vincula a TelaUsuario a esta, possibilitando que a tabela seja atualizada automaticamente após a criação de um usuário.
     public void vincularTela(TelaUsuario telaUsuario) {
         this.telaUsuario = telaUsuario;
     }
@@ -50,7 +53,7 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        cbxAccessLevel = new javax.swing.JComboBox<>();
+        cbxUserProfile = new javax.swing.JComboBox();
         btnSave = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         pswPassword = new javax.swing.JPasswordField();
@@ -59,9 +62,14 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
         lblVerifyEmail = new javax.swing.JLabel();
         lblVerifyPassword = new javax.swing.JLabel();
         lblVerifyRepeatPassword = new javax.swing.JLabel();
-        lblVerifyAccessLevel = new javax.swing.JLabel();
+        lblVerifyUserProfile = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("CRIAR USUÁRIO");
@@ -76,9 +84,7 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
         jLabel4.setText("Senha");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setText("Nível de Acesso");
-
-        cbxAccessLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Parcial", "Total" }));
+        jLabel5.setText("Perfil de Usuário");
 
         btnSave.setText("Salvar");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -110,9 +116,9 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
         lblVerifyRepeatPassword.setForeground(new java.awt.Color(255, 0, 0));
         lblVerifyRepeatPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        lblVerifyAccessLevel.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        lblVerifyAccessLevel.setForeground(new java.awt.Color(255, 0, 0));
-        lblVerifyAccessLevel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblVerifyUserProfile.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        lblVerifyUserProfile.setForeground(new java.awt.Color(255, 0, 0));
+        lblVerifyUserProfile.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,12 +151,12 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
                                     .addComponent(txtEmail)
                                     .addComponent(pswPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
+                        .addContainerGap()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxAccessLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbxUserProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblVerifyAccessLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblVerifyUserProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -193,9 +199,9 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
                 .addComponent(lblVerifyRepeatPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbxAccessLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxUserProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(lblVerifyAccessLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblVerifyUserProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(btnSave)
                 .addGap(29, 29, 29))
@@ -203,7 +209,7 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //Insere um usuário no banco de dados.
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         Usuario usuario = new Usuario();
         boolean erro = false;
@@ -211,7 +217,8 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
         usuario.setNome(txtName.getText());
         usuario.setEmail(txtEmail.getText());
         usuario.setSenha(new String(pswPassword.getPassword()));
-        usuario.setNivelAcesso(cbxAccessLevel.getSelectedItem().toString());
+        usuario.setPerfilUsuario((PerfilUsuario) cbxUserProfile.getSelectedItem());
+        
         //Verifica se o campo Nome está preenchido.
         if (txtName.getText().equals("")) {
             lblVerifyName.setText("Informe o nome!");
@@ -233,12 +240,12 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
         } else {
             lblVerifyPassword.setText("");
         }
-        //Verifica se há um Nível de Acesso selecionado.
-        if (cbxAccessLevel.getSelectedItem().equals("-")) {
-            lblVerifyAccessLevel.setText("Selecione o nível de acesso!");
+        //Verifica se há um Perfil de Usuário selecionado.
+        if (cbxUserProfile.getSelectedItem() == null) {
+            lblVerifyUserProfile.setText("Selecione o perfil de usuário!");
             erro = true;
         } else {
-            lblVerifyAccessLevel.setText("");
+            lblVerifyUserProfile.setText("");
         }
         //Verifica se o campo Repetir Senha está vazio ou com uma senha não correspondente.
         if (new String(pswRepeatPassword.getPassword()).equals("")) {
@@ -266,6 +273,52 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
         telaUsuario.atualizarTabela();
         dispose();
     }//GEN-LAST:event_btnSaveActionPerformed
+    //Insere os perfis de usuário no cbxUserProfile.
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        DefaultComboBoxModel<PerfilUsuario> dCBM = (DefaultComboBoxModel<PerfilUsuario>) this.cbxUserProfile.getModel();
+
+        dCBM.addElement(null);
+        
+        PerfilUsuario paciente = new PerfilUsuario();
+        paciente.setNome("Paciente");
+        paciente.setDescricao("Acessa e gerencia suas informações de saúde.");
+        dCBM.addElement(paciente);
+        
+        PerfilUsuario enfermeiro = new PerfilUsuario();
+        enfermeiro.setNome("Enfermeiro");
+        enfermeiro.setDescricao("Realiza cuidados e monitora a saúde dos pacientes.");
+        dCBM.addElement(enfermeiro);
+        
+        PerfilUsuario farmaceutico = new PerfilUsuario();
+        farmaceutico.setNome("Farmacêutico");
+        farmaceutico.setDescricao("Gerencia prescrições e estoque de medicamentos.");
+        dCBM.addElement(farmaceutico);
+        
+        PerfilUsuario medico = new PerfilUsuario();
+        medico.setNome("Médico");
+        medico.setDescricao("Acompanha e prescreve tratamentos aos pacientes.");
+        dCBM.addElement(medico);
+        
+        PerfilUsuario secretario = new PerfilUsuario();
+        secretario.setNome("Secretário");
+        secretario.setDescricao("Organiza agendamentos e documentos administrativos.");
+        dCBM.addElement(secretario);
+        
+        PerfilUsuario gestorSaude = new PerfilUsuario();
+        gestorSaude.setNome("Gestor de Saúde");
+        gestorSaude.setDescricao("Supervisiona equipes e processos de saúde.");
+        dCBM.addElement(gestorSaude);
+        
+        PerfilUsuario contador = new PerfilUsuario();
+        contador.setNome("Contador");
+        contador.setDescricao("Administra finanças e faturamento do sistema de saúde.");
+        dCBM.addElement(contador);
+        
+        PerfilUsuario administrador = new PerfilUsuario();
+        administrador.setNome("Administrador");
+        administrador.setDescricao("Gerencia configurações do sistema e acessos dos usuários.");
+        dCBM.addElement(administrador);
+    }//GEN-LAST:event_formWindowOpened
 
     //Verifica se as senhas digitadas nos campos "Senha" e "Repetir Senha" correspondem.
     private Boolean validarSenha(Usuario usuario) {
@@ -282,7 +335,7 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
         txtEmail.setText("");
         pswPassword.setText("");
         pswRepeatPassword.setText("");
-        cbxAccessLevel.setSelectedItem("-");
+        cbxUserProfile.setSelectedItem(null);
     }
 
     /**
@@ -316,7 +369,7 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //Injeção de dependência no Controller.
+                //Realiza a injeção de dependência no UsuarioController.
                 UsuarioIController usuarioController = null;
                 TelaCriarUsuario telaCriarUsuario = new TelaCriarUsuario(usuarioController);
                 telaCriarUsuario.setVisible(true);
@@ -326,18 +379,18 @@ public class TelaCriarUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
-    private javax.swing.JComboBox<String> cbxAccessLevel;
+    private javax.swing.JComboBox cbxUserProfile;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel lblVerifyAccessLevel;
     private javax.swing.JLabel lblVerifyEmail;
     private javax.swing.JLabel lblVerifyName;
     private javax.swing.JLabel lblVerifyPassword;
     private javax.swing.JLabel lblVerifyRepeatPassword;
+    private javax.swing.JLabel lblVerifyUserProfile;
     private javax.swing.JPasswordField pswPassword;
     private javax.swing.JPasswordField pswRepeatPassword;
     private javax.swing.JTextField txtEmail;
