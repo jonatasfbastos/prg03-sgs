@@ -16,4 +16,5 @@ public interface PacienteIController {
     public abstract void save(Paciente paciente);
     public abstract void update (Paciente paciente);
     public Paciente findById(Long id);
+    public abstract Paciente findByCpf(String cpf);
 }

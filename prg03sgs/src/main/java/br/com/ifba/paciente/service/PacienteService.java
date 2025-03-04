@@ -64,5 +64,11 @@ public class PacienteService implements PacienteIService{
         Optional<Paciente> paciente = pacienteRepository.findById(id);
         return paciente.orElseThrow(() -> new EntityNotFoundException("Paciente com ID " + id + " não encontrado."));
     }
+
+    @Override
+    public Paciente findByCpf(String cpf) throws EntityNotFoundException {
+        Optional<Paciente> paciente = pacienteRepository.findByCpf(cpf);
+        return paciente.orElseThrow(() -> new EntityNotFoundException("Paciente com CPF " + cpf + " não encontrado."));
+    }
     
 }

@@ -17,4 +17,5 @@ public interface PacienteIService {
     public abstract void save(Paciente paciente) throws RuntimeException, IllegalArgumentException;
     public abstract void update (Paciente paciente) throws RuntimeException, IllegalArgumentException, EntityNotFoundException;
     public Paciente findById(Long id) throws EntityNotFoundException;
+    public abstract Paciente findByCpf(String cpf) throws EntityNotFoundException;
 }

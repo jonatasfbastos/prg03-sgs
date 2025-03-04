@@ -38,5 +38,10 @@ public class PacienteController implements PacienteIController{
      public Paciente findById(Long id) {
         return pacienteService.findById(id);
      }
+
+    @Override
+    public Paciente findByCpf(String cpf) {
+        return pacienteService.findByCpf(cpf);
+    }
     
 }
