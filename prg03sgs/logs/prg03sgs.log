@@ -1154,3 +1154,732 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2025-03-03 17:24:10 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-03-03 17:24:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-03-03 17:24:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-03 17:40:52 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.5 with PID 9992 (C:\Users\Erio\Desktop\prg03-sgs\prg03sgs\target\classes started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 17:40:52 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 17:40:54 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 17:40:54 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 531 ms. Found 15 JPA repository interfaces.
+2025-03-03 17:40:56 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 17:40:56 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-03-03 17:40:57 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 17:40:57 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 17:40:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-03 17:40:58 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@f2276c9
+2025-03-03 17:40:58 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-03 17:40:58 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 17:40:58 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 17:41:03 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 17:41:03 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 17:41:05 [main] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 17:41:06 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 17:41:06 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 17:41:06 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 17:41:06 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 17:41:07 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 17:41:08 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 17:41:08 [main] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 17:41:08 [main] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 17:41:09 [main] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 17:41:09 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 18.5 seconds (process running for 19.651)
+2025-03-03 17:42:07 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Starting application using Java 21.0.5 with PID 9992 (started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 17:42:07 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 17:42:07 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 17:42:08 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 183 ms. Found 15 JPA repository interfaces.
+2025-03-03 17:42:08 [AWT-EventQueue-0] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 17:42:08 [AWT-EventQueue-0] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 17:42:08 [AWT-EventQueue-0] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 17:42:08 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-03-03 17:42:08 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3a6db614
+2025-03-03 17:42:08 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-03-03 17:42:08 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 17:42:08 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 17:42:09 [AWT-EventQueue-0] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 17:42:10 [AWT-EventQueue-0] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 17:42:10 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 17:42:10 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 17:42:10 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 17:42:10 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 17:42:11 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 17:42:11 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 17:42:11 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Started application in 4.291 seconds (process running for 81.616)
+2025-03-03 17:42:11 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 17:42:11 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 17:42:11 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 17:42:11 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 17:42:33 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select next_val as id_val from funcionarios_seq for update
+2025-03-03 17:42:33 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - update funcionarios_seq set next_val= ? where next_val=?
+2025-03-03 17:42:33 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - insert into funcionarios (administrativo_id,campanha_de_vacina_id,cargo,cpf,data_nascimento,email,endereço,enfermeiro_id,medico_id,nome,salario,telefone,id) values (?,?,?,?,?,?,?,?,?,?,?,?,?)
+2025-03-03 17:42:57 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Starting application using Java 21.0.5 with PID 9992 (started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 17:42:57 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 17:42:58 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 17:42:58 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 173 ms. Found 15 JPA repository interfaces.
+2025-03-03 17:42:58 [AWT-EventQueue-0] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 17:42:58 [AWT-EventQueue-0] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 17:42:58 [AWT-EventQueue-0] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 17:42:58 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-03-03 17:42:58 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6902979d
+2025-03-03 17:42:58 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-03-03 17:42:58 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 17:42:58 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 17:42:59 [AWT-EventQueue-0] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 17:42:59 [AWT-EventQueue-0] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 17:42:59 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 17:43:00 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 17:43:00 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 17:43:00 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 17:43:00 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 17:43:00 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 17:43:00 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Started application in 3.355 seconds (process running for 130.845)
+2025-03-03 17:43:00 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 17:43:00 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 17:43:00 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 17:43:00 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 17:43:23 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Starting application using Java 21.0.5 with PID 9992 (started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 17:43:23 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 17:43:24 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 17:43:24 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 167 ms. Found 15 JPA repository interfaces.
+2025-03-03 17:43:24 [AWT-EventQueue-0] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 17:43:24 [AWT-EventQueue-0] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 17:43:24 [AWT-EventQueue-0] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 17:43:24 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2025-03-03 17:43:24 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@367bae8b
+2025-03-03 17:43:24 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2025-03-03 17:43:24 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 17:43:24 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 17:43:25 [AWT-EventQueue-0] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 17:43:25 [AWT-EventQueue-0] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 17:43:25 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 17:43:26 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 17:43:26 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 17:43:26 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 17:43:26 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 17:43:26 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 17:43:26 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Started application in 3.254 seconds (process running for 156.892)
+2025-03-03 17:43:26 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 17:43:26 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 17:43:26 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 17:43:26 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 17:43:37 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 17:43:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-03 17:43:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-03 17:43:37 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 17:43:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-03-03 17:43:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-03-03 17:43:37 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 17:43:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2025-03-03 17:43:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2025-03-03 17:43:37 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 17:43:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+2025-03-03 17:43:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+2025-03-03 17:56:14 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.5 with PID 2436 (C:\Users\Erio\Desktop\prg03-sgs\prg03sgs\target\classes started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 17:56:14 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 17:56:16 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 17:56:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 488 ms. Found 15 JPA repository interfaces.
+2025-03-03 17:56:19 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 17:56:19 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-03-03 17:56:19 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 17:56:20 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 17:56:20 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-03 17:56:20 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e9474f
+2025-03-03 17:56:20 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-03 17:56:20 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 17:56:20 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 17:56:25 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 17:56:25 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 17:56:27 [main] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 17:56:28 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 17:56:28 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 17:56:28 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 17:56:28 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 17:56:29 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 17:56:29 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 17:56:30 [main] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 17:56:30 [main] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 17:56:30 [main] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 17:56:31 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 17.592 seconds (process running for 18.585)
+2025-03-03 17:57:00 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Starting application using Java 21.0.5 with PID 2436 (started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 17:57:00 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 17:57:01 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 17:57:01 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 180 ms. Found 15 JPA repository interfaces.
+2025-03-03 17:57:02 [AWT-EventQueue-0] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 17:57:02 [AWT-EventQueue-0] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 17:57:02 [AWT-EventQueue-0] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 17:57:02 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-03-03 17:57:02 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@529ae073
+2025-03-03 17:57:02 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-03-03 17:57:02 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 17:57:02 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 17:57:03 [AWT-EventQueue-0] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 17:57:03 [AWT-EventQueue-0] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 17:57:03 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 17:57:04 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 17:57:04 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 17:57:04 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 17:57:04 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 17:57:04 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 17:57:05 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Started application in 4.392 seconds (process running for 52.678)
+2025-03-03 17:57:05 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 17:57:05 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 17:57:05 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 17:57:05 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 17:58:00 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Starting application using Java 21.0.5 with PID 2436 (started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 17:58:00 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 17:58:01 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 17:58:01 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 180 ms. Found 15 JPA repository interfaces.
+2025-03-03 17:58:01 [AWT-EventQueue-0] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 17:58:01 [AWT-EventQueue-0] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 17:58:01 [AWT-EventQueue-0] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 17:58:01 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-03-03 17:58:01 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@53c7808
+2025-03-03 17:58:01 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-03-03 17:58:01 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 17:58:01 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 17:58:02 [AWT-EventQueue-0] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 17:58:02 [AWT-EventQueue-0] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 17:58:02 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 17:58:03 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 17:58:03 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 17:58:03 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 17:58:03 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 17:58:03 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 17:58:03 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Started application in 3.448 seconds (process running for 111.446)
+2025-03-03 17:58:03 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 17:58:03 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 17:58:03 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 17:58:03 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 17:58:24 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 17:58:24 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-03 17:58:24 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-03 17:58:24 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 17:58:24 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-03-03 17:58:24 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-03-03 17:58:24 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 17:58:24 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2025-03-03 17:58:24 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2025-03-03 18:07:39 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.5 with PID 9444 (C:\Users\Erio\Desktop\prg03-sgs\prg03sgs\target\classes started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 18:07:39 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 18:07:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 18:07:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 476 ms. Found 15 JPA repository interfaces.
+2025-03-03 18:07:43 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 18:07:43 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-03-03 18:07:44 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 18:07:44 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 18:07:44 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-03 18:07:45 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e9474f
+2025-03-03 18:07:45 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-03 18:07:45 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 18:07:45 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 18:07:49 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 18:07:50 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 18:07:52 [main] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 18:07:53 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 18:07:53 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 18:07:53 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 18:07:53 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 18:07:55 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 18:07:55 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 18:07:55 [main] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 18:07:56 [main] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 18:07:56 [main] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 18:07:56 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 18.634 seconds (process running for 19.637)
+2025-03-03 18:08:01 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.cnpj,f1_0.email,f1_0.endereco_id,f1_0.razao_social,f1_0.telefone from fornecedores f1_0
+2025-03-03 18:08:15 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select next_val as id_val from fornecedores_seq for update
+2025-03-03 18:08:15 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - update fornecedores_seq set next_val= ? where next_val=?
+2025-03-03 18:08:15 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - insert into fornecedores (cnpj,email,endereco_id,razao_social,telefone,id) values (?,?,?,?,?,?)
+2025-03-03 18:08:18 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.cnpj,f1_0.email,f1_0.endereco_id,f1_0.razao_social,f1_0.telefone from fornecedores f1_0
+2025-03-03 18:08:42 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 18:08:47 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 18:09:47 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.cnpj,f1_0.email,f1_0.endereco_id,f1_0.razao_social,f1_0.telefone from fornecedores f1_0
+2025-03-03 18:09:49 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 18:27:20 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 18:27:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-03 18:27:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-03 18:28:13 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.5 with PID 8552 (C:\Users\Erio\Desktop\prg03-sgs\prg03sgs\target\classes started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 18:28:13 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 18:28:15 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 18:28:16 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 498 ms. Found 15 JPA repository interfaces.
+2025-03-03 18:28:18 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 18:28:18 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-03-03 18:28:18 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 18:28:19 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 18:28:19 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-03 18:28:20 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e9474f
+2025-03-03 18:28:20 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-03 18:28:20 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 18:28:20 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 18:28:24 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 18:28:25 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 18:28:27 [main] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 18:28:27 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 18:28:27 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 18:28:27 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 18:28:27 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 18:28:29 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 18:28:29 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 18:28:29 [main] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 18:28:30 [main] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 18:28:30 [main] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 18:28:31 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 18.468 seconds (process running for 19.473)
+2025-03-03 20:48:51 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 20:48:51 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-03 20:48:51 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-03 21:38:31 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.5 with PID 5484 (C:\Users\Erio\Desktop\prg03-sgs\prg03sgs\target\classes started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 21:38:31 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 21:38:35 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 21:38:36 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 626 ms. Found 15 JPA repository interfaces.
+2025-03-03 21:38:38 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 21:38:38 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-03-03 21:38:39 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 21:38:40 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 21:38:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-03 21:38:41 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@445821a6
+2025-03-03 21:38:41 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-03 21:38:41 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 21:38:41 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 21:38:47 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 21:38:48 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 21:38:51 [main] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 21:38:53 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 21:38:53 [AWT-EventQueue-0] ERROR b.c.i.c.view.GestaoCampanhaVacina - ❌ ERRO: cursoController nao foi injetado corretamente!
+2025-03-03 21:38:57 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 21:38:57 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 21:38:57 [main] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 21:38:58 [main] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 21:38:59 [main] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 21:38:59 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 34.401 seconds (process running for 39.296)
+2025-03-03 21:46:57 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 21:46:57 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-03 21:46:57 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-03 21:48:20 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.5 with PID 2364 (C:\Users\Erio\Desktop\prg03-sgs\prg03sgs\target\classes started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 21:48:20 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 21:48:22 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 21:48:23 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 573 ms. Found 15 JPA repository interfaces.
+2025-03-03 21:48:25 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 21:48:26 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-03-03 21:48:26 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 21:48:27 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 21:48:27 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-03 21:48:28 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@f2276c9
+2025-03-03 21:48:28 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-03 21:48:28 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 21:48:28 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 21:48:33 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 21:48:34 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 21:48:37 [main] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 21:48:37 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 21:48:37 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 21:48:37 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 21:48:37 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 21:48:41 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 21:48:41 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 21:48:41 [main] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 21:48:42 [main] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 21:48:43 [main] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 21:48:43 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 25.246 seconds (process running for 27.179)
+2025-03-03 21:48:53 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Starting application using Java 21.0.5 with PID 2364 (started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 21:48:53 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 21:48:54 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 21:48:55 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 198 ms. Found 15 JPA repository interfaces.
+2025-03-03 21:48:55 [AWT-EventQueue-0] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 21:48:55 [AWT-EventQueue-0] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 21:48:55 [AWT-EventQueue-0] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 21:48:55 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-03-03 21:48:55 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@705c9ca5
+2025-03-03 21:48:55 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-03-03 21:48:55 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 21:48:55 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 21:48:56 [AWT-EventQueue-0] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 21:48:57 [AWT-EventQueue-0] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 21:48:57 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 21:48:57 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 21:48:58 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 21:48:58 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 21:48:58 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 21:48:58 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 21:48:58 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Started application in 4.865 seconds (process running for 42.483)
+2025-03-03 21:48:58 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 21:48:58 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 21:48:58 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 21:48:58 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 21:49:12 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select next_val as id_val from funcionarios_seq for update
+2025-03-03 21:49:12 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - update funcionarios_seq set next_val= ? where next_val=?
+2025-03-03 21:49:12 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - insert into funcionarios (administrativo_id,campanha_de_vacina_id,cargo,cpf,data_nascimento,email,endereço,enfermeiro_id,medico_id,nome,salario,telefone,id) values (?,?,?,?,?,?,?,?,?,?,?,?,?)
+2025-03-03 21:49:22 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Starting application using Java 21.0.5 with PID 2364 (started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 21:49:22 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 21:49:23 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 21:49:23 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 200 ms. Found 15 JPA repository interfaces.
+2025-03-03 21:49:24 [AWT-EventQueue-0] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 21:49:24 [AWT-EventQueue-0] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 21:49:24 [AWT-EventQueue-0] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 21:49:24 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-03-03 21:49:24 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@d115e13
+2025-03-03 21:49:24 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-03-03 21:49:24 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 21:49:24 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 21:49:25 [AWT-EventQueue-0] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 21:49:25 [AWT-EventQueue-0] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 21:49:25 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 21:49:26 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 21:49:26 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 21:49:26 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 21:49:26 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 21:49:26 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 21:49:26 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Started application in 3.808 seconds (process running for 70.367)
+2025-03-03 21:49:27 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 21:49:27 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 21:49:27 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 21:49:27 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 21:50:03 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 21:50:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-03 21:50:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-03 21:50:03 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 21:50:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-03-03 21:50:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-03-03 21:50:03 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 21:50:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2025-03-03 21:50:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2025-03-03 21:51:59 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.5 with PID 5200 (C:\Users\Erio\Desktop\prg03-sgs\prg03sgs\target\classes started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 21:51:59 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 21:52:01 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 21:52:02 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 529 ms. Found 15 JPA repository interfaces.
+2025-03-03 21:52:04 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 21:52:04 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-03-03 21:52:04 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 21:52:05 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 21:52:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-03 21:52:06 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@53747c4a
+2025-03-03 21:52:06 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-03 21:52:06 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 21:52:06 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 21:52:11 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 21:52:12 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 21:52:15 [main] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 21:52:16 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 21:52:16 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 21:52:16 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 21:52:16 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 21:52:18 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 21:52:18 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 21:52:18 [main] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 21:52:19 [main] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 21:52:19 [main] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 21:52:20 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 22.37 seconds (process running for 23.749)
+2025-03-03 21:52:27 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Starting application using Java 21.0.5 with PID 5200 (started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 21:52:27 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 21:52:28 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 21:52:28 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 224 ms. Found 15 JPA repository interfaces.
+2025-03-03 21:52:29 [AWT-EventQueue-0] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 21:52:29 [AWT-EventQueue-0] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 21:52:29 [AWT-EventQueue-0] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 21:52:29 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-03-03 21:52:29 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3c4a07e7
+2025-03-03 21:52:29 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-03-03 21:52:29 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 21:52:29 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 21:52:30 [AWT-EventQueue-0] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 21:52:30 [AWT-EventQueue-0] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 21:52:30 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 21:52:31 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 21:52:31 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 21:52:31 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 21:52:31 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 21:52:32 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 21:52:32 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Started application in 4.924 seconds (process running for 35.637)
+2025-03-03 21:52:32 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 21:52:32 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 21:52:32 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 21:52:32 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 21:52:42 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Starting application using Java 21.0.5 with PID 5200 (started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 21:52:42 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 21:52:43 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 21:52:43 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 193 ms. Found 15 JPA repository interfaces.
+2025-03-03 21:52:43 [AWT-EventQueue-0] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 21:52:43 [AWT-EventQueue-0] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 21:52:43 [AWT-EventQueue-0] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 21:52:43 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-03-03 21:52:43 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4b3186a3
+2025-03-03 21:52:43 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-03-03 21:52:43 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 21:52:43 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 21:52:44 [AWT-EventQueue-0] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 21:52:45 [AWT-EventQueue-0] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 21:52:45 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 21:52:45 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 21:52:46 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 21:52:46 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 21:52:46 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 21:52:46 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 21:52:46 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Started application in 3.951 seconds (process running for 49.919)
+2025-03-03 21:52:46 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 21:52:46 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 21:52:46 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 21:52:46 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 21:53:14 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 21:53:14 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-03 21:53:14 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-03 21:53:14 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 21:53:14 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-03-03 21:53:14 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-03-03 21:53:14 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 21:53:14 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2025-03-03 21:53:15 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2025-03-03 22:41:31 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.5 with PID 9088 (C:\Users\Erio\Desktop\prg03-sgs\prg03sgs\target\classes started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 22:41:31 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 22:41:33 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 22:41:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 877 ms. Found 15 JPA repository interfaces.
+2025-03-03 22:41:37 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 22:41:37 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-03-03 22:41:38 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 22:41:39 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 22:41:39 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-03 22:41:40 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@f2276c9
+2025-03-03 22:41:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-03 22:41:40 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 22:41:40 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 22:41:45 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 22:41:46 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:41:48 [main] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 22:41:48 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 22:41:48 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 22:41:48 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 22:41:48 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 22:41:51 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:41:51 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:41:51 [main] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 22:41:51 [main] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 22:41:52 [main] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 22:41:52 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 23.197 seconds (process running for 24.667)
+2025-03-03 22:42:50 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Starting application using Java 21.0.5 with PID 9088 (started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 22:42:50 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 22:42:51 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 22:42:51 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 299 ms. Found 15 JPA repository interfaces.
+2025-03-03 22:42:51 [AWT-EventQueue-0] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 22:42:51 [AWT-EventQueue-0] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 22:42:51 [AWT-EventQueue-0] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 22:42:51 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-03-03 22:42:51 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@78ac94ff
+2025-03-03 22:42:51 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-03-03 22:42:51 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 22:42:51 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 22:42:52 [AWT-EventQueue-0] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 22:42:53 [AWT-EventQueue-0] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:42:53 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 22:42:54 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:42:54 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:42:54 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 22:42:54 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 22:42:54 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 22:42:54 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Started application in 4.583 seconds (process running for 86.873)
+2025-03-03 22:42:54 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 22:42:54 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 22:42:54 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 22:42:54 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 22:43:45 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:44:01 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:44:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-03 22:44:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-03 22:44:01 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:44:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-03-03 22:44:01 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-03-03 22:44:25 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.5 with PID 9144 (C:\Users\Erio\Desktop\prg03-sgs\prg03sgs\target\classes started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 22:44:25 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 22:44:27 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 22:44:28 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 522 ms. Found 15 JPA repository interfaces.
+2025-03-03 22:44:30 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 22:44:30 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-03-03 22:44:30 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 22:44:31 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 22:44:31 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-03 22:44:31 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e9474f
+2025-03-03 22:44:31 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-03 22:44:31 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 22:44:31 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 22:44:35 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 22:44:36 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:44:38 [main] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 22:44:38 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 22:44:38 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 22:44:38 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 22:44:38 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 22:44:40 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:44:40 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:44:40 [main] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 22:44:40 [main] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 22:44:41 [main] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 22:44:41 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 16.944 seconds (process running for 17.976)
+2025-03-03 22:47:40 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:47:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-03 22:47:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-03 22:52:45 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.5 with PID 4420 (C:\Users\Erio\Desktop\prg03-sgs\prg03sgs\target\classes started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 22:52:45 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 22:52:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 22:52:48 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 636 ms. Found 15 JPA repository interfaces.
+2025-03-03 22:52:50 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 22:52:50 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-03-03 22:52:51 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 22:52:52 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 22:52:52 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-03 22:52:53 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@f2276c9
+2025-03-03 22:52:53 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-03 22:52:53 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 22:52:53 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 22:52:58 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 22:52:58 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:53:02 [main] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 22:53:03 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 22:53:03 [AWT-EventQueue-0] ERROR b.c.i.c.view.GestaoCampanhaVacina - ❌ ERRO: cursoController nao foi injetado corretamente!
+2025-03-03 22:53:05 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:53:06 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:53:07 [main] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 22:53:07 [main] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 22:53:07 [main] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 22:53:08 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 24.897 seconds (process running for 26.408)
+2025-03-03 22:53:19 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Starting application using Java 21.0.5 with PID 4420 (started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 22:53:19 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 22:53:20 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 22:53:20 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 266 ms. Found 15 JPA repository interfaces.
+2025-03-03 22:53:21 [AWT-EventQueue-0] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 22:53:21 [AWT-EventQueue-0] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 22:53:21 [AWT-EventQueue-0] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 22:53:21 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-03-03 22:53:21 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@669c76ac
+2025-03-03 22:53:21 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-03-03 22:53:21 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 22:53:21 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 22:53:22 [AWT-EventQueue-0] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 22:53:22 [AWT-EventQueue-0] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:53:23 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 22:53:23 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:53:23 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:53:24 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 22:53:24 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 22:53:24 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 22:53:24 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Started application in 5.061 seconds (process running for 42.745)
+2025-03-03 22:53:24 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 22:53:24 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 22:53:24 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 22:53:24 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 22:53:59 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:53:59 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-03 22:53:59 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-03 22:53:59 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:53:59 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-03-03 22:53:59 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-03-03 22:56:47 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.5 with PID 5268 (C:\Users\Erio\Desktop\prg03-sgs\prg03sgs\target\classes started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 22:56:47 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 22:56:52 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 22:56:52 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 855 ms. Found 15 JPA repository interfaces.
+2025-03-03 22:56:55 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 22:56:55 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-03-03 22:56:55 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 22:56:56 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 22:56:56 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-03 22:56:57 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@f2276c9
+2025-03-03 22:56:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-03 22:56:57 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 22:56:57 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 22:57:02 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 22:57:03 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:57:05 [main] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 22:57:06 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 22:57:06 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 22:57:06 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 22:57:06 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 22:57:09 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:57:09 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:57:09 [main] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 22:57:10 [main] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 22:57:11 [main] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 22:57:11 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 29.923 seconds (process running for 32.379)
+2025-03-03 22:57:16 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Starting application using Java 21.0.5 with PID 5268 (started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 22:57:16 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 22:57:17 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 22:57:17 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 230 ms. Found 15 JPA repository interfaces.
+2025-03-03 22:57:17 [AWT-EventQueue-0] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 22:57:17 [AWT-EventQueue-0] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 22:57:17 [AWT-EventQueue-0] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 22:57:17 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-03-03 22:57:18 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@78ac94ff
+2025-03-03 22:57:18 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-03-03 22:57:18 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 22:57:18 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 22:57:18 [AWT-EventQueue-0] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 22:57:19 [AWT-EventQueue-0] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:57:19 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 22:57:20 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:57:20 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:57:20 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 22:57:20 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 22:57:20 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 22:57:21 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Started application in 4.821 seconds (process running for 41.602)
+2025-03-03 22:57:21 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 22:57:21 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 22:57:21 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 22:57:21 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 22:57:40 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,cdv1_0.id,cdv1_0.disponibilidade,cdv1_0.data_campaha_final,cdv1_0.data_campaha_inicio,cdv1_0.local_vacina,cdv1_0.nome_campanha,cdv1_0.publico_alvo,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0 left join campanha_vacina cdv1_0 on cdv1_0.id=f1_0.campanha_de_vacina_id where f1_0.id=?
+2025-03-03 22:57:40 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,cdv1_0.id,cdv1_0.disponibilidade,cdv1_0.data_campaha_final,cdv1_0.data_campaha_inicio,cdv1_0.local_vacina,cdv1_0.nome_campanha,cdv1_0.publico_alvo,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0 left join campanha_vacina cdv1_0 on cdv1_0.id=f1_0.campanha_de_vacina_id where f1_0.id=?
+2025-03-03 22:57:41 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,cdv1_0.id,cdv1_0.disponibilidade,cdv1_0.data_campaha_final,cdv1_0.data_campaha_inicio,cdv1_0.local_vacina,cdv1_0.nome_campanha,cdv1_0.publico_alvo,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0 left join campanha_vacina cdv1_0 on cdv1_0.id=f1_0.campanha_de_vacina_id where f1_0.id=?
+2025-03-03 22:57:41 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - update funcionarios set administrativo_id=?,campanha_de_vacina_id=?,cargo=?,cpf=?,data_nascimento=?,email=?,endereço=?,enfermeiro_id=?,medico_id=?,nome=?,salario=?,telefone=? where id=?
+2025-03-03 22:57:47 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:57:56 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Starting application using Java 21.0.5 with PID 5268 (started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 22:57:56 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 22:57:56 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 22:57:56 [AWT-EventQueue-0] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 191 ms. Found 15 JPA repository interfaces.
+2025-03-03 22:57:57 [AWT-EventQueue-0] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 22:57:57 [AWT-EventQueue-0] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 22:57:57 [AWT-EventQueue-0] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 22:57:57 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-03-03 22:57:57 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@50960d16
+2025-03-03 22:57:57 [AWT-EventQueue-0] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-03-03 22:57:57 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 22:57:57 [AWT-EventQueue-0] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 22:57:58 [AWT-EventQueue-0] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 22:57:58 [AWT-EventQueue-0] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:57:58 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 22:57:59 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:57:59 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 22:57:59 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 22:57:59 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 22:57:59 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 22:57:59 [AWT-EventQueue-0] INFO  o.s.boot.SpringApplication - Started application in 3.716 seconds (process running for 80.176)
+2025-03-03 22:57:59 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 22:57:59 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 22:58:00 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 22:58:00 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 22:58:05 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:58:05 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-03 22:58:05 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-03-03 22:58:05 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:58:05 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-03-03 22:58:05 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-03-03 22:58:05 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 22:58:05 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2025-03-03 22:58:05 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2025-03-03 23:00:54 [main] INFO  br.com.ifba.Prg03sgsApplication - Starting Prg03sgsApplication using Java 21.0.5 with PID 800 (C:\Users\Erio\Desktop\prg03-sgs\prg03sgs\target\classes started by Erio in C:\Users\Erio\Desktop\prg03-sgs\prg03sgs)
+2025-03-03 23:00:54 [main] INFO  br.com.ifba.Prg03sgsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-03 23:00:56 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-03 23:00:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 556 ms. Found 15 JPA repository interfaces.
+2025-03-03 23:00:59 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-03 23:00:59 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.0.Final
+2025-03-03 23:00:59 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-03 23:01:00 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-03 23:01:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-03 23:01:00 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@53747c4a
+2025-03-03 23:01:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-03 23:01:01 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-03 23:01:01 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-03 23:01:06 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-03 23:01:07 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 23:01:09 [main] DEBUG org.hibernate.SQL - select a1_0.id,a1_0.id_anamnese,a1_0.data_hora_fim,a1_0.data_hora_inicio,a1_0.id_funcionario,a1_0.id_paciente,a1_0.tipo_atendimento from atendimentos a1_0
+2025-03-03 23:01:10 [AWT-EventQueue-0] INFO  b.c.i.c.view.GestaoCampanhaVacina - 🔄 Atualizando a tabela...
+2025-03-03 23:01:10 [AWT-EventQueue-0] INFO  b.c.i.c.s.CampanhaVacinaService - Procurando Todas as Campanhas no Banco!
+2025-03-03 23:01:10 [AWT-EventQueue-0] DEBUG org.hibernate.SQL - select cve1_0.id,cve1_0.disponibilidade,cve1_0.data_campaha_final,cve1_0.data_campaha_inicio,cve1_0.local_vacina,cve1_0.nome_campanha,cve1_0.publico_alvo from campanha_vacina cve1_0
+2025-03-03 23:01:10 [AWT-EventQueue-0] WARN  b.c.i.c.view.GestaoCampanhaVacina - ⚠ Nenhum curso encontrado.
+2025-03-03 23:01:12 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 23:01:12 [main] DEBUG org.hibernate.SQL - select f1_0.id,f1_0.administrativo_id,f1_0.campanha_de_vacina_id,f1_0.cargo,f1_0.cpf,f1_0.data_nascimento,f1_0.email,f1_0.endereço,f1_0.enfermeiro_id,f1_0.medico_id,f1_0.nome,f1_0.salario,f1_0.telefone from funcionarios f1_0
+2025-03-03 23:01:12 [main] DEBUG org.hibernate.SQL - select p1_0.id,p1_0.anamneses,p1_0.data_criacao,p1_0.paciente_id from prontuario p1_0
+2025-03-03 23:01:13 [main] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.email,u1_0.nivel_acesso,u1_0.nome,u1_0.senha from usuarios u1_0
+2025-03-03 23:01:13 [main] DEBUG org.hibernate.SQL - select v1_0.id,v1_0.agentes_de_visita_id,v1_0.responsaveis_conferir,v1_0.data_visita,v1_0.descricao,v1_0.responsaveis_digitacao,v1_0.fichas_visita_id,v1_0.motivo_visita,v1_0.numero_ficha,v1_0.responsavel_registro from visitas v1_0
+2025-03-03 23:01:13 [main] INFO  br.com.ifba.Prg03sgsApplication - Started Prg03sgsApplication in 21.123 seconds (process running for 22.565)
+2025-03-03 23:01:39 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-03 23:01:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-03 23:01:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

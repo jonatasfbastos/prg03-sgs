@@ -11,6 +11,7 @@ import br.com.ifba.funcionarios.view.TelaAdicionarFuncionario;
 import br.com.ifba.funcionarios.view.TelaEditarFuncionarios;
 import jakarta.annotation.PostConstruct;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,6 @@ import org.springframework.stereotype.Component;
  * @author Rafael
  */
 @Component
-@RequiredArgsConstructor
 public class TelaFuncionarios extends javax.swing.JFrame {
     
     @Autowired
@@ -183,44 +183,29 @@ public class TelaFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarFuncionarioActionPerformed
 
     private void btnAtualizarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarFuncionarioActionPerformed
-        
-       
-        List<Funcionarios> funcionarios = funcionariosController.findAll();
-   
-        DefaultTableModel tableModel = (DefaultTableModel) tblFuncionarios.getModel();
-        tableModel.setRowCount(0);
-
-        // Adiciona os cursos à tabela
-        for (Funcionarios funcionario : funcionarios) {
-            tableModel.addRow(new Object[]{
-            funcionario.getId(),
-            funcionario.getNome(),
-            funcionario.getCpf(),
-            funcionario.getTelefone()
-            });
-        }
+        mostrarTabela();
     }//GEN-LAST:event_btnAtualizarFuncionarioActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-//        String text = txtBuscarFuncionarios.getText().trim();
-//
-//        Funcionarios funccionario = funcionariosController.findByNomeContaining(nome);
-//
-//        if (funcionario != null) {
-//            JOptionPane.showMessageDialog(this, 
-//                    "Curso Encontrado:\n" +
-//                    "ID: " + curso.getId() + "\n" +
-//                    "Nome: " + curso.getNome() + "\n" +
-//                    "Código: " + curso.getCodigoCurso());
-//        } else {
-//            JOptionPane.showMessageDialog(this, "Curso não encontrado");
-//        } 
-//        
-//    }  
+        
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnRemoverFuncionario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverFuncionario1ActionPerformed
-        // TODO add your handling code here:
+        
+        int linhaSelecionada = tblFuncionarios.getSelectedRow();
+    
+        
+        if (linhaSelecionada != -1) {
+            
+            long idFuncionarios = (long) tblFuncionarios.getValueAt(linhaSelecionada, 0);
+            Funcionarios funcionarios = funcionariosController.findById(idFuncionarios);
+            funcionariosController.delete(funcionarios);
+            
+            DefaultTableModel tableModel = (DefaultTableModel) tblFuncionarios.getModel();
+            tableModel.removeRow(linhaSelecionada);
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione um curso para excluir.");
+        }
     }//GEN-LAST:event_btnRemoverFuncionario1ActionPerformed
 
     /**

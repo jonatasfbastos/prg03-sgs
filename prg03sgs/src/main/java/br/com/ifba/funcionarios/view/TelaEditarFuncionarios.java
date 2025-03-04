@@ -87,11 +87,11 @@ public class TelaEditarFuncionarios extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Nome", "Cpf", "Telefone", "Data de aniversario", "ID"
+                "ID", "Nome", "Cpf", "Telefone", "Data de aniversario"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Long.class
+                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -110,35 +110,36 @@ public class TelaEditarFuncionarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditarTelaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarTelaFuncionarioActionPerformed
-                                          
+                                         
         int linhaSelecionada = tblEditar.getSelectedRow();
         if (linhaSelecionada != -1) {
-
             long idFuncionario;
-            
+
             Object valor = tblEditar.getValueAt(linhaSelecionada, 0); // Obtém o valor da célula
 
-            if (valor instanceof Number) { 
-                idFuncionario = ((Number) valor).longValue(); // Se já for um número, converte corretamente
+            if (valor != null) {
+                if (valor instanceof Number) {
+                    idFuncionario = ((Number) valor).longValue(); // Se já for um número, converte corretamente
             } else {
                 idFuncionario = Long.parseLong(valor.toString()); // Se for String, converte para long
-}
-        
-            Funcionarios funcionario = funcionariosController.findById(idFuncionario);
-        
+            }
+                
 
-            funcionario.setNome(txtEditNome.getText());
-            funcionario.setCpf(txtEditCpf.getText());
-            funcionario.setTelefone(txtEditTelefone.getText());
-            funcionario.setDataNascimento(txtEditAniversario.getText());
-            
-            funcionariosController.update(funcionario);
-            
-            JOptionPane.showMessageDialog(this, "Atualizado com sucesso.");
-        } else {
-        
-            JOptionPane.showMessageDialog(this, "Selecione um funcionario na tabela para editar.");
-        }
+            Funcionarios funcionario = funcionariosController.findById(idFuncionario);
+
+            if (funcionario != null) {
+                // Atualiza os campos do funcionário
+                funcionario.setNome(txtEditNome.getText());
+                funcionario.setCpf(txtEditCpf.getText());
+                funcionario.setTelefone(txtEditTelefone.getText());
+                funcionario.setDataNascimento(txtEditAniversario.getText());
+
+                // Tenta atualizar o funcionário
+               funcionariosController.update(funcionario);
+                }
+            }   
+        }  
+
     }//GEN-LAST:event_btnEditarTelaFuncionarioActionPerformed
     
     private void mostrarTabela () {
@@ -151,10 +152,10 @@ public class TelaEditarFuncionarios extends javax.swing.JFrame {
         // Adiciona os funcionarios à tabela
         for (Funcionarios funcionario : funcionarios) {
             tableModel.addRow(new Object[]{
+            funcionario.getId(),
             funcionario.getNome(),
             funcionario.getCpf(),
             funcionario.getTelefone(),
-            funcionario.getId(),
             });
         }
     }

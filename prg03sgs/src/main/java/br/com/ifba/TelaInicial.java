@@ -224,7 +224,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void btnFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncionariosActionPerformed
         // TODO add your handling code here:
-        TelaFuncionarios telaFuncionarios = new TelaFuncionarios(); 
+        TelaFuncionarios telaFuncionarios = context.getBean(TelaFuncionarios.class);
         telaFuncionarios.setDefaultCloseOperation(TelaInicial.DISPOSE_ON_CLOSE);
         telaFuncionarios.setVisible(true);
     }//GEN-LAST:event_btnFuncionariosActionPerformed
