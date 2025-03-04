@@ -8,6 +8,7 @@ package br.com.ifba.prontuario.controller;
 
 import br.com.ifba.prontuario.entity.Prontuario;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -15,6 +16,7 @@ import java.util.List;
  */
 public interface ProntuarioIController {
     public abstract List<Prontuario> findAll();
+    public Optional<Prontuario> findById(Long id);
     public abstract void save(Prontuario prontuario);
     public abstract void update (Prontuario prontuario);
 }

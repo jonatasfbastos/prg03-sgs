@@ -9,6 +9,7 @@ import br.com.ifba.prontuario.entity.Prontuario;
 import br.com.ifba.prontuario.repository.ProntuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,11 @@ public class ProntuarioService implements ProntuarioIService {
         } catch (Exception e) {
             throw new RuntimeException("Erro ao listar prontuários: " + e.getMessage());
         }
+    }
+    
+    @Override
+    public Optional<Prontuario> findById(Long id) {
+        return prontuarioRepository.findById(id);
     }
     
     // Salva um novo prontuário
@@ -64,7 +70,7 @@ public class ProntuarioService implements ProntuarioIService {
 
         try {
             // Atualiza as informações do prontuário
-            existente.setAnamneses(prontuario.getAnamneses());
+            existente.setAnamnese(prontuario.getAnamnese());
             existente.setPaciente(prontuario.getPaciente());
 
             // Salva as alterações no banco de dados

@@ -7,6 +7,7 @@ package br.com.ifba.prontuario.controller;
 import br.com.ifba.prontuario.entity.Prontuario;
 import br.com.ifba.prontuario.service.ProntuarioIService;
 import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,11 @@ public class ProntuarioController implements ProntuarioIController{
     @Override
     public List<Prontuario> findAll() {
         return prontuarioService.findAll();
+    }
+    
+    @Override
+    public Optional<Prontuario> findById(Long id){
+        return prontuarioService.findById(id);
     }
 
     @Override

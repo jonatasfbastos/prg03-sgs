@@ -8,6 +8,7 @@ import br.com.ifba.anamnese.entity.Anamnese;
 import br.com.ifba.funcionarios.entity.Funcionarios;
 import br.com.ifba.infrastructure.entity.PersistenceEntity;
 import br.com.ifba.paciente.entity.Paciente;
+import br.com.ifba.prontuario.entity.Prontuario;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -51,5 +52,9 @@ public class Atendimento extends PersistenceEntity implements Serializable {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_anamnese")
     private Anamnese anamnese;
+    
+    @ManyToOne
+    @JoinColumn(name = "prontuario_id")
+    private Prontuario prontuario;
     
 }

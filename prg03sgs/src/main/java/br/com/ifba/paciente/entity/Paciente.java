@@ -55,7 +55,7 @@ public class Paciente extends PersistenceEntity implements Serializable {
     @Column (name = "contato_responsavel")
     @Getter @Setter private String contatoResponsavel;
     
-    @OneToOne(mappedBy = "paciente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "paciente")
     @Getter @Setter private Prontuario prontuario;
     
     @OneToOne(mappedBy = "paciente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

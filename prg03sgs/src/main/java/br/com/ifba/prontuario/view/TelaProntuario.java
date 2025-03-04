@@ -4,46 +4,45 @@
  */
 package br.com.ifba.prontuario.view;
 
-import br.com.ifba.Prg03sgsApplication;
+import br.com.ifba.anamnese.entity.Anamnese;
+import br.com.ifba.atendimento.controller.AtendimentoIController;
+import br.com.ifba.atendimento.entity.Atendimento;
 import br.com.ifba.paciente.entity.Paciente;
 import br.com.ifba.prontuario.controller.ProntuarioIController;
 import br.com.ifba.prontuario.entity.Prontuario;
 import jakarta.annotation.PostConstruct;
-import jakarta.persistence.Entity;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Glauber
  */
-@Component
 public class TelaProntuario extends javax.swing.JFrame {
-
-    /**
-     * Creates new form TelaProntuario
-     */
+    
+    @Autowired
+    private AtendimentoIController atendimentoController;
     
     @Autowired
     private ProntuarioIController prontuarioController;
     
-    private ApplicationContext context;
-    
+    /**
+     * Creates new form TelaProntuario
+     */
     public TelaProntuario() {
         initComponents();
     }
-    
+
     @PostConstruct
     public void init() {
-        mostrarTabela();
+        carregarTabela();
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,124 +52,285 @@ public class TelaProntuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTitle1 = new javax.swing.JLabel();
-        btnAbrir = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        txtTitle = new javax.swing.JLabel();
+        btnPesquisa = new javax.swing.JButton();
+        javax.swing.JButton btnAtualiza = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProntuario = new javax.swing.JTable();
+        btnAdiciona = new javax.swing.JButton();
+        txtPesquisa = new javax.swing.JTextField();
+        btnConsulta = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle1.setText("Prontuario");
-        getContentPane().add(lblTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 40));
+        txtTitle.setText("Prontuario");
+        getContentPane().add(txtTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
-        btnAbrir.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        btnAbrir.setText("Abrir");
-        btnAbrir.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisa.setText("Pesquisar Prontuario");
+        btnPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAbrirActionPerformed(evt);
+                btnPesquisaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAbrir, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 150, 30));
+        getContentPane().add(btnPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 150, -1));
+
+        btnAtualiza.setText("Atualizar Lista");
+        btnAtualiza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAtualiza, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 470, 160, -1));
+
+        tblProntuario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nome", "CPF", "Data de Nascimento", "Sexo"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblProntuario);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        btnAdiciona.setText("Adicionar Prontuario");
+        btnAdiciona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAdiciona, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 150, -1));
+
+        txtPesquisa.setText("pesquisar...");
+        getContentPane().add(txtPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 250, -1));
+
+        btnConsulta.setText("Consultar Prontuario");
+        btnConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 150, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, 20));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 410, 20, -1));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 10, -1));
-
-        tblProntuario.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tblProntuario);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 370));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 510, -1, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
-        // TODO add your handling code here:
-        // Obtendo a linha selecionada na tabela
-    int linhaSelecionada = tblProntuario.getSelectedRow();
-     Paciente paciente = new Paciente();
-    if (linhaSelecionada != -1) {
-        long idPaciente = (long) tblProntuario.getValueAt(linhaSelecionada, 0);
-        
-        // Buscar paciente pelo ID no banco de dados
-        //Paciente paciente = prontuarioController.findById(idPaciente);
-
-        // Verifica se o paciente foi encontrado
-        if (paciente != null) {
-            JOptionPane.showMessageDialog(this, 
-                "Paciente Encontrado:\n" +
-                "ID: " + paciente.getId() + "\n" +
-                "Nome: " + paciente.getNome() + "\n" +
-                "CPF: " + paciente.getCpf() + "\n" +
-                "Sexo: " + paciente.getSexo() + "\n" +
-                "Data de Nascimento: " + paciente.getDataNascimento() + "\n" +
-                "Endereço: " + paciente.getEndereco() + "\n" +
-                "Contato: " + paciente.getContato() + "\n");
-    } else {
-        JOptionPane.showMessageDialog(this, "Paciente não encontrado.");
-    }
-    } else {
-        JOptionPane.showMessageDialog(this, "Selecione um paciente para abrir.");
-    }
-
-    }//GEN-LAST:event_btnAbrirActionPerformed
     
-    private void mostrarTabela () {
-  
-        List<Prontuario> prontuarios = prontuarioController.findAll();
-   
-        DefaultTableModel tableModel = (DefaultTableModel) tblProntuario.getModel();
-        tableModel.setRowCount(0);
+    private void btnAdicionaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionaActionPerformed
+        // TODO add your handling code here:
+        Atendimento atendimento = new Atendimento();
+        int linhaSelecionada = tblProntuario.getSelectedRow();
+        
+        if (linhaSelecionada != -1) {
+            //Pega o ID da linha selecionada
+            long id = (long) tblProntuario.getValueAt(linhaSelecionada, 0);
+            atendimento = atendimentoController.findById(id);
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione um Atendimento.");
+        }
+        // Acessar as informações do paciente e da anamnese
+        Paciente paciente = atendimento.getPaciente();
+        Anamnese anamnese = atendimento.getAnamnese();
 
-        // Adiciona os cursos à tabela
-        for (Prontuario prontuario : prontuarios) {
-            tableModel.addRow(new Object[]{
-            prontuario.getId(),
-            prontuario.getDataCriacao(),
-            prontuario.getPaciente(),
-            prontuario.getAnamneses(),
-            });
+        // Criar o prontuário com as informações do paciente e da anamnese
+        Prontuario prontuario = new Prontuario();
+        prontuario.setPaciente(paciente);
+        List<Atendimento> listaAtendimentos = new ArrayList<>();
+        listaAtendimentos.add(atendimento);  // Adiciona o atendimento à lista
+        prontuario.setAtendimento(listaAtendimentos);  // Passa a lista para o método
+        prontuario.setAnamnese(anamnese);
+       
+        try {
+            prontuarioController.save(prontuario);
+            JOptionPane.showMessageDialog(this, "Informações devidamente colocadas no prontuário.");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao salvar o prontuário: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        throw new RuntimeException("Falha ao salvar o prontuário", e);
+}
+    }//GEN-LAST:event_btnAdicionaActionPerformed
+
+    private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
+        // TODO add your handling code here:
+         int linhaSelecionada = tblProntuario.getSelectedRow();
+         long id = (long) tblProntuario.getValueAt(linhaSelecionada, 0);
+         Prontuario prontuario = prontuarioController.findById(id)
+            .orElseThrow(() -> new RuntimeException("Prontuário não encontrado"));
+         
+        if (prontuario != null) {
+            // Informações do Paciente
+            Paciente paciente = prontuario.getPaciente();
+            String pacienteNome = paciente.getNome();
+            String pacienteCpf = paciente.getCpf();
+            String pacienteSexo = paciente.getSexo();
+            String pacienteEndereco = paciente.getEndereco();
+            String pacienteContato = paciente.getContato();
+            String pacienteEstadoCivil = paciente.getEstadoCivil();
+            String pacienteNomeResponsavel = paciente.getNomeResponsavel();
+            String pacienteContatoResponsavel = paciente.getContatoResponsavel();
+            LocalDate pacienteDataNascimento = paciente.getDataNascimento();
+
+            // Informações do Atendimento
+            List<Atendimento> atendimentos = prontuario.getAtendimento();
+            StringBuilder atendimentoInfo = new StringBuilder();
+            for (Atendimento atendimento : atendimentos) {
+                atendimentoInfo.append("Atendimento ID: ").append(atendimento.getId()).append("\n")
+                       .append("Data Início: ").append(atendimento.getDataHoraInicio()).append("\n")
+                       .append("Data Fim: ").append(atendimento.getDataHoraFim()).append("\n")
+                       .append("Tipo de Atendimento: ").append(atendimento.getTipoAtendimento()).append("\n")
+                       .append("Funcionário: ").append(atendimento.getFuncionario() != null ? atendimento.getFuncionario().getNome() : "Não disponível").append("\n")
+                       .append("-------------------------------\n");
+            }
+
+        // Informações da Anamnese
+        Anamnese anamnese = prontuario.getAnamnese();
+        String anamneseQueixas = anamnese != null ? anamnese.getQueixas() : "Não disponível";
+    
+        // Exibindo as informações no JOptionPane
+        JOptionPane.showMessageDialog(this, 
+            "Prontuário Encontrado:\n\n" +
+            "Paciente:\n" +
+            "Nome: " + pacienteNome + "\n" +
+            "CPF: " + pacienteCpf + "\n" +
+            "Sexo: " + pacienteSexo + "\n" +
+            "Data de Nascimento: " + pacienteDataNascimento + "\n" +
+            "Estado Civil: " + pacienteEstadoCivil + "\n" +
+            "Endereço: " + pacienteEndereco + "\n" +
+            "Contato: " + pacienteContato + "\n" +
+            "Nome do Responsável: " + pacienteNomeResponsavel + "\n" +
+            "Contato do Responsável: " + pacienteContatoResponsavel + "\n\n" +
+        
+            "Atendimentos:\n" + atendimentoInfo.toString() +
+                    
+            "Anamnese:\n" + anamneseQueixas);
+        } else {
+            JOptionPane.showMessageDialog(this, "Prontuário não encontrado");
+        }
+ 
+    }//GEN-LAST:event_btnConsultaActionPerformed
+
+    private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel tabela = (DefaultTableModel) tblProntuario.getModel();
+        tabela.setNumRows(0);
+        try { 
+            for (Atendimento atendimento : atendimentoController.findAll()) {
+                String s = txtPesquisa.getText().toLowerCase();
+                if (atendimento.getFuncionario().getNome().toLowerCase().contains(s) 
+                    || atendimento.getTipoAtendimento().toLowerCase().contains(s)
+                    || atendimento.getFuncionario().getCpf().contains(s)
+                    || atendimento.getId().toString().contains(s))  {
+                    
+                    tabela.addRow(new Object[]{
+                        atendimento.getId(),
+                        atendimento.getFuncionario().getNome(),
+                        atendimento.getFuncionario().getCpf(),
+                        atendimento.getPaciente().getNome(),
+                        atendimento.getPaciente().getCpf(),
+                        atendimento.getTipoAtendimento(),
+                        atendimento.getAnamnese().getQueixas(),
+                        atendimento.getAnamnese().getCondicoes(),
+                        atendimento.getDataHoraInicio(),
+                        atendimento.getDataHoraFim()
+                    }); 
+                }
+            }
+        } catch (Exception ErroListar) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "ERRO AO CARREGAR A TABELA\n" + ErroListar,
+                    "ERRO",
+                    JOptionPane.ERROR_MESSAGE
+            );  
+        }
+           
+    }//GEN-LAST:event_btnPesquisaActionPerformed
+
+    private void btnAtualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizaActionPerformed
+        // TODO add your handling code here:
+         carregarTabela();
+    }//GEN-LAST:event_btnAtualizaActionPerformed
+
+    public void carregarTabela() {
+        //Obtém o modelo de dados da tabela (DefaultTableModel) associada ao componente tblListaAtendimento
+        DefaultTableModel tabela = (DefaultTableModel) tblProntuario.getModel();
+        //Limpa todas as linhas da tabela antes de adicionar os novos resultados da busca
+        tabela.setNumRows(0);
+        
+        //Adiciona as informações dos atendimentos salvos no banco de dados na tabela
+        try {
+            for(Atendimento atendimento : atendimentoController.findAll()) {
+                tabela.addRow(new Object[]{
+                    atendimento.getId(),
+                    atendimento.getFuncionario().getNome(),
+                    atendimento.getFuncionario().getCpf(),
+                    atendimento.getPaciente().getNome(),
+                    atendimento.getPaciente().getCpf(),
+                    atendimento.getTipoAtendimento(),
+                    atendimento.getAnamnese().getQueixas(),
+                    atendimento.getAnamnese().getCondicoes(),
+                    atendimento.getDataHoraInicio(),
+                    atendimento.getDataHoraFim()
+                });
+            }   
+        } catch(Exception ErroListar) {
+            //Caso ocorra algum erro ao carregar os dados, exibe uma mensagem de erro
+            JOptionPane.showMessageDialog(
+                    null, 
+                    "ERRO AO CARREGAR A TABELA\n" + ErroListar, 
+                    "ERRO", 
+                    JOptionPane.ERROR_MESSAGE
+            );
         }
     }
     
-   
     
     /**
      * @param args the command line arguments
@@ -208,11 +368,14 @@ public class TelaProntuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAbrir;
+    private javax.swing.JButton btnAdiciona;
+    private javax.swing.JButton btnConsulta;
+    private javax.swing.JButton btnPesquisa;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblTitle1;
     private javax.swing.JTable tblProntuario;
+    private javax.swing.JTextField txtPesquisa;
+    private javax.swing.JLabel txtTitle;
     // End of variables declaration//GEN-END:variables
 }
