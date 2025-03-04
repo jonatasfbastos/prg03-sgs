@@ -6,7 +6,6 @@ package br.com.ifba.atendimento.controller;
 
 import br.com.ifba.atendimento.entity.Atendimento;
 import br.com.ifba.atendimento.service.AtendimentoIService;
-import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

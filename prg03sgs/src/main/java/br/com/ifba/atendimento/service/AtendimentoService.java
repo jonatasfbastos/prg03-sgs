@@ -7,7 +7,6 @@ package br.com.ifba.atendimento.service;
 import br.com.ifba.atendimento.entity.Atendimento;
 import br.com.ifba.atendimento.repository.AtendimentoRepository;
 import ch.qos.logback.classic.Logger;
-import java.time.LocalDateTime;
 import java.util.List;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

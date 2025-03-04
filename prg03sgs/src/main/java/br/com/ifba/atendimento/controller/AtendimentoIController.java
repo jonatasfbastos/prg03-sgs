@@ -5,7 +5,6 @@
 package br.com.ifba.atendimento.controller;
 
 import br.com.ifba.atendimento.entity.Atendimento;
-import java.time.LocalDateTime;
 import java.util.List;
 
 /**

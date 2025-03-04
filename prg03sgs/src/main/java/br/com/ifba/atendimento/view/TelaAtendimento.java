@@ -134,9 +134,10 @@ public class TelaAtendimento extends javax.swing.JFrame {
                  */
                 String s = txtBuscar.getText().toLowerCase();
                 if (atendimento.getFuncionario().getNome().toLowerCase().contains(s) 
-                    || atendimento.getTipoAtendimento().toLowerCase().contains(s)
                     || atendimento.getFuncionario().getCpf().contains(s)
-                    || atendimento.getId().toString().contains(s))  {
+                    || atendimento.getId().toString().contains(s)
+                    || atendimento.getPaciente().getCpf().contains(s)
+                    || atendimento.getPaciente().getNome().toLowerCase().contains(s))  {
                     
                     //Adiciona uma nova linha na tabela com as informações dos atendimentos
                     tabela.addRow(new Object[]{

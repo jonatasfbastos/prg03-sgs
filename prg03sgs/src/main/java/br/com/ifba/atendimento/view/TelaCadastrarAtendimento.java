@@ -9,6 +9,8 @@ import br.com.ifba.atendimento.controller.AtendimentoIController;
 import br.com.ifba.atendimento.entity.Atendimento;
 import br.com.ifba.funcionarios.controller.FuncionariosIController;
 import br.com.ifba.funcionarios.entity.Funcionarios;
+import br.com.ifba.paciente.controller.PacienteIController;
+import br.com.ifba.paciente.entity.Paciente;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
@@ -26,8 +28,12 @@ public class TelaCadastrarAtendimento extends javax.swing.JFrame {
     private TelaAtendimento telaAtendimento;
     @Autowired
     private AtendimentoIController atendimentoController;
+    
     @Autowired
     private FuncionariosIController funcionarioController;
+    
+    @Autowired
+    private PacienteIController pacienteController;
 
     /**
      * Creates new form TelaCadastrarAtendimento
@@ -161,14 +167,21 @@ public class TelaCadastrarAtendimento extends javax.swing.JFrame {
                     null, 
                     "Não existe funcionário com esse CPF.\n"
             );
-        } else { //A verificação de funcionário e paciente só poderá ser feita após a criação dos CRUDs dessas entidades
+        } else if(pacienteController.findByCpf(cpfPaciente) == null) {
+            JOptionPane.showMessageDialog(
+                    null, 
+                    "Não existe paciente com esse CPF.\n"
+            );
+        } else {
             
             Funcionarios funcionario = funcionarioController.findByCpf(cpfFuncionario);
+            Paciente paciente = pacienteController.findByCpf(cpfPaciente);
             
             //Insere as informações no atendimento
             Atendimento atendimento = new Atendimento();
             atendimento.setAnamnese(anamnese);
             atendimento.setFuncionario(funcionario);
+            atendimento.setPaciente(paciente);
             atendimento.setTipoAtendimento(tipoAtendimento);
             atendimento.setDataHoraInicio(dataHoraInicio);
             atendimento.setDataHoraFim(dataHoraFim);
